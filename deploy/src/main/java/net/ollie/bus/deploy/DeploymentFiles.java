@@ -1,4 +1,4 @@
-package net.ollie.bus.deploy.source;
+package net.ollie.bus.deploy;
 
 import javax.annotation.Nonnull;
 import java.io.File;

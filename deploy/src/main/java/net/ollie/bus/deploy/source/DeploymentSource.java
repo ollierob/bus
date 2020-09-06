@@ -1,12 +1,13 @@
 package net.ollie.bus.deploy.source;
 
-import java.util.concurrent.CompletableFuture;
+import javax.annotation.Nonnull;
 
 /**
  * @see net.ollie.bus.deploy.target.DeploymentTarget
  */
 public interface DeploymentSource {
 
-    CompletableFuture<DeploymentFiles> get();
+    @Nonnull
+    GetProgress get();
 
 }
