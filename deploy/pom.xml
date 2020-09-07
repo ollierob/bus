@@ -12,6 +12,14 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>deploy</artifactId>
+    <artifactId>deploy-parent</artifactId>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>core</module>
+        <module>maven</module>
+    </modules>
+
 
 </project>

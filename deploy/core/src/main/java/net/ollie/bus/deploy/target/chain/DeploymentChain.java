@@ -8,7 +8,9 @@ public class DeploymentChain implements DeploymentTarget {
 
     private final DeploymentTarget first, second;
 
-    public DeploymentChain(DeploymentTarget first, DeploymentTarget second) {
+    public DeploymentChain(
+            final DeploymentTarget first,
+            final DeploymentTarget second) {
         this.first = first;
         this.second = second;
     }
