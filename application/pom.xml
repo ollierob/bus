@@ -12,9 +12,10 @@
 
     <artifactId>application</artifactId>
     <packaging>pom</packaging>
-    
+
     <modules>
         <module>server</module>
+        <module>website</module>
     </modules>
 
 </project>

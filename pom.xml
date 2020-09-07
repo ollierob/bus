@@ -15,10 +15,9 @@
     </properties>
 
     <modules>
+        <module>application</module>
         <module>deploy</module>
         <module>manage</module>
-        <module>server</module>
-        <module>website</module>
     </modules>
 
     <dependencies>

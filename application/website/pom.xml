@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>parent</artifactId>
+        <artifactId>application</artifactId>
         <groupId>net.ollie.bus</groupId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -14,5 +14,12 @@
 
     <artifactId>website</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <version>1.7.6</version>
+        </dependency>
+    </dependencies>
 
 </project>
