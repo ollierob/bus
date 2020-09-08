@@ -18,7 +18,7 @@ public record MavenArtifact(String groupId, String artifactId, String version, S
         return artifactId
                 + '-' + version
                 + (classifier == null ? "" : '-' + classifier)
-                + type;
+                + '.' + type;
     }
 
 }
