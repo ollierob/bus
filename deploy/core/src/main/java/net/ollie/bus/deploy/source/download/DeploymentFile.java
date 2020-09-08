@@ -1,4 +1,6 @@
-package net.ollie.bus.deploy;
+package net.ollie.bus.deploy.source.download;
+
+import net.ollie.bus.deploy.DeploymentFiles;
 
 import java.io.File;
 import java.util.Collections;
