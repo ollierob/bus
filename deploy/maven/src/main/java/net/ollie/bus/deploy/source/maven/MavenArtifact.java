@@ -10,6 +10,10 @@ public record MavenArtifact(String groupId, String artifactId, String version, S
         return version.endsWith("SNAPSHOT");
     }
 
+    public String groupId(final char separator) {
+        return groupId.replace('.', separator);
+    }
+
     public String filename() {
         return artifactId
                 + '-' + version

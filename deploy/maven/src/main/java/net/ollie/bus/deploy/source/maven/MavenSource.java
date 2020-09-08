@@ -1,20 +1,13 @@
 package net.ollie.bus.deploy.source.maven;
 
+import net.ollie.bus.deploy.repository.maven.MavenRepository;
 import net.ollie.bus.deploy.source.DeploymentSource;
 import net.ollie.bus.deploy.source.GetProgress;
 
-import javax.annotation.Nonnull;
-
-public interface MavenSource extends DeploymentSource {
-
-    @Nonnull
-    MavenArtifact artifact();
-
-    @Nonnull
-    MavenRepository repository();
+public record MavenSource(MavenRepository repository, MavenArtifact artifact) implements DeploymentSource {
 
     @Override
-    default GetProgress get() {
+    public GetProgress get() {
         return this.repository().get(this.artifact());
     }
 

@@ -1,4 +1,4 @@
-package net.ollie.bus.deploy.source.maven.nexus3;
+package net.ollie.bus.deploy.repository.maven.nexus3;
 
 import net.ollie.bus.deploy.source.download.DownloadFileProgress;
 
