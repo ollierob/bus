@@ -1,7 +1,7 @@
 package net.ollie.bus.deploy.repository.maven.central;
 
 import net.ollie.bus.deploy.repository.maven.RemoteMavenRepository;
-import net.ollie.bus.deploy.source.GetProgress;
+import net.ollie.bus.deploy.source.download.DownloadFileProgress;
 import net.ollie.bus.deploy.source.maven.MavenArtifact;
 
 /**
@@ -10,7 +10,7 @@ import net.ollie.bus.deploy.source.maven.MavenArtifact;
 public record MavenCentralRepository(String id, MavenCentralEndpoint mavenCentral) implements RemoteMavenRepository {
 
     @Override
-    public GetProgress get(final MavenArtifact artifact) {
+    public DownloadFileProgress get(final MavenArtifact artifact) {
         return mavenCentral.get(path(artifact));
     }
 
