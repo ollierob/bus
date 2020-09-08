@@ -7,7 +7,7 @@ import net.ollie.bus.deploy.source.maven.MavenArtifact;
 /**
  * e.g. https://search.maven.org/remotecontent?filepath=com/google/guava/guava-gwt/29.0-jre/guava-gwt-29.0-jre.jar
  */
-public record MavenCentralRepository(String id, MavenCentralEndpoint mavenCentral) implements RemoteMavenRepository {
+public record MavenCentralRepository(String id, MavenCentralSearchEndpoint mavenCentral) implements RemoteMavenRepository {
 
     @Override
     public DownloadFileProgress get(final MavenArtifact artifact) {

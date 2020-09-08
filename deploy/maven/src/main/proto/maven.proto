@@ -5,6 +5,37 @@ package maven;
 option java_package = "net.ollie.bus.deploy.maven";
 option java_outer_classname = "MavenProtos";
 
+message MavenArtifact {
+
+    string groupId = 1;
+    string artifactId = 2;
+    string version = 3;
+    string classifier = 4;
+    string type = 5;
+
+}
+
 message MavenRepository {
+
+    string id = 1;
+
+    oneof definition {
+        Nexus3Repository nexus3 = 2;
+        MavenCentral central = 3;
+    }
+
+}
+
+message Nexus3Repository {
+
+    string url = 1;
+    string username = 2;
+    string password = 3;
+
+}
+
+message MavenCentral {
+
+    string url = 1;
 
 }
