@@ -1,6 +1,6 @@
 package net.ollie.bus.deploy.repository.maven.central;
 
-import net.ollie.bus.deploy.source.download.DownloadFileProgress;
+import net.ollie.bus.deploy.repository.maven.MavenDownloadProgress;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,6 +11,6 @@ public interface MavenCentralSearchEndpoint {
 
     @GET
     @Path("remotecontent")
-    DownloadFileProgress get(@QueryParam("filepath") String path);
+    MavenDownloadProgress get(@QueryParam("filepath") String path);
 
 }

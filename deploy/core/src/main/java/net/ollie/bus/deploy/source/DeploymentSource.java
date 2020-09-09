@@ -8,6 +8,9 @@ import javax.annotation.Nonnull;
 public interface DeploymentSource {
 
     @Nonnull
+    String id();
+
+    @Nonnull
     GetProgress get();
 
 }

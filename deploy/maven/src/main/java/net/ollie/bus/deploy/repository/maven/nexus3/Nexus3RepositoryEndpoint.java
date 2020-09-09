@@ -1,6 +1,6 @@
 package net.ollie.bus.deploy.repository.maven.nexus3;
 
-import net.ollie.bus.deploy.source.download.DownloadFileProgress;
+import net.ollie.bus.deploy.repository.maven.MavenDownloadProgress;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -10,7 +10,7 @@ public interface Nexus3RepositoryEndpoint {
 
     @GET
     @Path("{groupId:.+}/{artifactId}/{version}/{file}")
-    DownloadFileProgress get(
+    MavenDownloadProgress get(
             @PathParam("groupId") String groupId,
             @PathParam("artifactId") String artifactId,
             @PathParam("version") String version,

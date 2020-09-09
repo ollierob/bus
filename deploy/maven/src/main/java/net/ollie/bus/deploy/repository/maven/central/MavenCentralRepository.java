@@ -4,9 +4,12 @@ import net.ollie.bus.deploy.repository.maven.RemoteMavenRepository;
 import net.ollie.bus.deploy.source.download.DownloadFileProgress;
 import net.ollie.bus.deploy.source.maven.MavenArtifact;
 
+import javax.inject.Singleton;
+
 /**
  * e.g. https://search.maven.org/remotecontent?filepath=com/google/guava/guava-gwt/29.0-jre/guava-gwt-29.0-jre.jar
  */
+@Singleton
 public record MavenCentralRepository(String id, MavenCentralSearchEndpoint mavenCentral) implements RemoteMavenRepository {
 
     @Override
