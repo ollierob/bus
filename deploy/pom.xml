@@ -22,4 +22,12 @@
         <module>maven</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>net.ollie.bus</groupId>
+            <artifactId>protobuf</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>

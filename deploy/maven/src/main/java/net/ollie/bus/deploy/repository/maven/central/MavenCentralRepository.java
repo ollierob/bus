@@ -1,5 +1,6 @@
 package net.ollie.bus.deploy.repository.maven.central;
 
+import net.ollie.bus.deploy.maven.MavenProtos;
 import net.ollie.bus.deploy.repository.maven.RemoteMavenRepository;
 import net.ollie.bus.deploy.source.download.DownloadFileProgress;
 import net.ollie.bus.deploy.source.maven.MavenArtifact;
@@ -10,7 +11,7 @@ import javax.inject.Singleton;
  * e.g. https://search.maven.org/remotecontent?filepath=com/google/guava/guava-gwt/29.0-jre/guava-gwt-29.0-jre.jar
  */
 @Singleton
-public record MavenCentralRepository(String id, MavenCentralSearchEndpoint mavenCentral) implements RemoteMavenRepository {
+public record MavenCentralRepository(String id, int version, MavenProtos.MavenCentral spec, MavenCentralSearchResource mavenCentral) implements RemoteMavenRepository {
 
     @Override
     public DownloadFileProgress get(final MavenArtifact artifact) {
@@ -22,6 +23,12 @@ public record MavenCentralRepository(String id, MavenCentralSearchEndpoint maven
                 + '/' + artifact.artifactId()
                 + '/' + artifact.version()
                 + '/' + artifact.filename();
+    }
+
+    @Override
+    public MavenProtos.MavenRepository.Builder toProtoBuilder() {
+        return RemoteMavenRepository.super.toProtoBuilder()
+                .setCentral(spec);
     }
 
 }

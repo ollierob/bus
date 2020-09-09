@@ -7,7 +7,7 @@ import javax.ws.rs.QueryParam;
 /**
  * @see <a href="https://help.sonatype.com/repomanager3/rest-and-integration-api/search-api">API</a>
  */
-public interface Nexus3ApiEndpoint {
+public interface Nexus3ApiResource {
 
     @GET
     @Path("search")

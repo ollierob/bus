@@ -1,5 +1,6 @@
 package net.ollie.bus.deploy;
 
+import net.ollie.bus.Resource;
 import net.ollie.bus.deploy.repository.RepositoryResource;
 
 import javax.inject.Inject;
@@ -7,7 +8,8 @@ import javax.inject.Singleton;
 import javax.ws.rs.Path;
 
 @Singleton
-public class DeployResource {
+@Path("deploy")
+public class DeployResource implements Resource {
 
     private final RepositoryResource repositories;
 

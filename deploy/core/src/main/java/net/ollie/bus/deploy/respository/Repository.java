@@ -4,4 +4,6 @@ public interface Repository {
 
     String id();
 
+    int version();
+
 }

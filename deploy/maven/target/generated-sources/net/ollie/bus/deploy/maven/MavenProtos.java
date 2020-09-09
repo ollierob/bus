@@ -1189,32 +1189,38 @@ public final class MavenProtos {
         getIdBytes();
 
     /**
-     * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+     * <code>int32 version = 2;</code>
+     * @return The version.
+     */
+    int getVersion();
+
+    /**
+     * <code>.maven.Nexus3Repository nexus3 = 10;</code>
      * @return Whether the nexus3 field is set.
      */
     boolean hasNexus3();
     /**
-     * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+     * <code>.maven.Nexus3Repository nexus3 = 10;</code>
      * @return The nexus3.
      */
     net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository getNexus3();
     /**
-     * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+     * <code>.maven.Nexus3Repository nexus3 = 10;</code>
      */
     net.ollie.bus.deploy.maven.MavenProtos.Nexus3RepositoryOrBuilder getNexus3OrBuilder();
 
     /**
-     * <code>.maven.MavenCentral central = 3;</code>
+     * <code>.maven.MavenCentral central = 11;</code>
      * @return Whether the central field is set.
      */
     boolean hasCentral();
     /**
-     * <code>.maven.MavenCentral central = 3;</code>
+     * <code>.maven.MavenCentral central = 11;</code>
      * @return The central.
      */
     net.ollie.bus.deploy.maven.MavenProtos.MavenCentral getCentral();
     /**
-     * <code>.maven.MavenCentral central = 3;</code>
+     * <code>.maven.MavenCentral central = 11;</code>
      */
     net.ollie.bus.deploy.maven.MavenProtos.MavenCentralOrBuilder getCentralOrBuilder();
 
@@ -1272,9 +1278,14 @@ public final class MavenProtos {
               id_ = s;
               break;
             }
-            case 18: {
+            case 16: {
+
+              version_ = input.readInt32();
+              break;
+            }
+            case 82: {
               net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.Builder subBuilder = null;
-              if (definitionCase_ == 2) {
+              if (definitionCase_ == 10) {
                 subBuilder = ((net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository) definition_).toBuilder();
               }
               definition_ =
@@ -1283,12 +1294,12 @@ public final class MavenProtos {
                 subBuilder.mergeFrom((net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository) definition_);
                 definition_ = subBuilder.buildPartial();
               }
-              definitionCase_ = 2;
+              definitionCase_ = 10;
               break;
             }
-            case 26: {
+            case 90: {
               net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.Builder subBuilder = null;
-              if (definitionCase_ == 3) {
+              if (definitionCase_ == 11) {
                 subBuilder = ((net.ollie.bus.deploy.maven.MavenProtos.MavenCentral) definition_).toBuilder();
               }
               definition_ =
@@ -1297,7 +1308,7 @@ public final class MavenProtos {
                 subBuilder.mergeFrom((net.ollie.bus.deploy.maven.MavenProtos.MavenCentral) definition_);
                 definition_ = subBuilder.buildPartial();
               }
-              definitionCase_ = 3;
+              definitionCase_ = 11;
               break;
             }
             default: {
@@ -1337,8 +1348,8 @@ public final class MavenProtos {
     public enum DefinitionCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-      NEXUS3(2),
-      CENTRAL(3),
+      NEXUS3(10),
+      CENTRAL(11),
       DEFINITION_NOT_SET(0);
       private final int value;
       private DefinitionCase(int value) {
@@ -1356,8 +1367,8 @@ public final class MavenProtos {
 
       public static DefinitionCase forNumber(int value) {
         switch (value) {
-          case 2: return NEXUS3;
-          case 3: return CENTRAL;
+          case 10: return NEXUS3;
+          case 11: return CENTRAL;
           case 0: return DEFINITION_NOT_SET;
           default: return null;
         }
@@ -1409,57 +1420,67 @@ public final class MavenProtos {
       }
     }
 
-    public static final int NEXUS3_FIELD_NUMBER = 2;
+    public static final int VERSION_FIELD_NUMBER = 2;
+    private int version_;
     /**
-     * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+     * <code>int32 version = 2;</code>
+     * @return The version.
+     */
+    public int getVersion() {
+      return version_;
+    }
+
+    public static final int NEXUS3_FIELD_NUMBER = 10;
+    /**
+     * <code>.maven.Nexus3Repository nexus3 = 10;</code>
      * @return Whether the nexus3 field is set.
      */
     public boolean hasNexus3() {
-      return definitionCase_ == 2;
+      return definitionCase_ == 10;
     }
     /**
-     * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+     * <code>.maven.Nexus3Repository nexus3 = 10;</code>
      * @return The nexus3.
      */
     public net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository getNexus3() {
-      if (definitionCase_ == 2) {
+      if (definitionCase_ == 10) {
          return (net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository) definition_;
       }
       return net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.getDefaultInstance();
     }
     /**
-     * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+     * <code>.maven.Nexus3Repository nexus3 = 10;</code>
      */
     public net.ollie.bus.deploy.maven.MavenProtos.Nexus3RepositoryOrBuilder getNexus3OrBuilder() {
-      if (definitionCase_ == 2) {
+      if (definitionCase_ == 10) {
          return (net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository) definition_;
       }
       return net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.getDefaultInstance();
     }
 
-    public static final int CENTRAL_FIELD_NUMBER = 3;
+    public static final int CENTRAL_FIELD_NUMBER = 11;
     /**
-     * <code>.maven.MavenCentral central = 3;</code>
+     * <code>.maven.MavenCentral central = 11;</code>
      * @return Whether the central field is set.
      */
     public boolean hasCentral() {
-      return definitionCase_ == 3;
+      return definitionCase_ == 11;
     }
     /**
-     * <code>.maven.MavenCentral central = 3;</code>
+     * <code>.maven.MavenCentral central = 11;</code>
      * @return The central.
      */
     public net.ollie.bus.deploy.maven.MavenProtos.MavenCentral getCentral() {
-      if (definitionCase_ == 3) {
+      if (definitionCase_ == 11) {
          return (net.ollie.bus.deploy.maven.MavenProtos.MavenCentral) definition_;
       }
       return net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.getDefaultInstance();
     }
     /**
-     * <code>.maven.MavenCentral central = 3;</code>
+     * <code>.maven.MavenCentral central = 11;</code>
      */
     public net.ollie.bus.deploy.maven.MavenProtos.MavenCentralOrBuilder getCentralOrBuilder() {
-      if (definitionCase_ == 3) {
+      if (definitionCase_ == 11) {
          return (net.ollie.bus.deploy.maven.MavenProtos.MavenCentral) definition_;
       }
       return net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.getDefaultInstance();
@@ -1482,11 +1503,14 @@ public final class MavenProtos {
       if (!getIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
-      if (definitionCase_ == 2) {
-        output.writeMessage(2, (net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository) definition_);
+      if (version_ != 0) {
+        output.writeInt32(2, version_);
       }
-      if (definitionCase_ == 3) {
-        output.writeMessage(3, (net.ollie.bus.deploy.maven.MavenProtos.MavenCentral) definition_);
+      if (definitionCase_ == 10) {
+        output.writeMessage(10, (net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository) definition_);
+      }
+      if (definitionCase_ == 11) {
+        output.writeMessage(11, (net.ollie.bus.deploy.maven.MavenProtos.MavenCentral) definition_);
       }
       unknownFields.writeTo(output);
     }
@@ -1500,13 +1524,17 @@ public final class MavenProtos {
       if (!getIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
-      if (definitionCase_ == 2) {
+      if (version_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository) definition_);
+          .computeInt32Size(2, version_);
       }
-      if (definitionCase_ == 3) {
+      if (definitionCase_ == 10) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, (net.ollie.bus.deploy.maven.MavenProtos.MavenCentral) definition_);
+          .computeMessageSize(10, (net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository) definition_);
+      }
+      if (definitionCase_ == 11) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, (net.ollie.bus.deploy.maven.MavenProtos.MavenCentral) definition_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1525,13 +1553,15 @@ public final class MavenProtos {
 
       if (!getId()
           .equals(other.getId())) return false;
+      if (getVersion()
+          != other.getVersion()) return false;
       if (!getDefinitionCase().equals(other.getDefinitionCase())) return false;
       switch (definitionCase_) {
-        case 2:
+        case 10:
           if (!getNexus3()
               .equals(other.getNexus3())) return false;
           break;
-        case 3:
+        case 11:
           if (!getCentral()
               .equals(other.getCentral())) return false;
           break;
@@ -1551,12 +1581,14 @@ public final class MavenProtos {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion();
       switch (definitionCase_) {
-        case 2:
+        case 10:
           hash = (37 * hash) + NEXUS3_FIELD_NUMBER;
           hash = (53 * hash) + getNexus3().hashCode();
           break;
-        case 3:
+        case 11:
           hash = (37 * hash) + CENTRAL_FIELD_NUMBER;
           hash = (53 * hash) + getCentral().hashCode();
           break;
@@ -1698,6 +1730,8 @@ public final class MavenProtos {
         super.clear();
         id_ = "";
 
+        version_ = 0;
+
         definitionCase_ = 0;
         definition_ = null;
         return this;
@@ -1727,14 +1761,15 @@ public final class MavenProtos {
       public net.ollie.bus.deploy.maven.MavenProtos.MavenRepository buildPartial() {
         net.ollie.bus.deploy.maven.MavenProtos.MavenRepository result = new net.ollie.bus.deploy.maven.MavenProtos.MavenRepository(this);
         result.id_ = id_;
-        if (definitionCase_ == 2) {
+        result.version_ = version_;
+        if (definitionCase_ == 10) {
           if (nexus3Builder_ == null) {
             result.definition_ = definition_;
           } else {
             result.definition_ = nexus3Builder_.build();
           }
         }
-        if (definitionCase_ == 3) {
+        if (definitionCase_ == 11) {
           if (centralBuilder_ == null) {
             result.definition_ = definition_;
           } else {
@@ -1793,6 +1828,9 @@ public final class MavenProtos {
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
+        }
+        if (other.getVersion() != 0) {
+          setVersion(other.getVersion());
         }
         switch (other.getDefinitionCase()) {
           case NEXUS3: {
@@ -1927,34 +1965,64 @@ public final class MavenProtos {
         return this;
       }
 
+      private int version_ ;
+      /**
+       * <code>int32 version = 2;</code>
+       * @return The version.
+       */
+      public int getVersion() {
+        return version_;
+      }
+      /**
+       * <code>int32 version = 2;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersion(int value) {
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 version = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVersion() {
+        
+        version_ = 0;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.SingleFieldBuilderV3<
           net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository, net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.Builder, net.ollie.bus.deploy.maven.MavenProtos.Nexus3RepositoryOrBuilder> nexus3Builder_;
       /**
-       * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+       * <code>.maven.Nexus3Repository nexus3 = 10;</code>
        * @return Whether the nexus3 field is set.
        */
       public boolean hasNexus3() {
-        return definitionCase_ == 2;
+        return definitionCase_ == 10;
       }
       /**
-       * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+       * <code>.maven.Nexus3Repository nexus3 = 10;</code>
        * @return The nexus3.
        */
       public net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository getNexus3() {
         if (nexus3Builder_ == null) {
-          if (definitionCase_ == 2) {
+          if (definitionCase_ == 10) {
             return (net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository) definition_;
           }
           return net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.getDefaultInstance();
         } else {
-          if (definitionCase_ == 2) {
+          if (definitionCase_ == 10) {
             return nexus3Builder_.getMessage();
           }
           return net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.getDefaultInstance();
         }
       }
       /**
-       * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+       * <code>.maven.Nexus3Repository nexus3 = 10;</code>
        */
       public Builder setNexus3(net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository value) {
         if (nexus3Builder_ == null) {
@@ -1966,11 +2034,11 @@ public final class MavenProtos {
         } else {
           nexus3Builder_.setMessage(value);
         }
-        definitionCase_ = 2;
+        definitionCase_ = 10;
         return this;
       }
       /**
-       * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+       * <code>.maven.Nexus3Repository nexus3 = 10;</code>
        */
       public Builder setNexus3(
           net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.Builder builderForValue) {
@@ -1980,15 +2048,15 @@ public final class MavenProtos {
         } else {
           nexus3Builder_.setMessage(builderForValue.build());
         }
-        definitionCase_ = 2;
+        definitionCase_ = 10;
         return this;
       }
       /**
-       * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+       * <code>.maven.Nexus3Repository nexus3 = 10;</code>
        */
       public Builder mergeNexus3(net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository value) {
         if (nexus3Builder_ == null) {
-          if (definitionCase_ == 2 &&
+          if (definitionCase_ == 10 &&
               definition_ != net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.getDefaultInstance()) {
             definition_ = net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.newBuilder((net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository) definition_)
                 .mergeFrom(value).buildPartial();
@@ -1997,26 +2065,26 @@ public final class MavenProtos {
           }
           onChanged();
         } else {
-          if (definitionCase_ == 2) {
+          if (definitionCase_ == 10) {
             nexus3Builder_.mergeFrom(value);
           }
           nexus3Builder_.setMessage(value);
         }
-        definitionCase_ = 2;
+        definitionCase_ = 10;
         return this;
       }
       /**
-       * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+       * <code>.maven.Nexus3Repository nexus3 = 10;</code>
        */
       public Builder clearNexus3() {
         if (nexus3Builder_ == null) {
-          if (definitionCase_ == 2) {
+          if (definitionCase_ == 10) {
             definitionCase_ = 0;
             definition_ = null;
             onChanged();
           }
         } else {
-          if (definitionCase_ == 2) {
+          if (definitionCase_ == 10) {
             definitionCase_ = 0;
             definition_ = null;
           }
@@ -2025,32 +2093,32 @@ public final class MavenProtos {
         return this;
       }
       /**
-       * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+       * <code>.maven.Nexus3Repository nexus3 = 10;</code>
        */
       public net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.Builder getNexus3Builder() {
         return getNexus3FieldBuilder().getBuilder();
       }
       /**
-       * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+       * <code>.maven.Nexus3Repository nexus3 = 10;</code>
        */
       public net.ollie.bus.deploy.maven.MavenProtos.Nexus3RepositoryOrBuilder getNexus3OrBuilder() {
-        if ((definitionCase_ == 2) && (nexus3Builder_ != null)) {
+        if ((definitionCase_ == 10) && (nexus3Builder_ != null)) {
           return nexus3Builder_.getMessageOrBuilder();
         } else {
-          if (definitionCase_ == 2) {
+          if (definitionCase_ == 10) {
             return (net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository) definition_;
           }
           return net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.getDefaultInstance();
         }
       }
       /**
-       * <code>.maven.Nexus3Repository nexus3 = 2;</code>
+       * <code>.maven.Nexus3Repository nexus3 = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository, net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.Builder, net.ollie.bus.deploy.maven.MavenProtos.Nexus3RepositoryOrBuilder> 
           getNexus3FieldBuilder() {
         if (nexus3Builder_ == null) {
-          if (!(definitionCase_ == 2)) {
+          if (!(definitionCase_ == 10)) {
             definition_ = net.ollie.bus.deploy.maven.MavenProtos.Nexus3Repository.getDefaultInstance();
           }
           nexus3Builder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2060,7 +2128,7 @@ public final class MavenProtos {
                   isClean());
           definition_ = null;
         }
-        definitionCase_ = 2;
+        definitionCase_ = 10;
         onChanged();;
         return nexus3Builder_;
       }
@@ -2068,31 +2136,31 @@ public final class MavenProtos {
       private com.google.protobuf.SingleFieldBuilderV3<
           net.ollie.bus.deploy.maven.MavenProtos.MavenCentral, net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.Builder, net.ollie.bus.deploy.maven.MavenProtos.MavenCentralOrBuilder> centralBuilder_;
       /**
-       * <code>.maven.MavenCentral central = 3;</code>
+       * <code>.maven.MavenCentral central = 11;</code>
        * @return Whether the central field is set.
        */
       public boolean hasCentral() {
-        return definitionCase_ == 3;
+        return definitionCase_ == 11;
       }
       /**
-       * <code>.maven.MavenCentral central = 3;</code>
+       * <code>.maven.MavenCentral central = 11;</code>
        * @return The central.
        */
       public net.ollie.bus.deploy.maven.MavenProtos.MavenCentral getCentral() {
         if (centralBuilder_ == null) {
-          if (definitionCase_ == 3) {
+          if (definitionCase_ == 11) {
             return (net.ollie.bus.deploy.maven.MavenProtos.MavenCentral) definition_;
           }
           return net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.getDefaultInstance();
         } else {
-          if (definitionCase_ == 3) {
+          if (definitionCase_ == 11) {
             return centralBuilder_.getMessage();
           }
           return net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.getDefaultInstance();
         }
       }
       /**
-       * <code>.maven.MavenCentral central = 3;</code>
+       * <code>.maven.MavenCentral central = 11;</code>
        */
       public Builder setCentral(net.ollie.bus.deploy.maven.MavenProtos.MavenCentral value) {
         if (centralBuilder_ == null) {
@@ -2104,11 +2172,11 @@ public final class MavenProtos {
         } else {
           centralBuilder_.setMessage(value);
         }
-        definitionCase_ = 3;
+        definitionCase_ = 11;
         return this;
       }
       /**
-       * <code>.maven.MavenCentral central = 3;</code>
+       * <code>.maven.MavenCentral central = 11;</code>
        */
       public Builder setCentral(
           net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.Builder builderForValue) {
@@ -2118,15 +2186,15 @@ public final class MavenProtos {
         } else {
           centralBuilder_.setMessage(builderForValue.build());
         }
-        definitionCase_ = 3;
+        definitionCase_ = 11;
         return this;
       }
       /**
-       * <code>.maven.MavenCentral central = 3;</code>
+       * <code>.maven.MavenCentral central = 11;</code>
        */
       public Builder mergeCentral(net.ollie.bus.deploy.maven.MavenProtos.MavenCentral value) {
         if (centralBuilder_ == null) {
-          if (definitionCase_ == 3 &&
+          if (definitionCase_ == 11 &&
               definition_ != net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.getDefaultInstance()) {
             definition_ = net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.newBuilder((net.ollie.bus.deploy.maven.MavenProtos.MavenCentral) definition_)
                 .mergeFrom(value).buildPartial();
@@ -2135,26 +2203,26 @@ public final class MavenProtos {
           }
           onChanged();
         } else {
-          if (definitionCase_ == 3) {
+          if (definitionCase_ == 11) {
             centralBuilder_.mergeFrom(value);
           }
           centralBuilder_.setMessage(value);
         }
-        definitionCase_ = 3;
+        definitionCase_ = 11;
         return this;
       }
       /**
-       * <code>.maven.MavenCentral central = 3;</code>
+       * <code>.maven.MavenCentral central = 11;</code>
        */
       public Builder clearCentral() {
         if (centralBuilder_ == null) {
-          if (definitionCase_ == 3) {
+          if (definitionCase_ == 11) {
             definitionCase_ = 0;
             definition_ = null;
             onChanged();
           }
         } else {
-          if (definitionCase_ == 3) {
+          if (definitionCase_ == 11) {
             definitionCase_ = 0;
             definition_ = null;
           }
@@ -2163,32 +2231,32 @@ public final class MavenProtos {
         return this;
       }
       /**
-       * <code>.maven.MavenCentral central = 3;</code>
+       * <code>.maven.MavenCentral central = 11;</code>
        */
       public net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.Builder getCentralBuilder() {
         return getCentralFieldBuilder().getBuilder();
       }
       /**
-       * <code>.maven.MavenCentral central = 3;</code>
+       * <code>.maven.MavenCentral central = 11;</code>
        */
       public net.ollie.bus.deploy.maven.MavenProtos.MavenCentralOrBuilder getCentralOrBuilder() {
-        if ((definitionCase_ == 3) && (centralBuilder_ != null)) {
+        if ((definitionCase_ == 11) && (centralBuilder_ != null)) {
           return centralBuilder_.getMessageOrBuilder();
         } else {
-          if (definitionCase_ == 3) {
+          if (definitionCase_ == 11) {
             return (net.ollie.bus.deploy.maven.MavenProtos.MavenCentral) definition_;
           }
           return net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.getDefaultInstance();
         }
       }
       /**
-       * <code>.maven.MavenCentral central = 3;</code>
+       * <code>.maven.MavenCentral central = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           net.ollie.bus.deploy.maven.MavenProtos.MavenCentral, net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.Builder, net.ollie.bus.deploy.maven.MavenProtos.MavenCentralOrBuilder> 
           getCentralFieldBuilder() {
         if (centralBuilder_ == null) {
-          if (!(definitionCase_ == 3)) {
+          if (!(definitionCase_ == 11)) {
             definition_ = net.ollie.bus.deploy.maven.MavenProtos.MavenCentral.getDefaultInstance();
           }
           centralBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2198,7 +2266,7 @@ public final class MavenProtos {
                   isClean());
           definition_ = null;
         }
-        definitionCase_ = 3;
+        definitionCase_ = 11;
         onChanged();;
         return centralBuilder_;
       }
@@ -3715,14 +3783,14 @@ public final class MavenProtos {
       "\n\013maven.proto\022\005maven\"g\n\rMavenArtifact\022\017\n" +
       "\007groupId\030\001 \001(\t\022\022\n\nartifactId\030\002 \001(\t\022\017\n\007ve" +
       "rsion\030\003 \001(\t\022\022\n\nclassifier\030\004 \001(\t\022\014\n\004type\030" +
-      "\005 \001(\t\"~\n\017MavenRepository\022\n\n\002id\030\001 \001(\t\022)\n\006" +
-      "nexus3\030\002 \001(\0132\027.maven.Nexus3RepositoryH\000\022" +
-      "&\n\007central\030\003 \001(\0132\023.maven.MavenCentralH\000B" +
-      "\014\n\ndefinition\"C\n\020Nexus3Repository\022\013\n\003url" +
-      "\030\001 \001(\t\022\020\n\010username\030\002 \001(\t\022\020\n\010password\030\003 \001" +
-      "(\t\"\033\n\014MavenCentral\022\013\n\003url\030\001 \001(\tB)\n\032net.o" +
-      "llie.bus.deploy.mavenB\013MavenProtosb\006prot" +
-      "o3"
+      "\005 \001(\t\"\217\001\n\017MavenRepository\022\n\n\002id\030\001 \001(\t\022\017\n" +
+      "\007version\030\002 \001(\005\022)\n\006nexus3\030\n \001(\0132\027.maven.N" +
+      "exus3RepositoryH\000\022&\n\007central\030\013 \001(\0132\023.mav" +
+      "en.MavenCentralH\000B\014\n\ndefinition\"C\n\020Nexus" +
+      "3Repository\022\013\n\003url\030\001 \001(\t\022\020\n\010username\030\002 \001" +
+      "(\t\022\020\n\010password\030\003 \001(\t\"\033\n\014MavenCentral\022\013\n\003" +
+      "url\030\001 \001(\tB)\n\032net.ollie.bus.deploy.mavenB" +
+      "\013MavenProtosb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3739,7 +3807,7 @@ public final class MavenProtos {
     internal_static_maven_MavenRepository_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_maven_MavenRepository_descriptor,
-        new java.lang.String[] { "Id", "Nexus3", "Central", "Definition", });
+        new java.lang.String[] { "Id", "Version", "Nexus3", "Central", "Definition", });
     internal_static_maven_Nexus3Repository_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_maven_Nexus3Repository_fieldAccessorTable = new

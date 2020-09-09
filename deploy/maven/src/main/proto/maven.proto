@@ -18,10 +18,11 @@ message MavenArtifact {
 message MavenRepository {
 
     string id = 1;
+    int32 version = 2;
 
     oneof definition {
-        Nexus3Repository nexus3 = 2;
-        MavenCentral central = 3;
+        Nexus3Repository nexus3 = 10;
+        MavenCentral central = 11;
     }
 
 }
