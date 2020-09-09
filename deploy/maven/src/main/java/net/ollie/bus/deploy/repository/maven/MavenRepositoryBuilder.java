@@ -17,7 +17,7 @@ public class MavenRepositoryBuilder {
 
     private final Supplier<ResteasyClient> client;
 
-    public MavenRepositoryBuilder(final Supplier<ResteasyClient> client) {
+    MavenRepositoryBuilder(final Supplier<ResteasyClient> client) {
         this.client = client;
     }
 
