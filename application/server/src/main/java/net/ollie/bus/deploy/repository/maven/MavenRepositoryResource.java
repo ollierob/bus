@@ -14,6 +14,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
 @Singleton
@@ -42,9 +43,14 @@ public class MavenRepositoryResource implements Resource {
     @POST
     @Path("edit")
     @Consumes(APPLICATION_PROTOBUF)
-    public Response edit(final MavenProtos.MavenRepository spec) {
+    public Response edit(
+            @QueryParam("expectedVersion") final int expectedVersion,
+            final MavenProtos.MavenRepository spec) {
         final var repo = builder.build(spec);
-        return Response.ok().build();
+        final var put = repositories.put(repo, expectedVersion);
+        return put == repo
+                ? Response.ok().build()
+                : Response.status(Response.Status.CONFLICT).entity("Expected " + expectedVersion + " but was " + repo.version()).build();
     }
 
 }

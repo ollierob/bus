@@ -13,4 +13,13 @@ public class MappedRepositoryProvider<R extends Repository> implements Repositor
         return map.get(id);
     }
 
+    @Override
+    public R put(final R repository, final int expectedVersion) {
+        if (expectedVersion == 0) {
+            return map.computeIfAbsent(repository.id(), k -> repository);
+        } else {
+            throw new UnsupportedOperationException();
+        }
+    }
+
 }
