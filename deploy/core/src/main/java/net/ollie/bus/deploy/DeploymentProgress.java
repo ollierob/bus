@@ -6,7 +6,7 @@ public interface DeploymentProgress {
 
     int progress();
 
-    CompletableFuture<? extends DeploymentFiles> future();
+    CompletableFuture<?> future();
 
     default boolean isDone() {
         return this.future().isDone();

@@ -25,15 +25,9 @@ public class MavenRepositoryBuilder {
     public MavenRepository build(final MavenProtos.MavenRepository spec) {
         switch (spec.getDefinitionCase()) {
             case NEXUS3:
-                final var nexus3 = spec.getNexus3();
-                return new Nexus3Repository(spec.getId(), spec.getVersion(), nexus3, this.resource(nexus3));
+                return new Nexus3Repository(spec, this.resource(spec.getNexus3()));
             case CENTRAL:
-                final var central = spec.getCentral();
-                return new MavenCentralRepository(
-                        spec.getId(),
-                        spec.getVersion(),
-                        central,
-                        this.resource(central));
+                return new MavenCentralRepository(spec, this.resource(spec.getCentral()));
             default:
                 throw new UnsupportedOperationException();
         }

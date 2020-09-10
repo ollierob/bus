@@ -11,7 +11,7 @@ import javax.inject.Singleton;
  * e.g. https://search.maven.org/remotecontent?filepath=com/google/guava/guava-gwt/29.0-jre/guava-gwt-29.0-jre.jar
  */
 @Singleton
-public record MavenCentralRepository(String id, int version, MavenProtos.MavenCentral spec, MavenCentralSearchResource mavenCentral) implements RemoteMavenRepository {
+public record MavenCentralRepository(MavenProtos.MavenRepository spec, MavenCentralSearchResource mavenCentral) implements RemoteMavenRepository {
 
     @Override
     public DownloadFileProgress get(final MavenArtifact artifact) {
@@ -26,9 +26,18 @@ public record MavenCentralRepository(String id, int version, MavenProtos.MavenCe
     }
 
     @Override
-    public MavenProtos.MavenRepository.Builder toProtoBuilder() {
-        return RemoteMavenRepository.super.toProtoBuilder()
-                .setCentral(spec);
+    public String id() {
+        return spec.getId();
+    }
+
+    @Override
+    public int version() {
+        return spec.getVersion();
+    }
+
+    @Override
+    public MavenProtos.MavenRepository toProto() {
+        return spec;
     }
 
 }

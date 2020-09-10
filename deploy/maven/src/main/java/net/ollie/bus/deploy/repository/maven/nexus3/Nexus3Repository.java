@@ -1,11 +1,16 @@
 package net.ollie.bus.deploy.repository.maven.nexus3;
 
+import com.google.common.base.Preconditions;
 import net.ollie.bus.deploy.maven.MavenProtos;
 import net.ollie.bus.deploy.repository.maven.RemoteMavenRepository;
 import net.ollie.bus.deploy.source.download.DownloadFileProgress;
 import net.ollie.bus.deploy.source.maven.MavenArtifact;
 
-public record Nexus3Repository(String id, int version, MavenProtos.Nexus3Repository spec, Nexus3RepositoryResource resource) implements RemoteMavenRepository {
+public record Nexus3Repository(MavenProtos.MavenRepository spec, Nexus3RepositoryResource resource) implements RemoteMavenRepository {
+
+    public Nexus3Repository {
+        Preconditions.checkArgument(spec.hasNexus3());
+    }
 
     @Override
     public DownloadFileProgress get(final MavenArtifact artifact) {
@@ -17,9 +22,18 @@ public record Nexus3Repository(String id, int version, MavenProtos.Nexus3Reposit
     }
 
     @Override
-    public MavenProtos.MavenRepository.Builder toProtoBuilder() {
-        return RemoteMavenRepository.super.toProtoBuilder()
-                .setNexus3(spec);
+    public String id() {
+        return spec.getId();
+    }
+
+    @Override
+    public int version() {
+        return spec.getVersion();
+    }
+
+    @Override
+    public MavenProtos.MavenRepository toProto() {
+        return spec;
     }
 
 }
