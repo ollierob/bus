@@ -7,16 +7,22 @@ export class GitlabBuildSource extends jspb.Message {
   getId(): string;
   setId(value: string): void;
 
+  getVariablesMap(): jspb.Map<string, string>;
+  clearVariablesMap(): void;
+  hasProjectid(): boolean;
+  clearProjectid(): void;
+  getProjectid(): string;
+  setProjectid(value: string): void;
+
   hasProject(): boolean;
   clearProject(): void;
   getProject(): GitlabProject | undefined;
   setProject(value?: GitlabProject): void;
 
-  getVariablesMap(): jspb.Map<string, string>;
-  clearVariablesMap(): void;
   getFetchsourceid(): string;
   setFetchsourceid(value: string): void;
 
+  getProjCase(): GitlabBuildSource.ProjCase;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GitlabBuildSource.AsObject;
   static toObject(includeInstance: boolean, msg: GitlabBuildSource): GitlabBuildSource.AsObject;
@@ -30,9 +36,16 @@ export class GitlabBuildSource extends jspb.Message {
 export namespace GitlabBuildSource {
   export type AsObject = {
     id: string,
-    project?: GitlabProject.AsObject,
     variablesMap: Array<[string, string]>,
+    projectid: string,
+    project?: GitlabProject.AsObject,
     fetchsourceid: string,
+  }
+
+  export enum ProjCase {
+    PROJ_NOT_SET = 0,
+    PROJECTID = 3,
+    PROJECT = 4,
   }
 }
 

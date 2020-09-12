@@ -4,6 +4,7 @@
 import * as jspb from "google-protobuf";
 import * as maven_pb from "./maven_pb";
 import * as gitlab_pb from "./gitlab_pb";
+import * as jenkins_pb from "./jenkins_pb";
 
 export class DeploySource extends jspb.Message {
   hasMaven(): boolean;
@@ -15,6 +16,11 @@ export class DeploySource extends jspb.Message {
   clearGitlab(): void;
   getGitlab(): gitlab_pb.GitlabBuildSource | undefined;
   setGitlab(value?: gitlab_pb.GitlabBuildSource): void;
+
+  hasJenkins(): boolean;
+  clearJenkins(): void;
+  getJenkins(): jenkins_pb.JenkinsBuildSource | undefined;
+  setJenkins(value?: jenkins_pb.JenkinsBuildSource): void;
 
   getSourceCase(): DeploySource.SourceCase;
   serializeBinary(): Uint8Array;
@@ -31,12 +37,14 @@ export namespace DeploySource {
   export type AsObject = {
     maven?: maven_pb.MavenDeploySource.AsObject,
     gitlab?: gitlab_pb.GitlabBuildSource.AsObject,
+    jenkins?: jenkins_pb.JenkinsBuildSource.AsObject,
   }
 
   export enum SourceCase {
     SOURCE_NOT_SET = 0,
     MAVEN = 1,
     GITLAB = 2,
+    JENKINS = 3,
   }
 }
 

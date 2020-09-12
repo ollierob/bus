@@ -24,7 +24,7 @@ goog.exportSymbol('proto.maven.GitlabProject', null, global);
  * @constructor
  */
 proto.maven.GitlabBuildSource = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.maven.GitlabBuildSource.oneofGroups_);
 };
 goog.inherits(proto.maven.GitlabBuildSource, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -55,6 +55,32 @@ if (goog.DEBUG && !COMPILED) {
    */
   proto.maven.GitlabProject.displayName = 'proto.maven.GitlabProject';
 }
+
+/**
+ * Oneof group definitions for this message. Each group defines the field
+ * numbers belonging to that group. When of these fields' value is set, all
+ * other fields in the group are cleared. During deserialization, if multiple
+ * fields are encountered for a group, only the last value seen will be kept.
+ * @private {!Array<!Array<number>>}
+ * @const
+ */
+proto.maven.GitlabBuildSource.oneofGroups_ = [[3,4]];
+
+/**
+ * @enum {number}
+ */
+proto.maven.GitlabBuildSource.ProjCase = {
+  PROJ_NOT_SET: 0,
+  PROJECTID: 3,
+  PROJECT: 4
+};
+
+/**
+ * @return {proto.maven.GitlabBuildSource.ProjCase}
+ */
+proto.maven.GitlabBuildSource.prototype.getProjCase = function() {
+  return /** @type {proto.maven.GitlabBuildSource.ProjCase} */(jspb.Message.computeOneofCase(this, proto.maven.GitlabBuildSource.oneofGroups_[0]));
+};
 
 
 
@@ -88,8 +114,9 @@ proto.maven.GitlabBuildSource.prototype.toObject = function(opt_includeInstance)
 proto.maven.GitlabBuildSource.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    project: (f = msg.getProject()) && proto.maven.GitlabProject.toObject(includeInstance, f),
     variablesMap: (f = msg.getVariablesMap()) ? f.toObject(includeInstance, undefined) : [],
+    projectid: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    project: (f = msg.getProject()) && proto.maven.GitlabProject.toObject(includeInstance, f),
     fetchsourceid: jspb.Message.getFieldWithDefault(msg, 10, "")
   };
 
@@ -132,15 +159,19 @@ proto.maven.GitlabBuildSource.deserializeBinaryFromReader = function(msg, reader
       msg.setId(value);
       break;
     case 2:
-      var value = new proto.maven.GitlabProject;
-      reader.readMessage(value,proto.maven.GitlabProject.deserializeBinaryFromReader);
-      msg.setProject(value);
-      break;
-    case 3:
       var value = msg.getVariablesMap();
       reader.readMessage(value, function(message, reader) {
         jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "");
          });
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setProjectid(value);
+      break;
+    case 4:
+      var value = new proto.maven.GitlabProject;
+      reader.readMessage(value,proto.maven.GitlabProject.deserializeBinaryFromReader);
+      msg.setProject(value);
       break;
     case 10:
       var value = /** @type {string} */ (reader.readString());
@@ -182,17 +213,24 @@ proto.maven.GitlabBuildSource.serializeBinaryToWriter = function(message, writer
       f
     );
   }
+  f = message.getVariablesMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(2, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 3));
+  if (f != null) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
   f = message.getProject();
   if (f != null) {
     writer.writeMessage(
-      2,
+      4,
       f,
       proto.maven.GitlabProject.serializeBinaryToWriter
     );
-  }
-  f = message.getVariablesMap(true);
-  if (f && f.getLength() > 0) {
-    f.serializeBinary(3, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
   f = message.getFetchsourceid();
   if (f.length > 0) {
@@ -220,18 +258,71 @@ proto.maven.GitlabBuildSource.prototype.setId = function(value) {
 
 
 /**
- * optional GitlabProject project = 2;
+ * map<string, string> variables = 2;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.maven.GitlabBuildSource.prototype.getVariablesMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 2, opt_noLazyCreate,
+      null));
+};
+
+
+/**
+ * Clears values from the map. The map will be non-null.
+ */
+proto.maven.GitlabBuildSource.prototype.clearVariablesMap = function() {
+  this.getVariablesMap().clear();
+};
+
+
+/**
+ * optional string projectId = 3;
+ * @return {string}
+ */
+proto.maven.GitlabBuildSource.prototype.getProjectid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.maven.GitlabBuildSource.prototype.setProjectid = function(value) {
+  jspb.Message.setOneofField(this, 3, proto.maven.GitlabBuildSource.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ */
+proto.maven.GitlabBuildSource.prototype.clearProjectid = function() {
+  jspb.Message.setOneofField(this, 3, proto.maven.GitlabBuildSource.oneofGroups_[0], undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.maven.GitlabBuildSource.prototype.hasProjectid = function() {
+  return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional GitlabProject project = 4;
  * @return {?proto.maven.GitlabProject}
  */
 proto.maven.GitlabBuildSource.prototype.getProject = function() {
   return /** @type{?proto.maven.GitlabProject} */ (
-    jspb.Message.getWrapperField(this, proto.maven.GitlabProject, 2));
+    jspb.Message.getWrapperField(this, proto.maven.GitlabProject, 4));
 };
 
 
 /** @param {?proto.maven.GitlabProject|undefined} value */
 proto.maven.GitlabBuildSource.prototype.setProject = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  jspb.Message.setOneofWrapperField(this, 4, proto.maven.GitlabBuildSource.oneofGroups_[0], value);
 };
 
 
@@ -248,28 +339,7 @@ proto.maven.GitlabBuildSource.prototype.clearProject = function() {
  * @return {boolean}
  */
 proto.maven.GitlabBuildSource.prototype.hasProject = function() {
-  return jspb.Message.getField(this, 2) != null;
-};
-
-
-/**
- * map<string, string> variables = 3;
- * @param {boolean=} opt_noLazyCreate Do not create the map if
- * empty, instead returning `undefined`
- * @return {!jspb.Map<string,string>}
- */
-proto.maven.GitlabBuildSource.prototype.getVariablesMap = function(opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,string>} */ (
-      jspb.Message.getMapField(this, 3, opt_noLazyCreate,
-      null));
-};
-
-
-/**
- * Clears values from the map. The map will be non-null.
- */
-proto.maven.GitlabBuildSource.prototype.clearVariablesMap = function() {
-  this.getVariablesMap().clear();
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
