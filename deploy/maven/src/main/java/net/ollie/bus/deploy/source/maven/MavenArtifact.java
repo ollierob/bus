@@ -1,7 +1,7 @@
 package net.ollie.bus.deploy.source.maven;
 
 import net.ollie.bus.deploy.maven.MavenProtos;
-import net.ollie.bus.protobuf.BuildsProto;
+import net.ollie.protobuf.BuildsProto;
 
 import java.util.Objects;
 

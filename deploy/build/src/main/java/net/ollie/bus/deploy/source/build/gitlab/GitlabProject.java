@@ -3,7 +3,7 @@ package net.ollie.bus.deploy.source.build.gitlab;
 import com.google.common.collect.Maps;
 import net.ollie.bus.deploy.build.GitlabProtos;
 import net.ollie.bus.deploy.source.build.BuildProgress;
-import net.ollie.bus.protobuf.BuildsProto;
+import net.ollie.protobuf.BuildsProto;
 
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
