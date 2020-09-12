@@ -18,6 +18,11 @@
 
         <dependency>
             <groupId>net.ollie.bus</groupId>
+            <artifactId>api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.ollie.bus</groupId>
             <artifactId>website</artifactId>
             <version>${project.version}</version>
         </dependency>
