@@ -17,6 +17,7 @@
         <module>server</module>
         <module>website</module>
         <module>protobuf</module>
+        <module>api</module>
     </modules>
 
 </project>

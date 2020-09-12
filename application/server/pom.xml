@@ -18,12 +18,7 @@
 
         <dependency>
             <groupId>net.ollie.bus</groupId>
-            <artifactId>deploy-maven</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.ollie.bus</groupId>
-            <artifactId>deploy-build</artifactId>
+            <artifactId>website</artifactId>
             <version>${project.version}</version>
         </dependency>
 
