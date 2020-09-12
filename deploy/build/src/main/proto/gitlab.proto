@@ -8,8 +8,12 @@ option java_outer_classname = "GitlabProtos";
 message GitlabBuildSource {
 
     string id = 1;
-    GitlabProject project = 2;
-    map<string, string> variables = 3;
+    map<string, string> variables = 2;
+
+    oneof proj {
+        string projectId = 3;
+        GitlabProject project = 4;
+    }
 
     string fetchSourceId = 10;
 

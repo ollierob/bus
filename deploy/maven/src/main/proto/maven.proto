@@ -5,11 +5,15 @@ package maven;
 option java_package = "net.ollie.bus.deploy.maven";
 option java_outer_classname = "MavenProtos";
 
-message MavenRepositorySource {
+message MavenDeploySource {
 
     string id = 1;
-    string repository = 2;
-    MavenArtifact artifact = 3;
+    MavenArtifact artifact = 2;
+
+    oneof repo {
+        string repositoryId = 3;
+        MavenRepository repository = 4;
+    }
 
 }
 

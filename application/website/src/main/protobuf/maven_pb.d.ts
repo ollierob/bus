@@ -3,33 +3,48 @@
 
 import * as jspb from "google-protobuf";
 
-export class MavenRepositorySource extends jspb.Message {
+export class MavenDeploySource extends jspb.Message {
   getId(): string;
   setId(value: string): void;
-
-  getRepository(): string;
-  setRepository(value: string): void;
 
   hasArtifact(): boolean;
   clearArtifact(): void;
   getArtifact(): MavenArtifact | undefined;
   setArtifact(value?: MavenArtifact): void;
 
+  hasRepositoryid(): boolean;
+  clearRepositoryid(): void;
+  getRepositoryid(): string;
+  setRepositoryid(value: string): void;
+
+  hasRepository(): boolean;
+  clearRepository(): void;
+  getRepository(): MavenRepository | undefined;
+  setRepository(value?: MavenRepository): void;
+
+  getRepoCase(): MavenDeploySource.RepoCase;
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): MavenRepositorySource.AsObject;
-  static toObject(includeInstance: boolean, msg: MavenRepositorySource): MavenRepositorySource.AsObject;
+  toObject(includeInstance?: boolean): MavenDeploySource.AsObject;
+  static toObject(includeInstance: boolean, msg: MavenDeploySource): MavenDeploySource.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: MavenRepositorySource, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): MavenRepositorySource;
-  static deserializeBinaryFromReader(message: MavenRepositorySource, reader: jspb.BinaryReader): MavenRepositorySource;
+  static serializeBinaryToWriter(message: MavenDeploySource, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MavenDeploySource;
+  static deserializeBinaryFromReader(message: MavenDeploySource, reader: jspb.BinaryReader): MavenDeploySource;
 }
 
-export namespace MavenRepositorySource {
+export namespace MavenDeploySource {
   export type AsObject = {
     id: string,
-    repository: string,
     artifact?: MavenArtifact.AsObject,
+    repositoryid: string,
+    repository?: MavenRepository.AsObject,
+  }
+
+  export enum RepoCase {
+    REPO_NOT_SET = 0,
+    REPOSITORYID = 3,
+    REPOSITORY = 4,
   }
 }
 

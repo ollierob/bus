@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package maven;
+
+option java_package = "net.ollie.bus.deploy";
+option java_outer_classname = "DeployProto";
+
+import "maven.proto";
+import "gitlab.proto";
+import "jenkins.proto";
+
+message DeploySource {
+
+    oneof source {
+        MavenDeploySource maven = 1;
+        GitlabBuildSource gitlab = 2;
+        JenkinsBuildSource jenkins = 3;
+    }
+
+}

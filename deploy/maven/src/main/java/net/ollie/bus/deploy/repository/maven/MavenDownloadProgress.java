@@ -8,11 +8,6 @@ import java.util.concurrent.CompletableFuture;
 public class MavenDownloadProgress implements DownloadFileProgress {
 
     @Override
-    public int progress() {
-        throw new UnsupportedOperationException(); //TODO
-    }
-
-    @Override
     public CompletableFuture<? extends DeploymentFile> future() {
         throw new UnsupportedOperationException(); //TODO
     }

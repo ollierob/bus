@@ -14,8 +14,8 @@ public final class MavenProtos {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface MavenRepositorySourceOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:maven.MavenRepositorySource)
+  public interface MavenDeploySourceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:maven.MavenDeploySource)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -31,54 +31,70 @@ public final class MavenProtos {
         getIdBytes();
 
     /**
-     * <code>string repository = 2;</code>
-     * @return The repository.
-     */
-    java.lang.String getRepository();
-    /**
-     * <code>string repository = 2;</code>
-     * @return The bytes for repository.
-     */
-    com.google.protobuf.ByteString
-        getRepositoryBytes();
-
-    /**
-     * <code>.maven.MavenArtifact artifact = 3;</code>
+     * <code>.maven.MavenArtifact artifact = 2;</code>
      * @return Whether the artifact field is set.
      */
     boolean hasArtifact();
     /**
-     * <code>.maven.MavenArtifact artifact = 3;</code>
+     * <code>.maven.MavenArtifact artifact = 2;</code>
      * @return The artifact.
      */
     net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact getArtifact();
     /**
-     * <code>.maven.MavenArtifact artifact = 3;</code>
+     * <code>.maven.MavenArtifact artifact = 2;</code>
      */
     net.ollie.bus.deploy.maven.MavenProtos.MavenArtifactOrBuilder getArtifactOrBuilder();
+
+    /**
+     * <code>string repositoryId = 3;</code>
+     * @return The repositoryId.
+     */
+    java.lang.String getRepositoryId();
+    /**
+     * <code>string repositoryId = 3;</code>
+     * @return The bytes for repositoryId.
+     */
+    com.google.protobuf.ByteString
+        getRepositoryIdBytes();
+
+    /**
+     * <code>.maven.MavenRepository repository = 4;</code>
+     * @return Whether the repository field is set.
+     */
+    boolean hasRepository();
+    /**
+     * <code>.maven.MavenRepository repository = 4;</code>
+     * @return The repository.
+     */
+    net.ollie.bus.deploy.maven.MavenProtos.MavenRepository getRepository();
+    /**
+     * <code>.maven.MavenRepository repository = 4;</code>
+     */
+    net.ollie.bus.deploy.maven.MavenProtos.MavenRepositoryOrBuilder getRepositoryOrBuilder();
+
+    public net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource.RepoCase getRepoCase();
   }
   /**
-   * Protobuf type {@code maven.MavenRepositorySource}
+   * Protobuf type {@code maven.MavenDeploySource}
    */
-  public  static final class MavenRepositorySource extends
+  public  static final class MavenDeploySource extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:maven.MavenRepositorySource)
-      MavenRepositorySourceOrBuilder {
+      // @@protoc_insertion_point(message_implements:maven.MavenDeploySource)
+      MavenDeploySourceOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use MavenRepositorySource.newBuilder() to construct.
-    private MavenRepositorySource(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use MavenDeploySource.newBuilder() to construct.
+    private MavenDeploySource(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private MavenRepositorySource() {
+    private MavenDeploySource() {
       id_ = "";
-      repository_ = "";
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new MavenRepositorySource();
+      return new MavenDeploySource();
     }
 
     @java.lang.Override
@@ -86,7 +102,7 @@ public final class MavenProtos {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MavenRepositorySource(
+    private MavenDeploySource(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -111,12 +127,6 @@ public final class MavenProtos {
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              repository_ = s;
-              break;
-            }
-            case 26: {
               net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact.Builder subBuilder = null;
               if (artifact_ != null) {
                 subBuilder = artifact_.toBuilder();
@@ -127,6 +137,26 @@ public final class MavenProtos {
                 artifact_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              repoCase_ = 3;
+              repo_ = s;
+              break;
+            }
+            case 34: {
+              net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.Builder subBuilder = null;
+              if (repoCase_ == 4) {
+                subBuilder = ((net.ollie.bus.deploy.maven.MavenProtos.MavenRepository) repo_).toBuilder();
+              }
+              repo_ =
+                  input.readMessage(net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((net.ollie.bus.deploy.maven.MavenProtos.MavenRepository) repo_);
+                repo_ = subBuilder.buildPartial();
+              }
+              repoCase_ = 4;
               break;
             }
             default: {
@@ -150,15 +180,56 @@ public final class MavenProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return net.ollie.bus.deploy.maven.MavenProtos.internal_static_maven_MavenRepositorySource_descriptor;
+      return net.ollie.bus.deploy.maven.MavenProtos.internal_static_maven_MavenDeploySource_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return net.ollie.bus.deploy.maven.MavenProtos.internal_static_maven_MavenRepositorySource_fieldAccessorTable
+      return net.ollie.bus.deploy.maven.MavenProtos.internal_static_maven_MavenDeploySource_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource.class, net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource.Builder.class);
+              net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource.class, net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource.Builder.class);
+    }
+
+    private int repoCase_ = 0;
+    private java.lang.Object repo_;
+    public enum RepoCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      REPOSITORYID(3),
+      REPOSITORY(4),
+      REPO_NOT_SET(0);
+      private final int value;
+      private RepoCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static RepoCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static RepoCase forNumber(int value) {
+        switch (value) {
+          case 3: return REPOSITORYID;
+          case 4: return REPOSITORY;
+          case 0: return REPO_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public RepoCase
+    getRepoCase() {
+      return RepoCase.forNumber(
+          repoCase_);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -197,63 +268,100 @@ public final class MavenProtos {
       }
     }
 
-    public static final int REPOSITORY_FIELD_NUMBER = 2;
-    private volatile java.lang.Object repository_;
-    /**
-     * <code>string repository = 2;</code>
-     * @return The repository.
-     */
-    public java.lang.String getRepository() {
-      java.lang.Object ref = repository_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        repository_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string repository = 2;</code>
-     * @return The bytes for repository.
-     */
-    public com.google.protobuf.ByteString
-        getRepositoryBytes() {
-      java.lang.Object ref = repository_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        repository_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ARTIFACT_FIELD_NUMBER = 3;
+    public static final int ARTIFACT_FIELD_NUMBER = 2;
     private net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact artifact_;
     /**
-     * <code>.maven.MavenArtifact artifact = 3;</code>
+     * <code>.maven.MavenArtifact artifact = 2;</code>
      * @return Whether the artifact field is set.
      */
     public boolean hasArtifact() {
       return artifact_ != null;
     }
     /**
-     * <code>.maven.MavenArtifact artifact = 3;</code>
+     * <code>.maven.MavenArtifact artifact = 2;</code>
      * @return The artifact.
      */
     public net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact getArtifact() {
       return artifact_ == null ? net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact.getDefaultInstance() : artifact_;
     }
     /**
-     * <code>.maven.MavenArtifact artifact = 3;</code>
+     * <code>.maven.MavenArtifact artifact = 2;</code>
      */
     public net.ollie.bus.deploy.maven.MavenProtos.MavenArtifactOrBuilder getArtifactOrBuilder() {
       return getArtifact();
+    }
+
+    public static final int REPOSITORYID_FIELD_NUMBER = 3;
+    /**
+     * <code>string repositoryId = 3;</code>
+     * @return The repositoryId.
+     */
+    public java.lang.String getRepositoryId() {
+      java.lang.Object ref = "";
+      if (repoCase_ == 3) {
+        ref = repo_;
+      }
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (repoCase_ == 3) {
+          repo_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>string repositoryId = 3;</code>
+     * @return The bytes for repositoryId.
+     */
+    public com.google.protobuf.ByteString
+        getRepositoryIdBytes() {
+      java.lang.Object ref = "";
+      if (repoCase_ == 3) {
+        ref = repo_;
+      }
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        if (repoCase_ == 3) {
+          repo_ = b;
+        }
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REPOSITORY_FIELD_NUMBER = 4;
+    /**
+     * <code>.maven.MavenRepository repository = 4;</code>
+     * @return Whether the repository field is set.
+     */
+    public boolean hasRepository() {
+      return repoCase_ == 4;
+    }
+    /**
+     * <code>.maven.MavenRepository repository = 4;</code>
+     * @return The repository.
+     */
+    public net.ollie.bus.deploy.maven.MavenProtos.MavenRepository getRepository() {
+      if (repoCase_ == 4) {
+         return (net.ollie.bus.deploy.maven.MavenProtos.MavenRepository) repo_;
+      }
+      return net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.getDefaultInstance();
+    }
+    /**
+     * <code>.maven.MavenRepository repository = 4;</code>
+     */
+    public net.ollie.bus.deploy.maven.MavenProtos.MavenRepositoryOrBuilder getRepositoryOrBuilder() {
+      if (repoCase_ == 4) {
+         return (net.ollie.bus.deploy.maven.MavenProtos.MavenRepository) repo_;
+      }
+      return net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -273,11 +381,14 @@ public final class MavenProtos {
       if (!getIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
-      if (!getRepositoryBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, repository_);
-      }
       if (artifact_ != null) {
-        output.writeMessage(3, getArtifact());
+        output.writeMessage(2, getArtifact());
+      }
+      if (repoCase_ == 3) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, repo_);
+      }
+      if (repoCase_ == 4) {
+        output.writeMessage(4, (net.ollie.bus.deploy.maven.MavenProtos.MavenRepository) repo_);
       }
       unknownFields.writeTo(output);
     }
@@ -291,12 +402,16 @@ public final class MavenProtos {
       if (!getIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
-      if (!getRepositoryBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, repository_);
-      }
       if (artifact_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getArtifact());
+          .computeMessageSize(2, getArtifact());
+      }
+      if (repoCase_ == 3) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, repo_);
+      }
+      if (repoCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (net.ollie.bus.deploy.maven.MavenProtos.MavenRepository) repo_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -308,19 +423,30 @@ public final class MavenProtos {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource)) {
+      if (!(obj instanceof net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource)) {
         return super.equals(obj);
       }
-      net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource other = (net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource) obj;
+      net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource other = (net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource) obj;
 
       if (!getId()
           .equals(other.getId())) return false;
-      if (!getRepository()
-          .equals(other.getRepository())) return false;
       if (hasArtifact() != other.hasArtifact()) return false;
       if (hasArtifact()) {
         if (!getArtifact()
             .equals(other.getArtifact())) return false;
+      }
+      if (!getRepoCase().equals(other.getRepoCase())) return false;
+      switch (repoCase_) {
+        case 3:
+          if (!getRepositoryId()
+              .equals(other.getRepositoryId())) return false;
+          break;
+        case 4:
+          if (!getRepository()
+              .equals(other.getRepository())) return false;
+          break;
+        case 0:
+        default:
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -335,80 +461,90 @@ public final class MavenProtos {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
-      hash = (37 * hash) + REPOSITORY_FIELD_NUMBER;
-      hash = (53 * hash) + getRepository().hashCode();
       if (hasArtifact()) {
         hash = (37 * hash) + ARTIFACT_FIELD_NUMBER;
         hash = (53 * hash) + getArtifact().hashCode();
+      }
+      switch (repoCase_) {
+        case 3:
+          hash = (37 * hash) + REPOSITORYID_FIELD_NUMBER;
+          hash = (53 * hash) + getRepositoryId().hashCode();
+          break;
+        case 4:
+          hash = (37 * hash) + REPOSITORY_FIELD_NUMBER;
+          hash = (53 * hash) + getRepository().hashCode();
+          break;
+        case 0:
+        default:
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parseFrom(
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parseFrom(
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parseFrom(
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parseFrom(
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parseFrom(byte[] data)
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parseFrom(
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parseFrom(java.io.InputStream input)
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parseFrom(
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parseDelimitedFrom(java.io.InputStream input)
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parseDelimitedFrom(
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parseFrom(
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parseFrom(
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -421,7 +557,7 @@ public final class MavenProtos {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource prototype) {
+    public static Builder newBuilder(net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -437,26 +573,26 @@ public final class MavenProtos {
       return builder;
     }
     /**
-     * Protobuf type {@code maven.MavenRepositorySource}
+     * Protobuf type {@code maven.MavenDeploySource}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:maven.MavenRepositorySource)
-        net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySourceOrBuilder {
+        // @@protoc_insertion_point(builder_implements:maven.MavenDeploySource)
+        net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySourceOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return net.ollie.bus.deploy.maven.MavenProtos.internal_static_maven_MavenRepositorySource_descriptor;
+        return net.ollie.bus.deploy.maven.MavenProtos.internal_static_maven_MavenDeploySource_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return net.ollie.bus.deploy.maven.MavenProtos.internal_static_maven_MavenRepositorySource_fieldAccessorTable
+        return net.ollie.bus.deploy.maven.MavenProtos.internal_static_maven_MavenDeploySource_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource.class, net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource.Builder.class);
+                net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource.class, net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource.Builder.class);
       }
 
-      // Construct using net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource.newBuilder()
+      // Construct using net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -476,31 +612,31 @@ public final class MavenProtos {
         super.clear();
         id_ = "";
 
-        repository_ = "";
-
         if (artifactBuilder_ == null) {
           artifact_ = null;
         } else {
           artifact_ = null;
           artifactBuilder_ = null;
         }
+        repoCase_ = 0;
+        repo_ = null;
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return net.ollie.bus.deploy.maven.MavenProtos.internal_static_maven_MavenRepositorySource_descriptor;
+        return net.ollie.bus.deploy.maven.MavenProtos.internal_static_maven_MavenDeploySource_descriptor;
       }
 
       @java.lang.Override
-      public net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource getDefaultInstanceForType() {
-        return net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource.getDefaultInstance();
+      public net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource getDefaultInstanceForType() {
+        return net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource.getDefaultInstance();
       }
 
       @java.lang.Override
-      public net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource build() {
-        net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource result = buildPartial();
+      public net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource build() {
+        net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -508,15 +644,25 @@ public final class MavenProtos {
       }
 
       @java.lang.Override
-      public net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource buildPartial() {
-        net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource result = new net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource(this);
+      public net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource buildPartial() {
+        net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource result = new net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource(this);
         result.id_ = id_;
-        result.repository_ = repository_;
         if (artifactBuilder_ == null) {
           result.artifact_ = artifact_;
         } else {
           result.artifact_ = artifactBuilder_.build();
         }
+        if (repoCase_ == 3) {
+          result.repo_ = repo_;
+        }
+        if (repoCase_ == 4) {
+          if (repositoryBuilder_ == null) {
+            result.repo_ = repo_;
+          } else {
+            result.repo_ = repositoryBuilder_.build();
+          }
+        }
+        result.repoCase_ = repoCase_;
         onBuilt();
         return result;
       }
@@ -555,26 +701,37 @@ public final class MavenProtos {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource) {
-          return mergeFrom((net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource)other);
+        if (other instanceof net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource) {
+          return mergeFrom((net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource other) {
-        if (other == net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource.getDefaultInstance()) return this;
+      public Builder mergeFrom(net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource other) {
+        if (other == net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
         }
-        if (!other.getRepository().isEmpty()) {
-          repository_ = other.repository_;
-          onChanged();
-        }
         if (other.hasArtifact()) {
           mergeArtifact(other.getArtifact());
+        }
+        switch (other.getRepoCase()) {
+          case REPOSITORYID: {
+            repoCase_ = 3;
+            repo_ = other.repo_;
+            onChanged();
+            break;
+          }
+          case REPOSITORY: {
+            mergeRepository(other.getRepository());
+            break;
+          }
+          case REPO_NOT_SET: {
+            break;
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -591,11 +748,11 @@ public final class MavenProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource parsedMessage = null;
+        net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource) e.getUnfinishedMessage();
+          parsedMessage = (net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -604,6 +761,21 @@ public final class MavenProtos {
         }
         return this;
       }
+      private int repoCase_ = 0;
+      private java.lang.Object repo_;
+      public RepoCase
+          getRepoCase() {
+        return RepoCase.forNumber(
+            repoCase_);
+      }
+
+      public Builder clearRepo() {
+        repoCase_ = 0;
+        repo_ = null;
+        onChanged();
+        return this;
+      }
+
 
       private java.lang.Object id_ = "";
       /**
@@ -681,94 +853,18 @@ public final class MavenProtos {
         return this;
       }
 
-      private java.lang.Object repository_ = "";
-      /**
-       * <code>string repository = 2;</code>
-       * @return The repository.
-       */
-      public java.lang.String getRepository() {
-        java.lang.Object ref = repository_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          repository_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string repository = 2;</code>
-       * @return The bytes for repository.
-       */
-      public com.google.protobuf.ByteString
-          getRepositoryBytes() {
-        java.lang.Object ref = repository_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          repository_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string repository = 2;</code>
-       * @param value The repository to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRepository(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        repository_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string repository = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRepository() {
-        
-        repository_ = getDefaultInstance().getRepository();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string repository = 2;</code>
-       * @param value The bytes for repository to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRepositoryBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        repository_ = value;
-        onChanged();
-        return this;
-      }
-
       private net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact artifact_;
       private com.google.protobuf.SingleFieldBuilderV3<
           net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact, net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact.Builder, net.ollie.bus.deploy.maven.MavenProtos.MavenArtifactOrBuilder> artifactBuilder_;
       /**
-       * <code>.maven.MavenArtifact artifact = 3;</code>
+       * <code>.maven.MavenArtifact artifact = 2;</code>
        * @return Whether the artifact field is set.
        */
       public boolean hasArtifact() {
         return artifactBuilder_ != null || artifact_ != null;
       }
       /**
-       * <code>.maven.MavenArtifact artifact = 3;</code>
+       * <code>.maven.MavenArtifact artifact = 2;</code>
        * @return The artifact.
        */
       public net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact getArtifact() {
@@ -779,7 +875,7 @@ public final class MavenProtos {
         }
       }
       /**
-       * <code>.maven.MavenArtifact artifact = 3;</code>
+       * <code>.maven.MavenArtifact artifact = 2;</code>
        */
       public Builder setArtifact(net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact value) {
         if (artifactBuilder_ == null) {
@@ -795,7 +891,7 @@ public final class MavenProtos {
         return this;
       }
       /**
-       * <code>.maven.MavenArtifact artifact = 3;</code>
+       * <code>.maven.MavenArtifact artifact = 2;</code>
        */
       public Builder setArtifact(
           net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact.Builder builderForValue) {
@@ -809,7 +905,7 @@ public final class MavenProtos {
         return this;
       }
       /**
-       * <code>.maven.MavenArtifact artifact = 3;</code>
+       * <code>.maven.MavenArtifact artifact = 2;</code>
        */
       public Builder mergeArtifact(net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact value) {
         if (artifactBuilder_ == null) {
@@ -827,7 +923,7 @@ public final class MavenProtos {
         return this;
       }
       /**
-       * <code>.maven.MavenArtifact artifact = 3;</code>
+       * <code>.maven.MavenArtifact artifact = 2;</code>
        */
       public Builder clearArtifact() {
         if (artifactBuilder_ == null) {
@@ -841,7 +937,7 @@ public final class MavenProtos {
         return this;
       }
       /**
-       * <code>.maven.MavenArtifact artifact = 3;</code>
+       * <code>.maven.MavenArtifact artifact = 2;</code>
        */
       public net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact.Builder getArtifactBuilder() {
         
@@ -849,7 +945,7 @@ public final class MavenProtos {
         return getArtifactFieldBuilder().getBuilder();
       }
       /**
-       * <code>.maven.MavenArtifact artifact = 3;</code>
+       * <code>.maven.MavenArtifact artifact = 2;</code>
        */
       public net.ollie.bus.deploy.maven.MavenProtos.MavenArtifactOrBuilder getArtifactOrBuilder() {
         if (artifactBuilder_ != null) {
@@ -860,7 +956,7 @@ public final class MavenProtos {
         }
       }
       /**
-       * <code>.maven.MavenArtifact artifact = 3;</code>
+       * <code>.maven.MavenArtifact artifact = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact, net.ollie.bus.deploy.maven.MavenProtos.MavenArtifact.Builder, net.ollie.bus.deploy.maven.MavenProtos.MavenArtifactOrBuilder> 
@@ -875,6 +971,231 @@ public final class MavenProtos {
         }
         return artifactBuilder_;
       }
+
+      /**
+       * <code>string repositoryId = 3;</code>
+       * @return The repositoryId.
+       */
+      public java.lang.String getRepositoryId() {
+        java.lang.Object ref = "";
+        if (repoCase_ == 3) {
+          ref = repo_;
+        }
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (repoCase_ == 3) {
+            repo_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string repositoryId = 3;</code>
+       * @return The bytes for repositoryId.
+       */
+      public com.google.protobuf.ByteString
+          getRepositoryIdBytes() {
+        java.lang.Object ref = "";
+        if (repoCase_ == 3) {
+          ref = repo_;
+        }
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          if (repoCase_ == 3) {
+            repo_ = b;
+          }
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string repositoryId = 3;</code>
+       * @param value The repositoryId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRepositoryId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  repoCase_ = 3;
+        repo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string repositoryId = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRepositoryId() {
+        if (repoCase_ == 3) {
+          repoCase_ = 0;
+          repo_ = null;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>string repositoryId = 3;</code>
+       * @param value The bytes for repositoryId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRepositoryIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        repoCase_ = 3;
+        repo_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          net.ollie.bus.deploy.maven.MavenProtos.MavenRepository, net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.Builder, net.ollie.bus.deploy.maven.MavenProtos.MavenRepositoryOrBuilder> repositoryBuilder_;
+      /**
+       * <code>.maven.MavenRepository repository = 4;</code>
+       * @return Whether the repository field is set.
+       */
+      public boolean hasRepository() {
+        return repoCase_ == 4;
+      }
+      /**
+       * <code>.maven.MavenRepository repository = 4;</code>
+       * @return The repository.
+       */
+      public net.ollie.bus.deploy.maven.MavenProtos.MavenRepository getRepository() {
+        if (repositoryBuilder_ == null) {
+          if (repoCase_ == 4) {
+            return (net.ollie.bus.deploy.maven.MavenProtos.MavenRepository) repo_;
+          }
+          return net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.getDefaultInstance();
+        } else {
+          if (repoCase_ == 4) {
+            return repositoryBuilder_.getMessage();
+          }
+          return net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.maven.MavenRepository repository = 4;</code>
+       */
+      public Builder setRepository(net.ollie.bus.deploy.maven.MavenProtos.MavenRepository value) {
+        if (repositoryBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          repo_ = value;
+          onChanged();
+        } else {
+          repositoryBuilder_.setMessage(value);
+        }
+        repoCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.maven.MavenRepository repository = 4;</code>
+       */
+      public Builder setRepository(
+          net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.Builder builderForValue) {
+        if (repositoryBuilder_ == null) {
+          repo_ = builderForValue.build();
+          onChanged();
+        } else {
+          repositoryBuilder_.setMessage(builderForValue.build());
+        }
+        repoCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.maven.MavenRepository repository = 4;</code>
+       */
+      public Builder mergeRepository(net.ollie.bus.deploy.maven.MavenProtos.MavenRepository value) {
+        if (repositoryBuilder_ == null) {
+          if (repoCase_ == 4 &&
+              repo_ != net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.getDefaultInstance()) {
+            repo_ = net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.newBuilder((net.ollie.bus.deploy.maven.MavenProtos.MavenRepository) repo_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            repo_ = value;
+          }
+          onChanged();
+        } else {
+          if (repoCase_ == 4) {
+            repositoryBuilder_.mergeFrom(value);
+          }
+          repositoryBuilder_.setMessage(value);
+        }
+        repoCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.maven.MavenRepository repository = 4;</code>
+       */
+      public Builder clearRepository() {
+        if (repositoryBuilder_ == null) {
+          if (repoCase_ == 4) {
+            repoCase_ = 0;
+            repo_ = null;
+            onChanged();
+          }
+        } else {
+          if (repoCase_ == 4) {
+            repoCase_ = 0;
+            repo_ = null;
+          }
+          repositoryBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.maven.MavenRepository repository = 4;</code>
+       */
+      public net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.Builder getRepositoryBuilder() {
+        return getRepositoryFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.maven.MavenRepository repository = 4;</code>
+       */
+      public net.ollie.bus.deploy.maven.MavenProtos.MavenRepositoryOrBuilder getRepositoryOrBuilder() {
+        if ((repoCase_ == 4) && (repositoryBuilder_ != null)) {
+          return repositoryBuilder_.getMessageOrBuilder();
+        } else {
+          if (repoCase_ == 4) {
+            return (net.ollie.bus.deploy.maven.MavenProtos.MavenRepository) repo_;
+          }
+          return net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.maven.MavenRepository repository = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          net.ollie.bus.deploy.maven.MavenProtos.MavenRepository, net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.Builder, net.ollie.bus.deploy.maven.MavenProtos.MavenRepositoryOrBuilder> 
+          getRepositoryFieldBuilder() {
+        if (repositoryBuilder_ == null) {
+          if (!(repoCase_ == 4)) {
+            repo_ = net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.getDefaultInstance();
+          }
+          repositoryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              net.ollie.bus.deploy.maven.MavenProtos.MavenRepository, net.ollie.bus.deploy.maven.MavenProtos.MavenRepository.Builder, net.ollie.bus.deploy.maven.MavenProtos.MavenRepositoryOrBuilder>(
+                  (net.ollie.bus.deploy.maven.MavenProtos.MavenRepository) repo_,
+                  getParentForChildren(),
+                  isClean());
+          repo_ = null;
+        }
+        repoCase_ = 4;
+        onChanged();;
+        return repositoryBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -888,41 +1209,41 @@ public final class MavenProtos {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:maven.MavenRepositorySource)
+      // @@protoc_insertion_point(builder_scope:maven.MavenDeploySource)
     }
 
-    // @@protoc_insertion_point(class_scope:maven.MavenRepositorySource)
-    private static final net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:maven.MavenDeploySource)
+    private static final net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource();
+      DEFAULT_INSTANCE = new net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource();
     }
 
-    public static net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource getDefaultInstance() {
+    public static net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<MavenRepositorySource>
-        PARSER = new com.google.protobuf.AbstractParser<MavenRepositorySource>() {
+    private static final com.google.protobuf.Parser<MavenDeploySource>
+        PARSER = new com.google.protobuf.AbstractParser<MavenDeploySource>() {
       @java.lang.Override
-      public MavenRepositorySource parsePartialFrom(
+      public MavenDeploySource parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MavenRepositorySource(input, extensionRegistry);
+        return new MavenDeploySource(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<MavenRepositorySource> parser() {
+    public static com.google.protobuf.Parser<MavenDeploySource> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<MavenRepositorySource> getParserForType() {
+    public com.google.protobuf.Parser<MavenDeploySource> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public net.ollie.bus.deploy.maven.MavenProtos.MavenRepositorySource getDefaultInstanceForType() {
+    public net.ollie.bus.deploy.maven.MavenProtos.MavenDeploySource getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4666,10 +4987,10 @@ public final class MavenProtos {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_maven_MavenRepositorySource_descriptor;
+    internal_static_maven_MavenDeploySource_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_maven_MavenRepositorySource_fieldAccessorTable;
+      internal_static_maven_MavenDeploySource_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_maven_MavenRepository_descriptor;
   private static final 
@@ -4699,30 +5020,32 @@ public final class MavenProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013maven.proto\022\005maven\"_\n\025MavenRepositoryS" +
-      "ource\022\n\n\002id\030\001 \001(\t\022\022\n\nrepository\030\002 \001(\t\022&\n" +
-      "\010artifact\030\003 \001(\0132\024.maven.MavenArtifact\"\217\001" +
-      "\n\017MavenRepository\022\n\n\002id\030\001 \001(\t\022\017\n\007version" +
-      "\030\002 \001(\005\022)\n\006nexus3\030\n \001(\0132\027.maven.Nexus3Rep" +
-      "ositoryH\000\022&\n\007central\030\013 \001(\0132\023.maven.Maven" +
-      "CentralH\000B\014\n\ndefinition\"C\n\020Nexus3Reposit" +
-      "ory\022\013\n\003url\030\001 \001(\t\022\020\n\010username\030\002 \001(\t\022\020\n\010pa" +
-      "ssword\030\003 \001(\t\"\033\n\014MavenCentral\022\013\n\003url\030\001 \001(" +
-      "\t\"g\n\rMavenArtifact\022\017\n\007groupId\030\001 \001(\t\022\022\n\na" +
-      "rtifactId\030\002 \001(\t\022\017\n\007version\030\003 \001(\t\022\022\n\nclas" +
-      "sifier\030\004 \001(\t\022\014\n\004type\030\005 \001(\tB)\n\032net.ollie." +
-      "bus.deploy.mavenB\013MavenProtosb\006proto3"
+      "\n\013maven.proto\022\005maven\"\225\001\n\021MavenDeploySour" +
+      "ce\022\n\n\002id\030\001 \001(\t\022&\n\010artifact\030\002 \001(\0132\024.maven" +
+      ".MavenArtifact\022\026\n\014repositoryId\030\003 \001(\tH\000\022," +
+      "\n\nrepository\030\004 \001(\0132\026.maven.MavenReposito" +
+      "ryH\000B\006\n\004repo\"\217\001\n\017MavenRepository\022\n\n\002id\030\001" +
+      " \001(\t\022\017\n\007version\030\002 \001(\005\022)\n\006nexus3\030\n \001(\0132\027." +
+      "maven.Nexus3RepositoryH\000\022&\n\007central\030\013 \001(" +
+      "\0132\023.maven.MavenCentralH\000B\014\n\ndefinition\"C" +
+      "\n\020Nexus3Repository\022\013\n\003url\030\001 \001(\t\022\020\n\010usern" +
+      "ame\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\"\033\n\014MavenCent" +
+      "ral\022\013\n\003url\030\001 \001(\t\"g\n\rMavenArtifact\022\017\n\007gro" +
+      "upId\030\001 \001(\t\022\022\n\nartifactId\030\002 \001(\t\022\017\n\007versio" +
+      "n\030\003 \001(\t\022\022\n\nclassifier\030\004 \001(\t\022\014\n\004type\030\005 \001(" +
+      "\tB)\n\032net.ollie.bus.deploy.mavenB\013MavenPr" +
+      "otosb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_maven_MavenRepositorySource_descriptor =
+    internal_static_maven_MavenDeploySource_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_maven_MavenRepositorySource_fieldAccessorTable = new
+    internal_static_maven_MavenDeploySource_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_maven_MavenRepositorySource_descriptor,
-        new java.lang.String[] { "Id", "Repository", "Artifact", });
+        internal_static_maven_MavenDeploySource_descriptor,
+        new java.lang.String[] { "Id", "Artifact", "RepositoryId", "Repository", "Repo", });
     internal_static_maven_MavenRepository_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_maven_MavenRepository_fieldAccessorTable = new
