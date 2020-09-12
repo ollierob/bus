@@ -45,17 +45,22 @@ class GitlabBuildProgress implements BuildProgress {
     }
 
     private boolean isDone(final Supplier<GitlabPipelineStatus> poll) {
-        latestStatus = poll.get();
-        logger.debug("Latest status: {}", latestStatus);
-        if (latestStatus.isFailed()) {
-            future.completeExceptionally(failureReason(latestStatus));
+        try {
+            latestStatus = poll.get();
+            logger.debug("Latest status: {}", latestStatus);
+            if (latestStatus.isFailed()) {
+                future.completeExceptionally(failureReason(latestStatus));
+                return true;
+            }
+            if (latestStatus.isSuccess()) {
+                future.complete(null);
+                return true;
+            }
+            return false;
+        } catch (final Exception ex) {
+            future.completeExceptionally(ex);
             return true;
         }
-        if (latestStatus.isSuccess()) {
-            future.complete(null);
-            return true;
-        }
-        return false;
     }
 
     @Override
