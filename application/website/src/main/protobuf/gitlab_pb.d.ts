@@ -49,6 +49,9 @@ export class GitlabProject extends jspb.Message {
   getToken(): string;
   setToken(value: string): void;
 
+  getUrl(): string;
+  setUrl(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GitlabProject.AsObject;
   static toObject(includeInstance: boolean, msg: GitlabProject): GitlabProject.AsObject;
@@ -65,6 +68,7 @@ export namespace GitlabProject {
     name: string,
     ref: string,
     token: string,
+    url: string,
   }
 }
 

@@ -13,21 +13,4 @@ public interface GetProgress extends DeploymentProgress {
     @Override
     CompletableFuture<? extends DeploymentFiles> future();
 
-    static GetProgress failed(final Exception cause) {
-        return new GetProgress() {
-
-            @Override
-            public CompletableFuture<? extends DeploymentFiles> future() {
-                final var future = new CompletableFuture<DeploymentFiles>();
-                future.completeExceptionally(cause);
-                return future;
-            }
-
-            @Override
-            public int progress() {
-                return 0;
-            }
-        };
-    }
-
 }

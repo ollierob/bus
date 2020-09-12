@@ -8,10 +8,13 @@ option java_outer_classname = "JenkinsProtos";
 message JenkinsBuildSource {
 
     string id = 1;
-    JenkinsProject project = 2;
+    string jobId = 2;
 
 }
 
-message JenkinsProject {
+message JenkinsJob {
+
+    string id = 1;
+    string name = 2;
 
 }

@@ -7,10 +7,8 @@ export class JenkinsBuildSource extends jspb.Message {
   getId(): string;
   setId(value: string): void;
 
-  hasProject(): boolean;
-  clearProject(): void;
-  getProject(): JenkinsProject | undefined;
-  setProject(value?: JenkinsProject): void;
+  getJobid(): string;
+  setJobid(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): JenkinsBuildSource.AsObject;
@@ -25,23 +23,31 @@ export class JenkinsBuildSource extends jspb.Message {
 export namespace JenkinsBuildSource {
   export type AsObject = {
     id: string,
-    project?: JenkinsProject.AsObject,
+    jobid: string,
   }
 }
 
-export class JenkinsProject extends jspb.Message {
+export class JenkinsJob extends jspb.Message {
+  getId(): string;
+  setId(value: string): void;
+
+  getName(): string;
+  setName(value: string): void;
+
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): JenkinsProject.AsObject;
-  static toObject(includeInstance: boolean, msg: JenkinsProject): JenkinsProject.AsObject;
+  toObject(includeInstance?: boolean): JenkinsJob.AsObject;
+  static toObject(includeInstance: boolean, msg: JenkinsJob): JenkinsJob.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: JenkinsProject, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): JenkinsProject;
-  static deserializeBinaryFromReader(message: JenkinsProject, reader: jspb.BinaryReader): JenkinsProject;
+  static serializeBinaryToWriter(message: JenkinsJob, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): JenkinsJob;
+  static deserializeBinaryFromReader(message: JenkinsJob, reader: jspb.BinaryReader): JenkinsJob;
 }
 
-export namespace JenkinsProject {
+export namespace JenkinsJob {
   export type AsObject = {
+    id: string,
+    name: string,
   }
 }
 

@@ -21,5 +21,6 @@ message GitlabProject {
     string name = 2;
     string ref = 3;
     string token = 4;
+    string url = 5;
 
 }

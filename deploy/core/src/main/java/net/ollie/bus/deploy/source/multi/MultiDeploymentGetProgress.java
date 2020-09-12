@@ -15,17 +15,12 @@ class MultiDeploymentGetProgress implements GetProgress {
     }
 
     @Override
-    public int progress() {
-        return progress.stream().mapToInt(GetProgress::progress).sum() / progress.size();
-    }
-
-    @Override
     public CompletableFuture<? extends DeploymentFiles> future() {
-        var future = CompletableFuture.completedFuture(DeploymentFiles.EMPTY);
-        for (final var p : progress) {
-            future = future.thenCombine(p.future(), DeploymentFiles::and);
-        }
-        return future;
+        //FIXME simplify
+        return progress.stream().reduce(
+                CompletableFuture.completedFuture(DeploymentFiles.EMPTY),
+                (f, p) -> (CompletableFuture<DeploymentFiles>) p.future(),
+                (f1, f2) -> f1.thenCombine(f2, DeploymentFiles::and));
     }
 
 }

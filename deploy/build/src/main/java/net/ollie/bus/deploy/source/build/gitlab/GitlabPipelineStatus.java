@@ -61,4 +61,12 @@ public class GitlabPipelineStatus {
         return status;
     }
 
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName()
+                + "[id:" + id
+                + ";status:" + status
+                + ']';
+    }
+
 }
