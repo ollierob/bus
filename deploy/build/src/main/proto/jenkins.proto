@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package maven;
+
+option java_package = "net.ollie.bus.deploy.build";
+option java_outer_classname = "JenkinsProtos";
+
+message JenkinsBuildSource {
+
+    string id = 1;
+    JenkinsProject project = 2;
+
+}
+
+message JenkinsProject {
+
+}

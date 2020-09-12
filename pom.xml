@@ -97,6 +97,7 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
+                            <addProtoSources>all</addProtoSources>
                             <includeMavenTypes>direct</includeMavenTypes>
                             <inputDirectories>
                                 <include>src/main/proto</include>

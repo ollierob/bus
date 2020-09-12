@@ -3,39 +3,33 @@
 
 import * as jspb from "google-protobuf";
 
-export class MavenArtifact extends jspb.Message {
-  getGroupid(): string;
-  setGroupid(value: string): void;
+export class MavenRepositorySource extends jspb.Message {
+  getId(): string;
+  setId(value: string): void;
 
-  getArtifactid(): string;
-  setArtifactid(value: string): void;
+  getRepository(): string;
+  setRepository(value: string): void;
 
-  getVersion(): string;
-  setVersion(value: string): void;
-
-  getClassifier(): string;
-  setClassifier(value: string): void;
-
-  getType(): string;
-  setType(value: string): void;
+  hasArtifact(): boolean;
+  clearArtifact(): void;
+  getArtifact(): MavenArtifact | undefined;
+  setArtifact(value?: MavenArtifact): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): MavenArtifact.AsObject;
-  static toObject(includeInstance: boolean, msg: MavenArtifact): MavenArtifact.AsObject;
+  toObject(includeInstance?: boolean): MavenRepositorySource.AsObject;
+  static toObject(includeInstance: boolean, msg: MavenRepositorySource): MavenRepositorySource.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: MavenArtifact, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): MavenArtifact;
-  static deserializeBinaryFromReader(message: MavenArtifact, reader: jspb.BinaryReader): MavenArtifact;
+  static serializeBinaryToWriter(message: MavenRepositorySource, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MavenRepositorySource;
+  static deserializeBinaryFromReader(message: MavenRepositorySource, reader: jspb.BinaryReader): MavenRepositorySource;
 }
 
-export namespace MavenArtifact {
+export namespace MavenRepositorySource {
   export type AsObject = {
-    groupid: string,
-    artifactid: string,
-    version: string,
-    classifier: string,
-    type: string,
+    id: string,
+    repository: string,
+    artifact?: MavenArtifact.AsObject,
   }
 }
 
@@ -127,6 +121,42 @@ export class MavenCentral extends jspb.Message {
 export namespace MavenCentral {
   export type AsObject = {
     url: string,
+  }
+}
+
+export class MavenArtifact extends jspb.Message {
+  getGroupid(): string;
+  setGroupid(value: string): void;
+
+  getArtifactid(): string;
+  setArtifactid(value: string): void;
+
+  getVersion(): string;
+  setVersion(value: string): void;
+
+  getClassifier(): string;
+  setClassifier(value: string): void;
+
+  getType(): string;
+  setType(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MavenArtifact.AsObject;
+  static toObject(includeInstance: boolean, msg: MavenArtifact): MavenArtifact.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MavenArtifact, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MavenArtifact;
+  static deserializeBinaryFromReader(message: MavenArtifact, reader: jspb.BinaryReader): MavenArtifact;
+}
+
+export namespace MavenArtifact {
+  export type AsObject = {
+    groupid: string,
+    artifactid: string,
+    version: string,
+    classifier: string,
+    type: string,
   }
 }
 
