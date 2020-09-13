@@ -1,3 +1,5 @@
+const Chunks2JsonPlugin = require('chunks-2-json-webpack-plugin');
+
 module.exports = {
     entry: {
         deploy: ["./src/main/js/deploy/DeployRouter.tsx"]
@@ -32,5 +34,8 @@ module.exports = {
                 }
             }
         }
-    }
+    },
+    plugins: [
+        new Chunks2JsonPlugin({outputDir: 'target/classes/js/'}) //Outputs manifest
+    ]
 }
