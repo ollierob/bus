@@ -1,4 +1,4 @@
-package net.ollie.bus.process;
+package net.ollie.bus.resource;
 
 import com.google.inject.AbstractModule;
 

@@ -1,7 +1,7 @@
 package net.ollie.bus.deploy.source.maven;
 
 import net.ollie.bus.deploy.source.maven.provider.MavenDeploymentSourceProvider;
-import net.ollie.bus.process.AbstractResource;
+import net.ollie.bus.resource.AbstractResource;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

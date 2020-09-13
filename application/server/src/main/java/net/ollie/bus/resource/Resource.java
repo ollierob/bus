@@ -1,4 +1,4 @@
-package net.ollie.bus;
+package net.ollie.bus.resource;
 
 import net.ollie.protobuf.jaxrs.ProtobufMediaType;
 

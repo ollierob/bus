@@ -1,4 +1,4 @@
-package net.ollie.bus.process;
+package net.ollie.bus.resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -2,7 +2,7 @@ package net.ollie.bus.deploy.repository.maven;
 
 import net.ollie.bus.deploy.maven.MavenProtos;
 import net.ollie.bus.deploy.repository.maven.provider.MavenRepositoryProvider;
-import net.ollie.bus.process.AbstractResource;
+import net.ollie.bus.resource.AbstractResource;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

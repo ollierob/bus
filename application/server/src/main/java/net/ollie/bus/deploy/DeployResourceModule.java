@@ -4,7 +4,7 @@ import com.google.inject.AbstractModule;
 import net.ollie.bus.deploy.repository.RepositoryModule;
 import net.ollie.bus.deploy.source.DeploymentSourceModule;
 
-public class DeployModule extends AbstractModule {
+public class DeployResourceModule extends AbstractModule {
 
     @Override
     protected void configure() {
