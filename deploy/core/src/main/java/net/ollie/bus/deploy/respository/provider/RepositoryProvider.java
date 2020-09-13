@@ -1,4 +1,6 @@
-package net.ollie.bus.deploy.respository;
+package net.ollie.bus.deploy.respository.provider;
+
+import net.ollie.bus.deploy.respository.Repository;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;

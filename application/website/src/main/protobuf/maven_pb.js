@@ -27,7 +27,7 @@ goog.exportSymbol('proto.maven.Nexus3Repository', null, global);
  * @constructor
  */
 proto.maven.MavenDeploySource = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.maven.MavenDeploySource.oneofGroups_);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.maven.MavenDeploySource, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -122,32 +122,6 @@ if (goog.DEBUG && !COMPILED) {
   proto.maven.MavenArtifact.displayName = 'proto.maven.MavenArtifact';
 }
 
-/**
- * Oneof group definitions for this message. Each group defines the field
- * numbers belonging to that group. When of these fields' value is set, all
- * other fields in the group are cleared. During deserialization, if multiple
- * fields are encountered for a group, only the last value seen will be kept.
- * @private {!Array<!Array<number>>}
- * @const
- */
-proto.maven.MavenDeploySource.oneofGroups_ = [[3,4]];
-
-/**
- * @enum {number}
- */
-proto.maven.MavenDeploySource.RepoCase = {
-  REPO_NOT_SET: 0,
-  REPOSITORYID: 3,
-  REPOSITORY: 4
-};
-
-/**
- * @return {proto.maven.MavenDeploySource.RepoCase}
- */
-proto.maven.MavenDeploySource.prototype.getRepoCase = function() {
-  return /** @type {proto.maven.MavenDeploySource.RepoCase} */(jspb.Message.computeOneofCase(this, proto.maven.MavenDeploySource.oneofGroups_[0]));
-};
-
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -181,7 +155,6 @@ proto.maven.MavenDeploySource.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     artifact: (f = msg.getArtifact()) && proto.maven.MavenArtifact.toObject(includeInstance, f),
-    repositoryid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     repository: (f = msg.getRepository()) && proto.maven.MavenRepository.toObject(includeInstance, f)
   };
 
@@ -229,10 +202,6 @@ proto.maven.MavenDeploySource.deserializeBinaryFromReader = function(msg, reader
       msg.setArtifact(value);
       break;
     case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setRepositoryid(value);
-      break;
-    case 4:
       var value = new proto.maven.MavenRepository;
       reader.readMessage(value,proto.maven.MavenRepository.deserializeBinaryFromReader);
       msg.setRepository(value);
@@ -281,17 +250,10 @@ proto.maven.MavenDeploySource.serializeBinaryToWriter = function(message, writer
       proto.maven.MavenArtifact.serializeBinaryToWriter
     );
   }
-  f = /** @type {string} */ (jspb.Message.getField(message, 3));
-  if (f != null) {
-    writer.writeString(
-      3,
-      f
-    );
-  }
   f = message.getRepository();
   if (f != null) {
     writer.writeMessage(
-      4,
+      3,
       f,
       proto.maven.MavenRepository.serializeBinaryToWriter
     );
@@ -348,50 +310,18 @@ proto.maven.MavenDeploySource.prototype.hasArtifact = function() {
 
 
 /**
- * optional string repositoryId = 3;
- * @return {string}
- */
-proto.maven.MavenDeploySource.prototype.getRepositoryid = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/** @param {string} value */
-proto.maven.MavenDeploySource.prototype.setRepositoryid = function(value) {
-  jspb.Message.setOneofField(this, 3, proto.maven.MavenDeploySource.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the field making it undefined.
- */
-proto.maven.MavenDeploySource.prototype.clearRepositoryid = function() {
-  jspb.Message.setOneofField(this, 3, proto.maven.MavenDeploySource.oneofGroups_[0], undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.maven.MavenDeploySource.prototype.hasRepositoryid = function() {
-  return jspb.Message.getField(this, 3) != null;
-};
-
-
-/**
- * optional MavenRepository repository = 4;
+ * optional MavenRepository repository = 3;
  * @return {?proto.maven.MavenRepository}
  */
 proto.maven.MavenDeploySource.prototype.getRepository = function() {
   return /** @type{?proto.maven.MavenRepository} */ (
-    jspb.Message.getWrapperField(this, proto.maven.MavenRepository, 4));
+    jspb.Message.getWrapperField(this, proto.maven.MavenRepository, 3));
 };
 
 
 /** @param {?proto.maven.MavenRepository|undefined} value */
 proto.maven.MavenDeploySource.prototype.setRepository = function(value) {
-  jspb.Message.setOneofWrapperField(this, 4, proto.maven.MavenDeploySource.oneofGroups_[0], value);
+  jspb.Message.setWrapperField(this, 3, value);
 };
 
 
@@ -408,7 +338,7 @@ proto.maven.MavenDeploySource.prototype.clearRepository = function() {
  * @return {boolean}
  */
 proto.maven.MavenDeploySource.prototype.hasRepository = function() {
-  return jspb.Message.getField(this, 4) != null;
+  return jspb.Message.getField(this, 3) != null;
 };
 
 

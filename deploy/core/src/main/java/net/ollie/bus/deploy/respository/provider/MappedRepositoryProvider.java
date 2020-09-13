@@ -1,6 +1,7 @@
-package net.ollie.bus.deploy.respository;
+package net.ollie.bus.deploy.respository.provider;
 
 import com.google.common.collect.Maps;
+import net.ollie.bus.deploy.respository.Repository;
 
 import java.util.Collections;
 import java.util.Map;

@@ -9,11 +9,7 @@ message MavenDeploySource {
 
     string id = 1;
     MavenArtifact artifact = 2;
-
-    oneof repo {
-        string repositoryId = 3;
-        MavenRepository repository = 4;
-    }
+    MavenRepository repository = 3;
 
 }
 

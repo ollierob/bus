@@ -1,6 +1,6 @@
 package net.ollie.bus.deploy.source.maven;
 
-public interface MavenDeploySourceHandler<R> {
+public interface MavenDeploymentSourceHandler<R> {
 
     R handle(MavenDeploymentSource source);
 

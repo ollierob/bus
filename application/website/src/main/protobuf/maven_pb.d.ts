@@ -12,17 +12,11 @@ export class MavenDeploySource extends jspb.Message {
   getArtifact(): MavenArtifact | undefined;
   setArtifact(value?: MavenArtifact): void;
 
-  hasRepositoryid(): boolean;
-  clearRepositoryid(): void;
-  getRepositoryid(): string;
-  setRepositoryid(value: string): void;
-
   hasRepository(): boolean;
   clearRepository(): void;
   getRepository(): MavenRepository | undefined;
   setRepository(value?: MavenRepository): void;
 
-  getRepoCase(): MavenDeploySource.RepoCase;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MavenDeploySource.AsObject;
   static toObject(includeInstance: boolean, msg: MavenDeploySource): MavenDeploySource.AsObject;
@@ -37,14 +31,7 @@ export namespace MavenDeploySource {
   export type AsObject = {
     id: string,
     artifact?: MavenArtifact.AsObject,
-    repositoryid: string,
     repository?: MavenRepository.AsObject,
-  }
-
-  export enum RepoCase {
-    REPO_NOT_SET = 0,
-    REPOSITORYID = 3,
-    REPOSITORY = 4,
   }
 }
 

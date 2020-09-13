@@ -2,7 +2,7 @@ package net.ollie.bus.deploy.repository.maven.provider;
 
 import net.ollie.bus.deploy.maven.MavenProtos;
 import net.ollie.bus.deploy.repository.maven.MavenRepository;
-import net.ollie.bus.deploy.respository.RepositoryProvider;
+import net.ollie.bus.deploy.respository.provider.RepositoryProvider;
 
 import javax.annotation.Nonnull;
 
