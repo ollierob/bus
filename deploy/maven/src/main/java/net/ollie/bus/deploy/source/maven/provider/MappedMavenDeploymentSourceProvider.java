@@ -23,6 +23,7 @@ public class MappedMavenDeploymentSourceProvider
 
     @Override
     public MavenDeploymentSource fromProto(final MavenProtos.MavenDeploySource spec) {
+        if (!spec.hasRepository() || !spec.hasArtifact()) return this.require(spec.getId());
         return new MavenDeploymentSource(
                 spec.getId(),
                 repositoryProvider.fromProto(spec.getRepository()),

@@ -21,7 +21,9 @@ public class MappedMavenRepositoryProvider
 
     @Override
     public MavenRepository fromProto(final MavenProtos.MavenRepository spec) {
-        return repositoryBuilder.build(spec);
+        //Create from spec, else lookup
+        return repositoryBuilder.build(spec)
+                .orElseGet(() -> this.require(spec.getId()));
     }
 
 }

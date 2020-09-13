@@ -12,6 +12,13 @@ public interface RepositoryProvider<R extends Repository> {
     R get(String id);
 
     @Nonnull
+    default R require(final String id) {
+        final var got = this.get(id);
+        if (got == null) throw new IllegalArgumentException(id);
+        return got;
+    }
+
+    @Nonnull
     Map<String, R> getAll();
 
     @Nonnull

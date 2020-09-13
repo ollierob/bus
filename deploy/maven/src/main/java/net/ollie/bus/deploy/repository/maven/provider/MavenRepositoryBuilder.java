@@ -10,6 +10,7 @@ import net.ollie.bus.deploy.repository.maven.nexus3.Nexus3RepositoryResource;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.internal.BasicAuthentication;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class MavenRepositoryBuilder {
@@ -22,15 +23,12 @@ public class MavenRepositoryBuilder {
         this.client = client;
     }
 
-    public MavenRepository build(final MavenProtos.MavenRepository spec) {
-        switch (spec.getDefinitionCase()) {
-            case NEXUS3:
-                return new Nexus3Repository(spec, this.resource(spec.getNexus3()));
-            case CENTRAL:
-                return new MavenCentralRepository(spec, this.resource(spec.getCentral()));
-            default:
-                throw new UnsupportedOperationException();
-        }
+    public Optional<MavenRepository> build(final MavenProtos.MavenRepository spec) {
+        return switch (spec.getDefinitionCase()) {
+            case NEXUS3 -> Optional.of(new Nexus3Repository(spec, this.resource(spec.getNexus3())));
+            case CENTRAL -> Optional.of(new MavenCentralRepository(spec, this.resource(spec.getCentral())));
+            case DEFINITION_NOT_SET -> Optional.empty();
+        };
     }
 
     private Nexus3RepositoryResource resource(final MavenProtos.Nexus3Repository spec) {
