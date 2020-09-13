@@ -1,22 +1,13 @@
 package net.ollie.bus.deploy.respository.provider;
 
 import net.ollie.bus.deploy.respository.Repository;
+import net.ollie.bus.utils.provider.KeyValueProvider;
 
-import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import java.util.Map;
 
-public interface RepositoryProvider<R extends Repository> {
-
-    @CheckForNull
-    R get(String id);
-
-    @Nonnull
-    default R require(final String id) {
-        final var got = this.get(id);
-        if (got == null) throw new IllegalArgumentException(id);
-        return got;
-    }
+public interface RepositoryProvider<R extends Repository>
+        extends KeyValueProvider<String, R> {
 
     @Nonnull
     Map<String, R> getAll();
