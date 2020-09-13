@@ -8,7 +8,7 @@ import java.util.Map;
 public class MappedKeyValueProvider<K, V>
         implements KeyValueProvider<K, V> {
 
-    private final Map<K, V> map = Maps.newConcurrentMap();
+    final Map<K, V> map = Maps.newConcurrentMap();
 
     @Override
     public V get(final K key) {

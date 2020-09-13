@@ -5,7 +5,7 @@ import javax.annotation.Nonnull;
 public interface MutableValueProvider<K, V> extends KeyValueProvider<K, V> {
 
     @Nonnull
-    K keyFor(@Nonnull V value);
+    K key(@Nonnull V value);
 
     @Nonnull
     V put(@Nonnull V value);

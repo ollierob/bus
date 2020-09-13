@@ -1,12 +1,12 @@
 package net.ollie.bus.deploy.respository.provider;
 
 import net.ollie.bus.deploy.respository.Repository;
-import net.ollie.bus.utils.provider.MappedKeyValueProvider;
+import net.ollie.bus.utils.provider.MappedVersionedValueProvider;
 
 import java.util.Map;
 
 public class MappedRepositoryProvider<R extends Repository>
-        extends MappedKeyValueProvider<String, R>
+        extends MappedVersionedValueProvider<String, R>
         implements RepositoryProvider<R> {
 
     @Override
@@ -15,12 +15,13 @@ public class MappedRepositoryProvider<R extends Repository>
     }
 
     @Override
-    public R put(final R repository, final int expectedVersion) {
-        if (expectedVersion == 0) {
-            return this.putIfAbsent(repository.id(), repository);
-        } else {
-            throw new UnsupportedOperationException();
-        }
+    public String key(final R value) {
+        return value.id();
+    }
+
+    @Override
+    public int version(final R value) {
+        return value.version();
     }
 
 }
