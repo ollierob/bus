@@ -1,15 +1,9 @@
 package net.ollie.bus;
 
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import net.ollie.protobuf.jaxrs.ProtobufMediaType;
 
 public interface Resource {
 
-    String APPLICATION_PROTOBUF = "application/protobuf";
-    MediaType APPLICATION_PROTOBUF_TYPE = new MediaType("application", "protobuf");
-
-    static Response notFound() {
-        return Response.status(Response.Status.NOT_FOUND).build();
-    }
+    String APPLICATION_PROTOBUF = ProtobufMediaType.APPLICATION_PROTOBUF;
 
 }

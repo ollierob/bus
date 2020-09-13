@@ -1,4 +1,4 @@
-package net.ollie.bus.deploy.proto;
+package net.ollie.bus.deploy.source.proto;
 
 import net.olie.bus.deploy.DeploymentSourceHandler;
 import net.ollie.bus.deploy.DeployProto;
