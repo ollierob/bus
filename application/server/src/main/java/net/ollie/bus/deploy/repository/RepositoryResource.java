@@ -7,6 +7,7 @@ import javax.inject.Singleton;
 import javax.ws.rs.Path;
 
 @Singleton
+@Path("repository")
 public class RepositoryResource {
 
     private final MavenRepositoryResource maven;

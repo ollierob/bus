@@ -34,8 +34,16 @@ public abstract class AbstractResource implements Resource {
         }
     }
 
+    protected static Response ok() {
+        return Response.ok().build();
+    }
+
     protected static Response notFound() {
         return Response.status(404).build();
+    }
+
+    protected static Response conflict(final String reason) {
+        return Response.status(Response.Status.CONFLICT).entity(reason).build();
     }
 
     private static InputStream replace(final InputStream in, final Map<String, String> replacements) {

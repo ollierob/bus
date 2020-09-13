@@ -2,6 +2,7 @@ package net.ollie.bus.deploy.respository;
 
 import com.google.common.collect.Maps;
 
+import java.util.Collections;
 import java.util.Map;
 
 public class MappedRepositoryProvider<R extends Repository> implements RepositoryProvider<R> {
@@ -11,6 +12,11 @@ public class MappedRepositoryProvider<R extends Repository> implements Repositor
     @Override
     public R get(final String id) {
         return map.get(id);
+    }
+
+    @Override
+    public Map<String, R> getAll() {
+        return Collections.unmodifiableMap(map);
     }
 
     @Override

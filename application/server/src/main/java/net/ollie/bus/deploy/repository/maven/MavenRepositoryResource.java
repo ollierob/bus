@@ -1,9 +1,8 @@
 package net.ollie.bus.deploy.repository.maven;
 
-import net.ollie.bus.Resource;
 import net.ollie.bus.deploy.maven.MavenProtos;
-import net.ollie.bus.deploy.repository.maven.provider.MavenRepositoryBuilder;
 import net.ollie.bus.deploy.repository.maven.provider.MavenRepositoryProvider;
+import net.ollie.bus.process.AbstractResource;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -18,26 +17,24 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
 @Singleton
-public class MavenRepositoryResource implements Resource {
+@Path("maven")
+public class MavenRepositoryResource extends AbstractResource {
 
-    private final MavenRepositoryBuilder builder;
     private final MavenRepositoryProvider repositories;
 
     @Inject
     MavenRepositoryResource(
-            final MavenRepositoryBuilder builder,
             final MavenRepositoryProvider repositories) {
-        this.builder = builder;
         this.repositories = repositories;
     }
 
     @GET
     @Path("get/{id}")
     @Produces(APPLICATION_PROTOBUF)
-    public MavenProtos.MavenRepository get(@PathParam("id") final String id) {
+    public MavenRepository get(@PathParam("id") final String id) {
         final var repo = repositories.get(id);
         if (repo == null) throw new NotFoundException(id);
-        return repo.toProto();
+        return repo;
     }
 
     @POST
@@ -46,11 +43,11 @@ public class MavenRepositoryResource implements Resource {
     public Response edit(
             @QueryParam("expectedVersion") final int expectedVersion,
             final MavenProtos.MavenRepository spec) {
-        final var repo = builder.build(spec);
+        final var repo = repositories.fromProto(spec);
         final var put = repositories.put(repo, expectedVersion);
         return put == repo
-                ? Response.ok().build()
-                : Response.status(Response.Status.CONFLICT).entity("Expected " + expectedVersion + " but was " + repo.version()).build();
+                ? ok()
+                : conflict("Expected " + expectedVersion + " but was " + repo.version());
     }
 
 }

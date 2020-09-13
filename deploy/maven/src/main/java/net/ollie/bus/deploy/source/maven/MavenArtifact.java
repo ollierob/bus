@@ -23,6 +23,14 @@ public record MavenArtifact(String groupId, String artifactId, String version, S
         return version.endsWith("SNAPSHOT");
     }
 
+    public boolean isRelease() {
+        return !this.isSnapshot();
+    }
+
+    public boolean isLatest() {
+        return version.equalsIgnoreCase("LATEST");
+    }
+
     public String groupId(final char separator) {
         return groupId.replace('.', separator);
     }
@@ -43,6 +51,15 @@ public record MavenArtifact(String groupId, String artifactId, String version, S
                 .setType(type);
         if (classifier != null) builder.setClassifier(classifier);
         return builder.build();
+    }
+
+    public static MavenArtifact fromProto(final MavenProtos.MavenArtifact proto) {
+        return new MavenArtifact(
+                proto.getGroupId(),
+                proto.getArtifactId(),
+                proto.getVersion(),
+                proto.getClassifier(),
+                proto.getType());
     }
 
 }

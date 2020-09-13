@@ -6,7 +6,7 @@ import net.ollie.bus.deploy.source.DeploymentSource;
 import net.ollie.bus.deploy.source.GetProgress;
 import net.ollie.protobuf.BuildsProto;
 
-public record MavenDeploySource(String id, MavenRepository repository, MavenArtifact artifact)
+public record MavenDeploymentSource(String id, MavenRepository repository, MavenArtifact artifact)
         implements DeploymentSource, BuildsProto<MavenProtos.MavenDeploySource> {
 
     @Override
