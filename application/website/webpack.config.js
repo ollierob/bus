@@ -10,6 +10,9 @@ module.exports = {
         chunkFilename: "[name].bundle.js",
     },
     devtool: "source-map",
+    resolve: {
+        extensions: [".ts", ".tsx", ".js", ".json", ".less"]
+    },
     module: {
         rules: [
             {
