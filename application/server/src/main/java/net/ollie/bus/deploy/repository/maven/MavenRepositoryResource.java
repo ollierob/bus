@@ -32,9 +32,7 @@ public class MavenRepositoryResource extends AbstractResource {
     @Path("get/{id}")
     @Produces(APPLICATION_PROTOBUF)
     public MavenRepository get(@PathParam("id") final String id) {
-        final var repo = repositories.get(id);
-        if (repo == null) throw new NotFoundException(id);
-        return repo;
+        return repositories.requireOrThrow(id, NotFoundException::new);
     }
 
     @POST
