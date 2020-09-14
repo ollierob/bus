@@ -2,7 +2,8 @@ const Chunks2JsonPlugin = require('chunks-2-json-webpack-plugin');
 
 module.exports = {
     entry: {
-        deploy: ["./src/main/js/deploy/DeployRouter.tsx"]
+        deploy: ["./src/main/js/deploy/DeployRouter.tsx"],
+        manage: ["./src/main/js/manage/ManageRouter.tsx"],
     },
     output: {
         path: __dirname + "/target/classes/js",
@@ -22,6 +23,14 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'},
+                    {loader: 'less-loader', options: {lessOptions: {javascriptEnabled: true}}}
+                ]
             }
         ]
     },

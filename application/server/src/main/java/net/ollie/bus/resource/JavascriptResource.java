@@ -13,6 +13,7 @@ public class JavascriptResource extends AbstractResource {
     private static final MediaType MEDIA_TYPE = new MediaType("application", "javascript");
 
     @GET
+    @Cached(maxAgeMinutes = 10)
     @Path("{file}")
     @Produces("application/javascript")
     public Response readJs(@PathParam("file") final String file) {

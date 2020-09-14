@@ -1,6 +1,10 @@
 import * as React from "react";
+import "./Ant";
 import "./Page.css";
 import TopMenu from "./TopMenu";
+import {Layout} from "antd";
+
+const {Header, Content} = Layout;
 
 type Props = {
     children: React.ReactNode;
@@ -10,10 +14,14 @@ type Props = {
 export default class Page extends React.PureComponent<Props> {
 
     render() {
-        return <div>
-            <TopMenu {...this.props}/>
-            {this.props.children}
-        </div>;
+        return <Layout>
+            <Header>
+                <TopMenu {...this.props}/>
+            </Header>
+            <Content>
+                {this.props.children}
+            </Content>
+        </Layout>;
     }
 
 }
