@@ -15,14 +15,14 @@ import javax.ws.rs.core.Response;
 
 @Singleton
 @Path("deploy")
-public class DeployResource extends AbstractBundleResource {
+public class DeploymentResource extends AbstractBundleResource {
 
     private final DeploymentProjectResource projects;
     private final DeploymentSourceResource sources;
     private final RepositoryResource repositories;
 
     @Inject
-    DeployResource(
+    DeploymentResource(
             final DeploymentProjectResource projects,
             final DeploymentSourceResource sources,
             final RepositoryResource repositories) {

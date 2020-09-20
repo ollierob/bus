@@ -5,7 +5,7 @@ import net.ollie.bus.deploy.project.DeploymentProjectModule;
 import net.ollie.bus.deploy.repository.RepositoryModule;
 import net.ollie.bus.deploy.source.DeploymentSourceModule;
 
-public class DeployResourceModule extends AbstractModule {
+public class DeploymentResourceModule extends AbstractModule {
 
     @Override
     protected void configure() {
@@ -13,7 +13,7 @@ public class DeployResourceModule extends AbstractModule {
         this.install(new DeploymentProjectModule());
         this.install(new DeploymentSourceModule());
         this.install(new RepositoryModule());
-        this.bind(DeployResource.class);
+        this.bind(DeploymentResource.class);
     }
 
 }

@@ -11,6 +11,8 @@ public sealed interface DeploymentProjectOrFolder
     @Nonnull
     String id();
 
+    int version();
+
     DeployProto.DeployProjectOrFolder toProto(
             DeploymentSourceHandler<DeployProto.DeploySource> sourceHandler);
 

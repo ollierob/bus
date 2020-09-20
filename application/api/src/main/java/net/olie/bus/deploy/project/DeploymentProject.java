@@ -6,7 +6,7 @@ import net.ollie.bus.deploy.source.DeploymentSource;
 import net.ollie.bus.deploy.source.DeploymentSourceHandler;
 import net.ollie.bus.deploy.target.DeploymentTarget;
 
-public record DeploymentProject(String id, String name, DeploymentSource source, DeploymentTarget target)
+public record DeploymentProject(String id, String name, int version, DeploymentSource source, DeploymentTarget target)
         implements DeploymentProjectOrFolder {
 
     @Override

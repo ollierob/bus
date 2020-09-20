@@ -7,9 +7,12 @@ public interface MutableVersionedValueProvider<K, V> extends MutableValueProvide
     int version(@Nonnull V value);
 
     @Override
-    @Deprecated
     default V put(final V value) {
-        return this.put(value, 0);
+        return this.put(value, this.version(value) - 1);
+    }
+
+    default boolean didPut(final V value) {
+        return this.put(value) == value;
     }
 
     @Nonnull

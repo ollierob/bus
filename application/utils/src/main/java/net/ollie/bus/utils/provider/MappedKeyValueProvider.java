@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.function.Function;
 
 public class MappedKeyValueProvider<K, V>
         implements KeyValueProvider<K, V> {
@@ -25,6 +26,10 @@ public class MappedKeyValueProvider<K, V>
 
     protected V putIfAbsent(final K key, final V value) {
         return map.putIfAbsent(key, value);
+    }
+
+    protected V computeIfAbsent(final K key, final Function<? super K, ? extends V> createValue) {
+        return map.computeIfAbsent(key, createValue);
     }
 
 }
