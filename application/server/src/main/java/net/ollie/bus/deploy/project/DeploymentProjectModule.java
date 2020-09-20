@@ -23,7 +23,7 @@ public class DeploymentProjectModule extends AbstractModule {
     @Singleton
     @Named("protos")
     ProtobufCompatibleMessageBodyWriter protoWriter(final DeploymentProjectToProtoHandler protoHandler) {
-        final var writer = new ProtobufCompatibleMessageBodyWriter();
+        final var writer = new ProtobufCompatibleMessageBodyWriter(true);
         writer.register(DeploymentProjectOrFolder.class, protoHandler::toProto);
         writer.register(DeploymentProjectFolder.class, protoHandler::toProto);
         writer.register(DeploymentProject.class, protoHandler::toProto);

@@ -13,11 +13,12 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import static net.ollie.bus.resource.Resource.APPLICATION_PROTOBUF;
 
 @Singleton
-@Produces(APPLICATION_PROTOBUF)
+@Produces({MediaType.TEXT_PLAIN, APPLICATION_PROTOBUF})
 public class DeploymentProjectResource extends AbstractResource {
 
     private final DeploymentProjectProvider projects;
