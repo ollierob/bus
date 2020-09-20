@@ -24,10 +24,13 @@ public interface DeploymentProjectProvider
         return this.require("root");
     }
 
+    /**
+     * @return parent with new child in it
+     */
     default DeploymentProjectFolder createFolder(final String parentId, final String childId, final String name) throws ProjectOperationException {
 
         //Create child
-        final var child = this.put(new DeploymentProjectFolder(parentId, childId, 1));
+        final var child = this.put(new DeploymentProjectFolder(childId, name, 1));
         if (!(child instanceof DeploymentProjectFolder childFolder)) throw new ProjectOperationException("Invalid child");
 
         //Update parent
@@ -38,13 +41,13 @@ public interface DeploymentProjectProvider
             //Get parent
             final var parent = this.get(parentId);
             //TODO delete child if invalid parent
-            if (!(parent instanceof DeploymentProjectFolder folder)) throw new ProjectOperationException("Unknown parent");
+            if (!(parent instanceof DeploymentProjectFolder parentFolder)) throw new ProjectOperationException("Unknown parent");
 
-            updatedParent = folder.with(childFolder);
+            updatedParent = parentFolder.with(childFolder);
 
         } while (!this.didPut(updatedParent));
 
-        return childFolder;
+        return updatedParent;
 
     }
 

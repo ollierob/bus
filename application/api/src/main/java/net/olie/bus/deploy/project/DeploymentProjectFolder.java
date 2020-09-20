@@ -1,5 +1,6 @@
 package net.olie.bus.deploy.project;
 
+import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import net.ollie.bus.deploy.DeployProto;
 import net.ollie.bus.deploy.source.DeploymentSourceHandler;
@@ -33,6 +34,7 @@ public record DeploymentProjectFolder(String id, String name, int version, Set<D
     @Nonnull
     @CheckReturnValue
     public DeploymentProjectFolder with(final DeploymentProjectOrFolder child) {
+        Preconditions.checkArgument(child != this);
         if (children.contains(child)) return this;
         final var newChildren = ImmutableSet.<DeploymentProjectOrFolder>builder().addAll(children);
         newChildren.add(child);
