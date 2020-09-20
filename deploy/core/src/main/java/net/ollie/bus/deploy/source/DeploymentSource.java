@@ -1,5 +1,6 @@
 package net.ollie.bus.deploy.source;
 
+import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
 /**
@@ -12,5 +13,8 @@ public interface DeploymentSource {
 
     @Nonnull
     GetProgress get();
+
+    @CheckForNull
+    <R> R handleWith(@Nonnull DeploymentSourceHandler<R> handler);
 
 }

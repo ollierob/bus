@@ -1,8 +1,8 @@
-package net.olie.bus.deploy;
+package net.olie.bus.deploy.source;
 
 import net.ollie.bus.deploy.source.maven.MavenDeploymentSourceHandler;
 
-public interface DeploymentSourceHandler<R>
+public interface AllDeploymentSourceHandler<R>
         extends MavenDeploymentSourceHandler<R> {
 
 }

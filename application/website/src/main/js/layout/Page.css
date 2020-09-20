@@ -1,3 +1,21 @@
-.ant-layout-header .ant-menu, .ant-layout-header .anticon {
-    font-size: 18px;
+.header {
+    height: 50px;
+}
+
+.content {
+    position: absolute;
+    top: 50px;
+    width: 100px;
+}
+
+.leftMenu {
+    position: absolute;
+    left: 0;
+    width: 200px;
+}
+
+.rightContent {
+    position: absolute;
+    left: 200px;
+    right: 0;
 }

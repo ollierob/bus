@@ -15,6 +15,31 @@ message DeploySource {
         MavenDeploySource maven = 1;
         GitlabBuildSource gitlab = 2;
         JenkinsBuildSource jenkins = 3;
+        MultiDeploySource multi = 4;
     }
+
+}
+
+message MultiDeploySource {
+
+    string id = 1;
+    repeated DeploySource source = 2;
+
+}
+
+message DeployTarget {
+
+}
+
+message DeployProject {
+
+    string id = 1;
+    string name = 2;
+    DeploySource source = 3;
+    DeployTarget target = 4;
+
+}
+
+message DeployProjectFolder {
 
 }

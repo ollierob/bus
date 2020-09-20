@@ -2,14 +2,14 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import {HashRouter, Route} from "react-router-dom";
 import Page from "../layout/Page";
-import DeployMainPage from "./DeployMainPage";
+import DeployDashboard from "./dashboard/DeployDashboard";
 
 class DeployRouter extends React.PureComponent {
 
     render() {
         return <Page open="deploy">
             <HashRouter>
-                <Route exact path="/" component={DeployMainPage}/>
+                <Route exact path="/" component={DeployDashboard}/>
             </HashRouter>
         </Page>;
     }
