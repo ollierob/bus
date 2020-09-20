@@ -30,8 +30,9 @@ public interface DeploymentProjectProvider
     default DeploymentProjectFolder createFolder(final String parentId, final String childId, final String name) throws ProjectOperationException {
 
         //Create child
-        final var child = this.put(new DeploymentProjectFolder(childId, name, 1));
-        if (!(child instanceof DeploymentProjectFolder childFolder)) throw new ProjectOperationException("Invalid child");
+        final var child = new DeploymentProjectFolder(childId, name, 1);
+        final var putChild = this.put(child);
+        if (child != putChild) throw new ProjectOperationException("Cannot create child: " + putChild);
 
         //Update parent
         DeploymentProjectFolder updatedParent;
@@ -43,7 +44,7 @@ public interface DeploymentProjectProvider
             //TODO delete child if invalid parent
             if (!(parent instanceof DeploymentProjectFolder parentFolder)) throw new ProjectOperationException("Unknown parent");
 
-            updatedParent = parentFolder.with(childFolder);
+            updatedParent = parentFolder.with(child);
 
         } while (!this.didPut(updatedParent));
 
