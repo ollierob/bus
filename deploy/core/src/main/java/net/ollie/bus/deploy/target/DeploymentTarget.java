@@ -12,4 +12,6 @@ public interface DeploymentTarget {
     @Nonnull
     PutProgress put(DeploymentFiles files);
 
+    <R> R handleWith(DeploymentTargetHandler<R> handler);
+
 }

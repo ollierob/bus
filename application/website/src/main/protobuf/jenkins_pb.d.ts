@@ -7,8 +7,10 @@ export class JenkinsBuildSource extends jspb.Message {
   getId(): string;
   setId(value: string): void;
 
-  getJobid(): string;
-  setJobid(value: string): void;
+  hasJob(): boolean;
+  clearJob(): void;
+  getJob(): JenkinsJob | undefined;
+  setJob(value?: JenkinsJob): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): JenkinsBuildSource.AsObject;
@@ -23,7 +25,7 @@ export class JenkinsBuildSource extends jspb.Message {
 export namespace JenkinsBuildSource {
   export type AsObject = {
     id: string,
-    jobid: string,
+    job?: JenkinsJob.AsObject,
   }
 }
 

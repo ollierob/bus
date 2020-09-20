@@ -31,15 +31,14 @@ message DeployTarget {
 
 }
 
-message DeployProject {
+message DeployProjectOrFolder {
 
     string id = 1;
     string name = 2;
+    
     DeploySource source = 3;
     DeployTarget target = 4;
 
-}
-
-message DeployProjectFolder {
+    repeated DeployProjectOrFolder child = 5;
 
 }

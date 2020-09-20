@@ -88,7 +88,7 @@ proto.maven.JenkinsBuildSource.prototype.toObject = function(opt_includeInstance
 proto.maven.JenkinsBuildSource.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    jobid: jspb.Message.getFieldWithDefault(msg, 2, "")
+    job: (f = msg.getJob()) && proto.maven.JenkinsJob.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -130,8 +130,9 @@ proto.maven.JenkinsBuildSource.deserializeBinaryFromReader = function(msg, reade
       msg.setId(value);
       break;
     case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setJobid(value);
+      var value = new proto.maven.JenkinsJob;
+      reader.readMessage(value,proto.maven.JenkinsJob.deserializeBinaryFromReader);
+      msg.setJob(value);
       break;
     default:
       reader.skipField();
@@ -169,11 +170,12 @@ proto.maven.JenkinsBuildSource.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = message.getJobid();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getJob();
+  if (f != null) {
+    writer.writeMessage(
       2,
-      f
+      f,
+      proto.maven.JenkinsJob.serializeBinaryToWriter
     );
   }
 };
@@ -195,17 +197,35 @@ proto.maven.JenkinsBuildSource.prototype.setId = function(value) {
 
 
 /**
- * optional string jobId = 2;
- * @return {string}
+ * optional JenkinsJob job = 2;
+ * @return {?proto.maven.JenkinsJob}
  */
-proto.maven.JenkinsBuildSource.prototype.getJobid = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.maven.JenkinsBuildSource.prototype.getJob = function() {
+  return /** @type{?proto.maven.JenkinsJob} */ (
+    jspb.Message.getWrapperField(this, proto.maven.JenkinsJob, 2));
 };
 
 
-/** @param {string} value */
-proto.maven.JenkinsBuildSource.prototype.setJobid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+/** @param {?proto.maven.JenkinsJob|undefined} value */
+proto.maven.JenkinsBuildSource.prototype.setJob = function(value) {
+  jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ */
+proto.maven.JenkinsBuildSource.prototype.clearJob = function() {
+  this.setJob(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.maven.JenkinsBuildSource.prototype.hasJob = function() {
+  return jspb.Message.getField(this, 2) != null;
 };
 
 
