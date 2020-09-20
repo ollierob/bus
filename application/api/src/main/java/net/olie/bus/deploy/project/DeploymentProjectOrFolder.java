@@ -1,5 +1,8 @@
 package net.olie.bus.deploy.project;
 
+import net.ollie.bus.deploy.DeployProto;
+import net.ollie.bus.deploy.source.DeploymentSourceHandler;
+
 import javax.annotation.Nonnull;
 
 public sealed interface DeploymentProjectOrFolder
@@ -7,5 +10,8 @@ public sealed interface DeploymentProjectOrFolder
 
     @Nonnull
     String id();
+
+    DeployProto.DeployProjectOrFolder toProto(
+            DeploymentSourceHandler<DeployProto.DeploySource> sourceHandler);
 
 }

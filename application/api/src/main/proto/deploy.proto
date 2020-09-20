@@ -35,10 +35,8 @@ message DeployProjectOrFolder {
 
     string id = 1;
     string name = 2;
-    
+
     DeploySource source = 3;
     DeployTarget target = 4;
-
-    repeated DeployProjectOrFolder child = 5;
 
 }
