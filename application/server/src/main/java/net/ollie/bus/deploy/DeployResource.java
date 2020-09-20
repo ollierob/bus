@@ -1,5 +1,6 @@
 package net.ollie.bus.deploy;
 
+import net.ollie.bus.deploy.project.DeploymentProjectResource;
 import net.ollie.bus.deploy.repository.RepositoryResource;
 import net.ollie.bus.deploy.source.DeploymentSourceResource;
 import net.ollie.bus.resource.AbstractBundleResource;
@@ -16,13 +17,16 @@ import javax.ws.rs.core.Response;
 @Path("deploy")
 public class DeployResource extends AbstractBundleResource {
 
+    private final DeploymentProjectResource projects;
     private final DeploymentSourceResource sources;
     private final RepositoryResource repositories;
 
     @Inject
     DeployResource(
+            final DeploymentProjectResource projects,
             final DeploymentSourceResource sources,
             final RepositoryResource repositories) {
+        this.projects = projects;
         this.sources = sources;
         this.repositories = repositories;
     }
@@ -31,6 +35,11 @@ public class DeployResource extends AbstractBundleResource {
     @Produces(MediaType.TEXT_HTML)
     public Response router() {
         return this.readRouterResource("deploy");
+    }
+
+    @Path("project")
+    public DeploymentProjectResource projects() {
+        return projects;
     }
 
     @Path("source")

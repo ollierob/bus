@@ -41,6 +41,10 @@ public abstract class AbstractResource implements Resource {
         return Response.status(404).build();
     }
 
+    protected static Response notFound(final String entity) {
+        return Response.status(404).entity(entity).build();
+    }
+
     protected static Response conflict(final String reason) {
         return Response.status(Response.Status.CONFLICT).entity(reason).build();
     }
