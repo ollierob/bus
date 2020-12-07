@@ -12,4 +12,8 @@ export default class DeploySourcesPage extends DeployBasePage {
         return null;
     }
 
+    protected title(): string {
+        return "Deployment Sources";
+    }
+
 }

@@ -12,4 +12,8 @@ export default class DeployDashboard extends DeployBasePage {
         return null;
     }
 
+    protected title() {
+        return "Projects";
+    }
+
 }

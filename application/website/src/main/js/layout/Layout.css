@@ -1,7 +1,8 @@
 .content {
     position: absolute;
+    left: 0;
     top: 50px;
-    width: 100px;
+    right: 0;
 }
 
 .leftMenu {
@@ -14,4 +15,16 @@
     position: absolute;
     left: 200px;
     right: 0;
+}
+
+.rightContent .title {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    right: 0;
+    font-size: 1.5em;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid #aaa;
+    border-right: 0;
 }
