@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./TopMenu.css";
 import {Menu} from "antd";
 import {SelectOutlined, VerticalAlignBottomOutlined} from "@ant-design/icons";
 

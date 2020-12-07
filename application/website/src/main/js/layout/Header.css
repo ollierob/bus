@@ -1,7 +1,19 @@
 .header {
+    position: absolute;
     height: 50px;
+    width: 100%;
+    background-color: white;
 }
 
 .header .logo {
+    position: absolute;
     width: 200px;
+    height: 50px;
+}
+
+.header .topMenu {
+    position: absolute;
+    left: 200px;
+    bottom: 0;
+    font-size: 1.2em;
 }
