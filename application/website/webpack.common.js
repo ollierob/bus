@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
+        provision: ["./src/main/js/provision/ProvisionRouter.tsx"],
         deploy: ["./src/main/js/deploy/DeployRouter.tsx"],
         manage: ["./src/main/js/manage/ManageRouter.tsx"],
     },
@@ -48,6 +49,13 @@ module.exports = {
         }
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            inject: false,
+            chunks: ["provision"],
+            publicPath: "/js",
+            template: "src/main/resources/router.html.template",
+            filename: "provision.html"
+        }),
         new HtmlWebpackPlugin({
             inject: false,
             chunks: ["deploy"],

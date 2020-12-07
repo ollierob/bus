@@ -5,7 +5,7 @@ import net.ollie.sandwich.deploy.project.DeploymentProjectModule;
 import net.ollie.sandwich.deploy.repository.RepositoryModule;
 import net.ollie.sandwich.deploy.source.DeploymentSourceModule;
 
-public class DeploymentResourceModule extends AbstractModule {
+public class DeploymentModule extends AbstractModule {
 
     @Override
     protected void configure() {

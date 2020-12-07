@@ -1,17 +1,17 @@
 import * as React from "react";
 import {Menu} from "antd";
-import {CloudDownloadOutlined, SelectOutlined, VerticalAlignBottomOutlined} from "@ant-design/icons";
+import {CloudServerOutlined, SelectOutlined, VerticalAlignBottomOutlined} from "@ant-design/icons";
 
 type Props = {
-    open: "deploy" | "manage"
+    open: "provision" | "deploy" | "manage"
 }
 
 export default class TopMenu extends React.PureComponent<Props> {
 
     render() {
         return <Menu className="topMenu" mode="horizontal" selectedKeys={[this.props.open]}>
-            <Menu.Item key="provision" icon={<CloudDownloadOutlined/>}>
-                Provision
+            <Menu.Item key="provision" icon={<CloudServerOutlined/>}>
+                <a href="/provision">Provision</a>
             </Menu.Item>
             <Menu.Item key="deploy" icon={<VerticalAlignBottomOutlined/>}>
                 <a href="/deploy/">Deploy</a>
@@ -23,3 +23,5 @@ export default class TopMenu extends React.PureComponent<Props> {
     }
 
 }
+
+export const LeftMenu = (props: {children?: React.ReactNode}) => <div className="leftMenu">{props.children}</div>;
