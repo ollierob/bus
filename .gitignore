@@ -2,5 +2,6 @@
 .idea/
 
 !src/*/target/*
+*.java
 
 **/node_modules/*
