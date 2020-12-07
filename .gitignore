@@ -2,6 +2,15 @@
 .idea/
 
 !src/*/target/*
-*.java
+**/target/classes/*
+**/target/generated-sources/*
+**/target/maven-archiver/*
+**/target/maven-status/*
+**/target/protos/*
+**/target/surefire-reports
+**/target/*.txt
+*.class
+*.jar
+*.marker
 
 **/node_modules/*
