@@ -15,30 +15,8 @@ import java.util.stream.Collectors;
 
 public abstract class AbstractBundleResource extends AbstractResource {
 
-    private static final String JSON_MANIFEST = "/js/build-manifest.json";
-
-    private final Map<String, String> bundleCache = Maps.newConcurrentMap();
-
-    protected Response readRouterResource(final String bundleKey) {
-        final var replacements = Collections.singletonMap("<!--%BUNDLEs%-->", bundleCache.computeIfAbsent(bundleKey, this::readBundles));
-        return this.readResource("/router.html", replacements, MediaType.TEXT_HTML_TYPE);
-    }
-
-    private String readBundles(final String manifestKey) {
-        try (final var manifest = Objects.requireNonNull(this.getClass().getResourceAsStream(JSON_MANIFEST), "Could not open TS manifest file (was there a build error?)")) {
-            final var jsBundleFiles = Sets.<String>newHashSetWithExpectedSize(10);
-            final var mapper = new ObjectMapper();
-            mapper.configure(JsonParser.Feature.AUTO_CLOSE_SOURCE, true);
-            final Map<String, Bundle> map = mapper.readValue(manifest, Bundle.TYPE_REFERENCE);
-            Maps.filterKeys(map, key -> key.equals("vendors") || key.contains(manifestKey)).forEach((k, bundle) -> jsBundleFiles.addAll(bundle.jsBundleFiles));
-            return jsBundleFiles.stream().map(AbstractBundleResource::scriptTag).collect(Collectors.joining("\n"));
-        } catch (final IOException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
-
-    private static String scriptTag(final String bundleJs) {
-        return "<script src=\"/js/" + bundleJs + "\"></script>";
+    protected Response readHtmlResource(final String resource) {
+        return this.readResource("/js/" + resource, MediaType.TEXT_HTML_TYPE);
     }
 
 }

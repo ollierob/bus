@@ -1,4 +1,4 @@
-const Chunks2JsonPlugin = require('chunks-2-json-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -10,7 +10,6 @@ module.exports = {
         filename: "[name].bundle.js",
         chunkFilename: "[name].bundle.js",
     },
-    devtool: "source-map",
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json", ".less"]
     },
@@ -48,6 +47,19 @@ module.exports = {
         }
     },
     plugins: [
-        new Chunks2JsonPlugin({outputDir: 'target/classes/js/'}) //Outputs manifest
+        new HtmlWebpackPlugin({
+            inject: false,
+            chunks: ["deploy"],
+            publicPath: "/js",
+            template: "src/main/resources/router.html.template",
+            filename: "deploy.html"
+        }),
+        new HtmlWebpackPlugin({
+            inject: false,
+            chunks: ["manage"],
+            publicPath: "/js",
+            template: "src/main/resources/router.html.template",
+            filename: "manage.html"
+        })
     ]
 }

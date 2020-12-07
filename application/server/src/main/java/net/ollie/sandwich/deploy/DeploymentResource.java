@@ -34,7 +34,7 @@ public class DeploymentResource extends AbstractBundleResource {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public Response router() {
-        return this.readRouterResource("deploy");
+        return this.readHtmlResource("deploy.html");
     }
 
     @Path("project")

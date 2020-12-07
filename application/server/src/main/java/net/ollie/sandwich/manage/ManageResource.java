@@ -16,7 +16,7 @@ public class ManageResource extends AbstractBundleResource {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public Response router() {
-        return this.readRouterResource("manage");
+        return this.readHtmlResource("manage.html");
     }
 
 }
