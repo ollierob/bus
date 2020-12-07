@@ -114,11 +114,6 @@ export class DeployProjectOrFolder extends jspb.Message {
   getTarget(): DeployTarget | undefined;
   setTarget(value?: DeployTarget): void;
 
-  clearChildList(): void;
-  getChildList(): Array<DeployProjectOrFolder>;
-  setChildList(value: Array<DeployProjectOrFolder>): void;
-  addChild(value?: DeployProjectOrFolder, index?: number): DeployProjectOrFolder;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): DeployProjectOrFolder.AsObject;
   static toObject(includeInstance: boolean, msg: DeployProjectOrFolder): DeployProjectOrFolder.AsObject;
@@ -135,7 +130,6 @@ export namespace DeployProjectOrFolder {
     name: string,
     source?: DeploySource.AsObject,
     target?: DeployTarget.AsObject,
-    childList: Array<DeployProjectOrFolder.AsObject>,
   }
 }
 

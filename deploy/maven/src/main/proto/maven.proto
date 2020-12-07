@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package maven;
 
-option java_package = "net.ollie.bus.deploy.maven";
+option java_package = "net.ollie.sandwich.deploy.maven";
 option java_outer_classname = "MavenProtos";
 
 message MavenDeploySource {

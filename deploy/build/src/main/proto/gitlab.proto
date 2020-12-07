@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package maven;
 
-option java_package = "net.ollie.bus.deploy.build";
+option java_package = "net.ollie.sandwich.deploy.build";
 option java_outer_classname = "GitlabProtos";
 
 message GitlabBuildSource {

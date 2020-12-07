@@ -95,7 +95,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.maven.DeployProjectOrFolder = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.maven.DeployProjectOrFolder.repeatedFields_, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.maven.DeployProjectOrFolder, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -706,13 +706,6 @@ proto.maven.DeployTarget.serializeBinaryToWriter = function(message, writer) {
 
 
 
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.maven.DeployProjectOrFolder.repeatedFields_ = [5];
-
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -747,9 +740,7 @@ proto.maven.DeployProjectOrFolder.toObject = function(includeInstance, msg) {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     source: (f = msg.getSource()) && proto.maven.DeploySource.toObject(includeInstance, f),
-    target: (f = msg.getTarget()) && proto.maven.DeployTarget.toObject(includeInstance, f),
-    childList: jspb.Message.toObjectList(msg.getChildList(),
-    proto.maven.DeployProjectOrFolder.toObject, includeInstance)
+    target: (f = msg.getTarget()) && proto.maven.DeployTarget.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -803,11 +794,6 @@ proto.maven.DeployProjectOrFolder.deserializeBinaryFromReader = function(msg, re
       var value = new proto.maven.DeployTarget;
       reader.readMessage(value,proto.maven.DeployTarget.deserializeBinaryFromReader);
       msg.setTarget(value);
-      break;
-    case 5:
-      var value = new proto.maven.DeployProjectOrFolder;
-      reader.readMessage(value,proto.maven.DeployProjectOrFolder.deserializeBinaryFromReader);
-      msg.addChild(value);
       break;
     default:
       reader.skipField();
@@ -866,14 +852,6 @@ proto.maven.DeployProjectOrFolder.serializeBinaryToWriter = function(message, wr
       4,
       f,
       proto.maven.DeployTarget.serializeBinaryToWriter
-    );
-  }
-  f = message.getChildList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      5,
-      f,
-      proto.maven.DeployProjectOrFolder.serializeBinaryToWriter
     );
   }
 };
@@ -972,40 +950,6 @@ proto.maven.DeployProjectOrFolder.prototype.clearTarget = function() {
  */
 proto.maven.DeployProjectOrFolder.prototype.hasTarget = function() {
   return jspb.Message.getField(this, 4) != null;
-};
-
-
-/**
- * repeated DeployProjectOrFolder child = 5;
- * @return {!Array<!proto.maven.DeployProjectOrFolder>}
- */
-proto.maven.DeployProjectOrFolder.prototype.getChildList = function() {
-  return /** @type{!Array<!proto.maven.DeployProjectOrFolder>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.maven.DeployProjectOrFolder, 5));
-};
-
-
-/** @param {!Array<!proto.maven.DeployProjectOrFolder>} value */
-proto.maven.DeployProjectOrFolder.prototype.setChildList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 5, value);
-};
-
-
-/**
- * @param {!proto.maven.DeployProjectOrFolder=} opt_value
- * @param {number=} opt_index
- * @return {!proto.maven.DeployProjectOrFolder}
- */
-proto.maven.DeployProjectOrFolder.prototype.addChild = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.maven.DeployProjectOrFolder, opt_index);
-};
-
-
-/**
- * Clears the list making it empty but non-null.
- */
-proto.maven.DeployProjectOrFolder.prototype.clearChildList = function() {
-  this.setChildList([]);
 };
 
 
