@@ -9,6 +9,12 @@ import "maven.proto";
 import "gitlab.proto";
 import "jenkins.proto";
 
+message DeploySourceList {
+
+    repeated DeploySource source = 1;
+
+}
+
 message DeploySource {
 
     oneof source {

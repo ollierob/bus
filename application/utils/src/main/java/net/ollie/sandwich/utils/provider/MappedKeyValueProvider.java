@@ -2,12 +2,14 @@ package net.ollie.sandwich.utils.provider;
 
 import com.google.common.collect.Maps;
 
+import javax.annotation.Nonnull;
 import java.util.Collections;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 
 public class MappedKeyValueProvider<K, V>
-        implements KeyValueProvider<K, V> {
+        implements FiniteKeyValueProvider<K, V> {
 
     final Map<K, V> map = Maps.newConcurrentMap();
 
@@ -16,7 +18,14 @@ public class MappedKeyValueProvider<K, V>
         return map.get(key);
     }
 
-    protected Map<K, V> getAll() {
+    @Nonnull
+    @Override
+    public Set<K> getAllKeys() {
+        return Collections.unmodifiableSet(map.keySet());
+    }
+
+    @Override
+    public Map<K, V> getAll() {
         return Collections.unmodifiableMap(map);
     }
 

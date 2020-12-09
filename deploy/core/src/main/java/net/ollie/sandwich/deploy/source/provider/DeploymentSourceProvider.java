@@ -1,9 +1,9 @@
 package net.ollie.sandwich.deploy.source.provider;
 
 import net.ollie.sandwich.deploy.source.DeploymentSource;
-import net.ollie.sandwich.utils.provider.KeyValueProvider;
+import net.ollie.sandwich.utils.provider.FiniteKeyValueProvider;
 
 public interface DeploymentSourceProvider<D extends DeploymentSource>
-        extends KeyValueProvider<String, D> {
+        extends FiniteKeyValueProvider<String, D> {
 
 }

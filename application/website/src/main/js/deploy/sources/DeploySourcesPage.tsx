@@ -12,7 +12,7 @@ export default class DeploySourcesPage extends DeployBasePage {
         return null;
     }
 
-    protected title(): string {
+    protected title() {
         return "Deployment Sources";
     }
 

@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
-public class DeploymentProjectToProtoHandler {
+class DeploymentProjectToProtoHandler {
 
     private final DeploymentSourceToProtoHandler sourceToProto;
 
@@ -16,7 +16,7 @@ public class DeploymentProjectToProtoHandler {
         this.sourceToProto = sourceToProto;
     }
 
-    public DeployProto.DeployProjectOrFolder toProto(final DeploymentProjectOrFolder item) {
+    DeployProto.DeployProjectOrFolder toProto(final DeploymentProjectOrFolder item) {
         return item.toProto(sourceToProto);
     }
 

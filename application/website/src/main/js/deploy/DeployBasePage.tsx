@@ -10,7 +10,7 @@ export default abstract class DeployBasePage extends AbstractBasePage {
 
         return <>
             <DeployMenu open={this.menuKey()}/>
-            <RightContent>
+            <RightContent className={this.contentClass()}>
                 <PageTitle title={this.title()}/>
                 {this.body()}
             </RightContent>
@@ -18,10 +18,14 @@ export default abstract class DeployBasePage extends AbstractBasePage {
 
     }
 
+    protected contentClass(): string | undefined {
+        return undefined;
+    }
+
     protected abstract menuKey(): DeployMenuKey
 
     protected abstract body(): React.ReactNode;
 
-    protected abstract title(): string;
+    protected abstract title(): React.ReactNode;
 
 }

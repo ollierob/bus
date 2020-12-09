@@ -5,7 +5,9 @@ import net.ollie.sandwich.resource.AbstractResource;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import java.util.Collection;
 
 @Singleton
 @Path("source")
@@ -16,6 +18,12 @@ public class DeploymentSourceResource extends AbstractResource {
     @Inject
     DeploymentSourceResource(final MavenDeploymentSourceResource maven) {
         this.maven = maven;
+    }
+
+    @GET
+    @Path("get")
+    public Collection<? extends DeploymentSource> getAll() {
+        return maven.getAll();
     }
 
     @Path("maven")

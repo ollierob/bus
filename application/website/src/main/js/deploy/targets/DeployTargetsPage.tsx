@@ -11,7 +11,7 @@ export default class DeployTargetsPage extends DeployBasePage {
         return null;
     }
 
-    protected title(): string {
+    protected title() {
         return "Deployment Targets";
     }
 

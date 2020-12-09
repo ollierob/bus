@@ -9,6 +9,7 @@ import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import java.util.Collection;
 
 public class MavenDeploymentSourceResource extends AbstractResource {
 
@@ -17,6 +18,12 @@ public class MavenDeploymentSourceResource extends AbstractResource {
     @Inject
     MavenDeploymentSourceResource(final MavenDeploymentSourceProvider provider) {
         this.provider = provider;
+    }
+
+    @GET
+    @Path("get")
+    public Collection<MavenDeploymentSource> getAll() {
+        return provider.getAllValues();
     }
 
     @GET
