@@ -1,6 +1,7 @@
 import * as React from "react";
 import DeployBasePage from "../DeployBasePage";
 import {DeployMenuKey} from "../DeployMenu";
+import "./DeploySources.css";
 
 export default class ListDeploySourcesPage extends DeployBasePage {
 
@@ -8,7 +9,7 @@ export default class ListDeploySourcesPage extends DeployBasePage {
         return "sources";
     }
 
-    protected body(): React.ReactNode {
+    protected body() {
         return null;
     }
 

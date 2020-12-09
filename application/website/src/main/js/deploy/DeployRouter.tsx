@@ -6,7 +6,7 @@ import "./Deploy.css";
 import DeployProjectsPage from "./projects/DeployProjectsPage";
 import ListDeploySourcesPage from "./sources/ListDeploySourcesPage";
 import DeployTargetsPage from "./targets/DeployTargetsPage";
-import CreateDeploySourcePage from "./sources/DeploySourceCreatePage";
+import CreateDeploySourcePage from "./sources/CreateDeploySourcePage";
 
 class DeployRouter extends React.PureComponent {
 

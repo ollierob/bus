@@ -2,9 +2,9 @@ import AbstractBasePage from "../router/AbstractRoutedPage";
 import DeployMenu, {DeployMenuKey} from "./DeployMenu";
 import {RightContent} from "../layout/Content";
 import * as React from "react";
-import {PageTitle} from "../layout/PageTitle";
+import {PageBody, PageTitle} from "../layout/PageTitle";
 
-export default abstract class DeployBasePage extends AbstractBasePage {
+export default abstract class DeployBasePage<S = any> extends AbstractBasePage<S> {
 
     render() {
 
@@ -12,7 +12,7 @@ export default abstract class DeployBasePage extends AbstractBasePage {
             <DeployMenu open={this.menuKey()}/>
             <RightContent className={this.contentClass()}>
                 <PageTitle title={this.title()}/>
-                {this.body()}
+                <PageBody>{this.body()}</PageBody>
             </RightContent>
         </>;
 
@@ -24,7 +24,7 @@ export default abstract class DeployBasePage extends AbstractBasePage {
 
     protected abstract menuKey(): DeployMenuKey
 
-    protected abstract body(): React.ReactNode;
+    protected abstract body(): React.ReactChild | undefined | null;
 
     protected abstract title(): React.ReactNode;
 

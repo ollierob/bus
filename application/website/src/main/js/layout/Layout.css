@@ -43,3 +43,14 @@
     bottom: 0;
     margin-left: 2em;
 }
+
+.rightContent .body {
+    position: absolute;
+    left: 10px;
+    top: 70px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #aaa;
+    border-right: 0;
+    padding: 8px;
+}

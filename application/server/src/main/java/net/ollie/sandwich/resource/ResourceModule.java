@@ -10,6 +10,7 @@ public class ResourceModule extends AbstractModule {
         super.configure();
         this.bind(JavascriptResource.class);
         this.bind(CssResource.class);
+        this.bind(ImageResource.class);
         this.install(new JaxRsModule());
     }
 
