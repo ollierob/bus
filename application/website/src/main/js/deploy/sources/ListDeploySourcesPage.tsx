@@ -2,7 +2,7 @@ import * as React from "react";
 import DeployBasePage from "../DeployBasePage";
 import {DeployMenuKey} from "../DeployMenu";
 
-export default class DeploySourcesPage extends DeployBasePage {
+export default class ListDeploySourcesPage extends DeployBasePage {
 
     protected menuKey(): DeployMenuKey {
         return "sources";

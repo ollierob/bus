@@ -1,7 +1,7 @@
 import DeployBasePage from "../DeployBasePage";
 import {DeployMenuKey} from "../DeployMenu";
 
-export default class DeploySourceCreatePage extends DeployBasePage {
+export default class CreateDeploySourcePage extends DeployBasePage {
 
     protected menuKey(): DeployMenuKey {
         return "createSource";

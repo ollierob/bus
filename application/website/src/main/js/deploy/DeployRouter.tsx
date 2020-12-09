@@ -4,9 +4,9 @@ import {HashRouter, Route} from "react-router-dom";
 import Page from "../layout/Page";
 import "./Deploy.css";
 import DeployProjectsPage from "./projects/DeployProjectsPage";
-import DeploySourcesPage from "./sources/DeploySourcesPage";
+import ListDeploySourcesPage from "./sources/ListDeploySourcesPage";
 import DeployTargetsPage from "./targets/DeployTargetsPage";
-import DeploySourceCreatePage from "./sources/DeploySourceCreatePage";
+import CreateDeploySourcePage from "./sources/DeploySourceCreatePage";
 
 class DeployRouter extends React.PureComponent {
 
@@ -15,8 +15,8 @@ class DeployRouter extends React.PureComponent {
             <HashRouter>
                 <Route exact path="/" component={DeployProjectsPage}/>
                 <Route path="/projects" component={DeployProjectsPage}/>
-                <Route path="/sources" component={DeploySourcesPage}/>
-                <Route path="/createSource" component={DeploySourceCreatePage}/>
+                <Route path="/sources" component={ListDeploySourcesPage}/>
+                <Route path="/createSource" component={CreateDeploySourcePage}/>
                 <Route path="/targets" component={DeployTargetsPage}/>
             </HashRouter>
         </Page>;
