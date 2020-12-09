@@ -4,10 +4,11 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import net.ollie.protobuf.jaxrs.ProtobufCompatibleMessageBodyWriter;
 import net.ollie.sandwich.deploy.source.maven.MavenDeploymentModule;
+import net.ollie.sandwich.deploy.source.maven.MavenDeploymentSource;
 import net.ollie.sandwich.deploy.source.proto.DeploymentSourceToProtoHandler;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
+import javax.ws.rs.ext.Provider;
 
 public class DeploymentSourceModule extends AbstractModule {
 
@@ -19,16 +20,17 @@ public class DeploymentSourceModule extends AbstractModule {
 
     @Provides
     @Singleton
-    @Named("deploySourceProtos")
-    ProtobufCompatibleMessageBodyWriter protoWriter(final DeploymentSourceToProtoHandler handler) {
-        final var writer = new SourceWriter();
-        writer.register(DeploymentSource.class, handler::toProto);
+    DeploymentSourceWriter protoWriter(final DeploymentSourceToProtoHandler handler) {
+        final var writer = new DeploymentSourceWriter();
+        writer.registerCollection(DeploymentSource.class, handler::toProtoList);
+        writer.registerCollection(MavenDeploymentSource.class, handler::toProtoList); //TODO drop duplicate
         return writer;
     }
 
-    static class SourceWriter extends ProtobufCompatibleMessageBodyWriter {
+    @Provider
+    static class DeploymentSourceWriter extends ProtobufCompatibleMessageBodyWriter {
 
-        SourceWriter() {
+        DeploymentSourceWriter() {
             super(true);
         }
 

@@ -38,7 +38,8 @@
 }
 
 .rightContent .title .menu {
+    display: inline-block;
     position: absolute;
-    left: 200px;
     bottom: 0;
+    margin-left: 2em;
 }

@@ -5,8 +5,8 @@ import com.google.inject.Provides;
 import net.ollie.protobuf.jaxrs.ProtobufCompatibleMessageBodyWriter;
 import net.ollie.sandwich.deploy.project.provider.DeploymentProjectProvider;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
+import javax.ws.rs.ext.Provider;
 
 public class DeploymentProjectModule extends AbstractModule {
 
@@ -18,18 +18,18 @@ public class DeploymentProjectModule extends AbstractModule {
 
     @Provides
     @Singleton
-    @Named("deployProjectProtos")
-    ProtobufCompatibleMessageBodyWriter protoWriter(final DeploymentProjectToProtoHandler protoHandler) {
-        final var writer = new DeploymentWriter();
+    DeploymentProjectWriter protoWriter(final DeploymentProjectToProtoHandler protoHandler) {
+        final var writer = new DeploymentProjectWriter();
         writer.register(DeploymentProjectOrFolder.class, protoHandler::toProto);
         writer.register(DeploymentProjectFolder.class, protoHandler::toProto);
         writer.register(DeploymentProject.class, protoHandler::toProto);
         return writer;
     }
 
-    static class DeploymentWriter extends ProtobufCompatibleMessageBodyWriter {
+    @Provider
+    static class DeploymentProjectWriter extends ProtobufCompatibleMessageBodyWriter {
 
-        DeploymentWriter() {
+        DeploymentProjectWriter() {
             super(true);
         }
 

@@ -5,7 +5,7 @@ export class DeployProjectsMenu extends React.PureComponent {
 
     render() {
         return <>
-            Projects
+            Deployment Projects
             <Menu className="menu" mode="horizontal" selectedKeys={[]}>
                 <Menu.Item>Create project</Menu.Item>
                 <Menu.Item>Create group</Menu.Item>
