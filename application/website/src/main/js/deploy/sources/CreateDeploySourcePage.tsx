@@ -2,19 +2,26 @@ import * as React from "react";
 import DeployBasePage from "../DeployBasePage";
 import {DeployMenuKey} from "../DeployMenu";
 import "./DeploySources.css";
-import {Card} from "antd";
+import CreateDeployJavaSourcePage from "./CreateDeployJavaSourcePage";
+import {Select} from "antd";
 
-type SourceType = "maven"
+const {Option} = Select;
+
+type SourceType = "java"
 
 type State = {
-    sourceType?: SourceType
+    source?: SourceType
 }
+
+const StateNames: { [key in SourceType]: string } = {
+    java: "Java"
+};
 
 export default class CreateDeploySourcePage extends DeployBasePage<State> {
 
     constructor(props: any) {
         super(props);
-        this.state = {};
+        this.state = {source: "java"};
     }
 
     protected contentClass() {
@@ -31,29 +38,14 @@ export default class CreateDeploySourcePage extends DeployBasePage<State> {
 
     protected body() {
         return <>
-            <SupportedSources onSelect={sourceType => this.setState({sourceType})}/>
-            {this.state.sourceType == "maven" && <MavenSourceEditor/>}
+
+            <Select value={this.state.source} onChange={source => this.setState({source})}>
+                {Object.entries(StateNames).map(kv => <Option key={kv[0]} value={kv[0]}>{kv[1]}</Option>)}
+            </Select>
+
+            {this.state.source == "java" && <div className="java"><CreateDeployJavaSourcePage/></div>}
+
         </>;
     }
 
 }
-
-const SupportedSources = (props: {onSelect: (type: SourceType) => void}) => {
-    return <div className="sourceCards">
-        <SupportedSource {...props} type="maven" title={<><img src="/img/maven.png"/> Maven Repository</>}>
-            Deploy a pre-built JAR from a Maven repository.
-        </SupportedSource>
-    </div>;
-};
-
-const SupportedSource = (props: {type: SourceType, title: React.ReactNode, children?: React.ReactNode, onSelect: (type: SourceType) => void}) => {
-    return <Card className={props.type} title={<a onClick={() => props.onSelect(props.type)}>{props.title}</a>} size="small">
-        {props.children}
-    </Card>;
-};
-
-const MavenSourceEditor = (props: {}) => {
-    return <div className="maven">
-
-    </div>;
-};
