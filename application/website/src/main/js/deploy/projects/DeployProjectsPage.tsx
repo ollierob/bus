@@ -1,7 +1,6 @@
 import * as React from "react";
 import DeployBasePage from "../DeployBasePage";
 import {DeployMenuKey} from "../DeployMenu";
-import {DeployProjectsMenu} from "./DeployProjectsMenu";
 
 export default class DeployProjectsPage extends DeployBasePage {
 
@@ -14,7 +13,7 @@ export default class DeployProjectsPage extends DeployBasePage {
     }
 
     protected title() {
-        return <DeployProjectsMenu/>;
+        return "Deployment Projects";
     }
 
     protected body() {

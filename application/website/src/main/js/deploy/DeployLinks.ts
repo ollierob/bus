@@ -10,8 +10,12 @@ export function deploySourcesLink() {
     return deployPrefix() + "#/sources";
 }
 
-export function deploySourceCreateLink() {
-    return deployPrefix() + "#/createSource";
+export function deploySourceRepositoriesLink() {
+    return deployPrefix() + "#/repositories";
+}
+
+export function deployBuildServersLink() {
+    return deployPrefix() + "#/buildServers";
 }
 
 export function deployTargetsLink() {

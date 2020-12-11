@@ -1,7 +1,7 @@
+import * as React from "react";
 import AbstractBasePage from "../router/AbstractRoutedPage";
 import DeployMenu, {DeployMenuKey} from "./DeployMenu";
 import {RightContent} from "../layout/Content";
-import * as React from "react";
 import {PageBody, PageTitle} from "../layout/PageTitle";
 
 export default abstract class DeployBasePage<S = any> extends AbstractBasePage<S> {

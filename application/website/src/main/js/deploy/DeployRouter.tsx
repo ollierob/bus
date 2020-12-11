@@ -3,11 +3,12 @@ import * as ReactDOM from "react-dom";
 import {HashRouter, Route} from "react-router-dom";
 import Page from "../layout/Page";
 import "./Deploy.css";
-import DeployProjectsPage from "./projects/DeployProjectsPage";
-import ListDeploySourcesPage from "./sources/ListDeploySourcesPage";
-import DeployTargetsPage from "./targets/DeployTargetsPage";
-import CreateDeploySourcePage from "./sources/CreateDeploySourcePage";
 import CreateDeployProjectPage from "./projects/CreateDeployProjectPage";
+import DeployProjectsPage from "./projects/DeployProjectsPage";
+import DeploySourcesPage from "./sources/DeploySourcesPage";
+import RepositoriesPage from "./sources/RepositoriesPage";
+import DeployTargetsPage from "./targets/DeployTargetsPage";
+import BuildServersPage from "./sources/BuildServersPage";
 
 class DeployRouter extends React.PureComponent {
 
@@ -17,8 +18,9 @@ class DeployRouter extends React.PureComponent {
                 <Route exact path="/" component={DeployProjectsPage}/>
                 <Route path="/projects" component={DeployProjectsPage}/>
                 <Route path="/createProject" component={CreateDeployProjectPage}/>
-                <Route path="/sources" component={ListDeploySourcesPage}/>
-                <Route path="/createSource" component={CreateDeploySourcePage}/>
+                <Route path="/sources" component={DeploySourcesPage}/>
+                <Route path="/repositories" component={RepositoriesPage}/>
+                <Route path="/buildServers" component={BuildServersPage}/>
                 <Route path="/targets" component={DeployTargetsPage}/>
             </HashRouter>
         </Page>;
