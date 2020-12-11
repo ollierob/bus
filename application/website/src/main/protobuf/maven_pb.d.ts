@@ -78,6 +78,28 @@ export namespace MavenRepository {
   }
 }
 
+export class MavenRepositoryList extends jspb.Message {
+  clearRepositoryList(): void;
+  getRepositoryList(): Array<MavenRepository>;
+  setRepositoryList(value: Array<MavenRepository>): void;
+  addRepository(value?: MavenRepository, index?: number): MavenRepository;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MavenRepositoryList.AsObject;
+  static toObject(includeInstance: boolean, msg: MavenRepositoryList): MavenRepositoryList.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MavenRepositoryList, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MavenRepositoryList;
+  static deserializeBinaryFromReader(message: MavenRepositoryList, reader: jspb.BinaryReader): MavenRepositoryList;
+}
+
+export namespace MavenRepositoryList {
+  export type AsObject = {
+    repositoryList: Array<MavenRepository.AsObject>,
+  }
+}
+
 export class Nexus3Repository extends jspb.Message {
   getUrl(): string;
   setUrl(value: string): void;

@@ -14,3 +14,9 @@ message Repository {
     }
 
 }
+
+message RepositoryList {
+
+    repeated Repository repository = 1;
+
+}

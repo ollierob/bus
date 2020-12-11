@@ -6,28 +6,6 @@ import * as maven_pb from "./maven_pb";
 import * as gitlab_pb from "./gitlab_pb";
 import * as jenkins_pb from "./jenkins_pb";
 
-export class DeploySourceList extends jspb.Message {
-  clearSourceList(): void;
-  getSourceList(): Array<DeploySource>;
-  setSourceList(value: Array<DeploySource>): void;
-  addSource(value?: DeploySource, index?: number): DeploySource;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): DeploySourceList.AsObject;
-  static toObject(includeInstance: boolean, msg: DeploySourceList): DeploySourceList.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: DeploySourceList, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): DeploySourceList;
-  static deserializeBinaryFromReader(message: DeploySourceList, reader: jspb.BinaryReader): DeploySourceList;
-}
-
-export namespace DeploySourceList {
-  export type AsObject = {
-    sourceList: Array<DeploySource.AsObject>,
-  }
-}
-
 export class DeploySource extends jspb.Message {
   hasMaven(): boolean;
   clearMaven(): void;
@@ -74,6 +52,28 @@ export namespace DeploySource {
     GITLAB = 2,
     JENKINS = 3,
     MULTI = 4,
+  }
+}
+
+export class DeploySourceList extends jspb.Message {
+  clearSourceList(): void;
+  getSourceList(): Array<DeploySource>;
+  setSourceList(value: Array<DeploySource>): void;
+  addSource(value?: DeploySource, index?: number): DeploySource;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DeploySourceList.AsObject;
+  static toObject(includeInstance: boolean, msg: DeploySourceList): DeploySourceList.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: DeploySourceList, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DeploySourceList;
+  static deserializeBinaryFromReader(message: DeploySourceList, reader: jspb.BinaryReader): DeploySourceList;
+}
+
+export namespace DeploySourceList {
+  export type AsObject = {
+    sourceList: Array<DeploySource.AsObject>,
   }
 }
 
