@@ -1,20 +1,23 @@
-import {AsyncData} from "../../fetch/AsyncData";
-import {MavenRepository} from "../../../protobuf/maven_pb";
+import {MavenRepository, MavenRepositoryList} from "../../../protobuf/maven_pb";
+import {protoGet} from "../../fetch/ProtoFetch";
 
 export interface MavenLoader {
 
-    loadAll(): AsyncData<ReadonlyArray<MavenRepository.AsObject>>;
+    loadAll(): Promise<ReadonlyArray<MavenRepository.AsObject>>;
 
-    create(spec: MavenRepository.AsObject): AsyncData<MavenRepository.AsObject>;
+    create(spec: MavenRepository.AsObject): Promise<MavenRepository.AsObject>;
 
-    update(spec: MavenRepository.AsObject): AsyncData<MavenRepository.AsObject>;
+    update(spec: MavenRepository.AsObject): Promise<MavenRepository.AsObject>;
+
+    delete(id: string): Promise<MavenRepository.AsObject>
 
 }
 
 class ProtoMavenLoader implements MavenLoader {
 
     loadAll() {
-        return undefined;
+        return protoGet("/deploy/repository/maven/get", MavenRepositoryList.deserializeBinary)
+            .then(l => l ? l.getRepositoryList().map(r => r.toObject()) : []);
     }
 
     create(spec: MavenRepository.AsObject) {
@@ -22,6 +25,10 @@ class ProtoMavenLoader implements MavenLoader {
     }
 
     update(spec: MavenRepository.AsObject) {
+        return undefined;
+    }
+
+    delete(id: string) {
         return undefined;
     }
 
