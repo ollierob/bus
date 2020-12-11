@@ -45,8 +45,12 @@ public abstract class AbstractResource implements Resource {
         return Response.status(404).entity(entity).build();
     }
 
-    protected static Response conflict(final String reason) {
-        return Response.status(Response.Status.CONFLICT).entity(reason).build();
+//    protected static Response conflict(final String reason) {
+//        return Response.status(Response.Status.CONFLICT).entity(reason).build();
+//    }
+
+    protected static <T> T throwConflict(final String reason) {
+        throw new ConflictException(reason);
     }
 
     private static InputStream replace(final InputStream in, final Map<String, String> replacements) {

@@ -18,4 +18,7 @@ public interface MutableVersionedValueProvider<K, V> extends MutableValueProvide
     @Nonnull
     V put(V value, int expectedVersion);
 
+    @Nonnull
+    V delete(K key);
+
 }

@@ -25,6 +25,12 @@ message MavenRepository {
 
 }
 
+message MavenRepositoryList {
+
+    repeated MavenRepository repository = 1;
+
+}
+
 message Nexus3Repository {
 
     string url = 1;
