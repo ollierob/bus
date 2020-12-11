@@ -1,3 +1,7 @@
+.createDeploySource .selectLanguage {
+    margin-bottom: 8px;
+}
+
 .createDeploySource .sourceCards {
 
 }
@@ -17,4 +21,8 @@
 
 .createDeploySource .sourceCards .ant-card-head-title img {
     height: 1em;
+}
+
+.createDeploySource .editor {
+    margin-top: 8px;
 }

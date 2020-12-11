@@ -26,10 +26,7 @@
 }
 
 .rightContent .title {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    right: 0;
+    margin: 8px 0 0 8px;
     font-size: 1.5em;
     padding: 8px;
     background-color: white;
@@ -45,10 +42,7 @@
 }
 
 .rightContent .body {
-    position: absolute;
-    left: 10px;
-    top: 70px;
-    right: 0;
+    margin: 8px 0 0 8px;
     background-color: white;
     border: 1px solid #aaa;
     border-right: 0;

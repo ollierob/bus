@@ -7,6 +7,7 @@ import DeployProjectsPage from "./projects/DeployProjectsPage";
 import ListDeploySourcesPage from "./sources/ListDeploySourcesPage";
 import DeployTargetsPage from "./targets/DeployTargetsPage";
 import CreateDeploySourcePage from "./sources/CreateDeploySourcePage";
+import CreateDeployProjectPage from "./projects/CreateDeployProjectPage";
 
 class DeployRouter extends React.PureComponent {
 
@@ -15,6 +16,7 @@ class DeployRouter extends React.PureComponent {
             <HashRouter>
                 <Route exact path="/" component={DeployProjectsPage}/>
                 <Route path="/projects" component={DeployProjectsPage}/>
+                <Route path="/createProject" component={CreateDeployProjectPage}/>
                 <Route path="/sources" component={ListDeploySourcesPage}/>
                 <Route path="/createSource" component={CreateDeploySourcePage}/>
                 <Route path="/targets" component={DeployTargetsPage}/>

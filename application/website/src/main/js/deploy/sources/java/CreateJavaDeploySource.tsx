@@ -1,5 +1,6 @@
 import React from "react";
 import {Card} from "antd";
+import {MavenSourceEditor} from "./MavenSourceEditor";
 
 type SourceType = "maven" | "gitlab" | "github"
 
@@ -9,7 +10,7 @@ type State = {
     type?: SourceType
 }
 
-export default class CreateDeployJavaSourcePage extends React.PureComponent<Props, State> {
+export default class CreateJavaDeploySource extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
@@ -20,7 +21,9 @@ export default class CreateDeployJavaSourcePage extends React.PureComponent<Prop
 
         return <>
             <SupportedSources onSelect={type => this.setState({type})}/>
-            {this.state.type == "maven" && <MavenSourceEditor/>}
+            {this.state.type && <div className={"editor " + (this.state.type || "")}>
+                {this.state.type == "maven" && <MavenSourceEditor/>}
+            </div>}
         </>;
 
     }
@@ -45,10 +48,4 @@ const SupportedSource = (props: {type: SourceType, title: React.ReactNode, child
     return <Card className={props.type} title={<a onClick={() => props.onSelect(props.type)}>{props.title}</a>} size="small">
         {props.children}
     </Card>;
-};
-
-const MavenSourceEditor = (props: {}) => {
-    return <div className="maven">
-
-    </div>;
 };

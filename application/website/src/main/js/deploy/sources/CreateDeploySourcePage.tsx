@@ -2,7 +2,7 @@ import * as React from "react";
 import DeployBasePage from "../DeployBasePage";
 import {DeployMenuKey} from "../DeployMenu";
 import "./DeploySources.css";
-import CreateDeployJavaSourcePage from "./CreateDeployJavaSourcePage";
+import CreateJavaDeploySource from "./java/CreateJavaDeploySource";
 import {Select} from "antd";
 
 const {Option} = Select;
@@ -39,11 +39,14 @@ export default class CreateDeploySourcePage extends DeployBasePage<State> {
     protected body() {
         return <>
 
-            <Select value={this.state.source} onChange={source => this.setState({source})}>
-                {Object.entries(StateNames).map(kv => <Option key={kv[0]} value={kv[0]}>{kv[1]}</Option>)}
-            </Select>
+            <div className="selectLanguage">
+                Select a language:
+                <Select value={this.state.source} onChange={source => this.setState({source})}>
+                    {Object.entries(StateNames).map(kv => <Option key={kv[0]} value={kv[0]}>{kv[1]}</Option>)}
+                </Select>
+            </div>
 
-            {this.state.source == "java" && <div className="java"><CreateDeployJavaSourcePage/></div>}
+            {this.state.source == "java" && <div className="java"><CreateJavaDeploySource/></div>}
 
         </>;
     }
