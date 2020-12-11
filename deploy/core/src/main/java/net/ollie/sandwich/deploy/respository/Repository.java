@@ -6,4 +6,6 @@ public interface Repository {
 
     int version();
 
+    <R> R handleWith(RepositoryHandler<R> handler);
+
 }
