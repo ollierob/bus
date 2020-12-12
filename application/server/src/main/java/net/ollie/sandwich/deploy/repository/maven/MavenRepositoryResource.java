@@ -44,7 +44,7 @@ public class MavenRepositoryResource extends AbstractResource {
     }
 
     @POST
-    @Path("modify")
+    @Path("save")
     @Consumes(APPLICATION_PROTOBUF)
     public MavenRepository edit(
             final MavenProtos.MavenRepository spec,

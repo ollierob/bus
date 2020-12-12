@@ -5,9 +5,7 @@ export interface MavenLoader {
 
     loadAll(): Promise<ReadonlyArray<MavenRepository.AsObject>>;
 
-    create(spec: MavenRepository.AsObject): Promise<MavenRepository.AsObject>;
-
-    update(spec: MavenRepository.AsObject): Promise<MavenRepository.AsObject>;
+    save(spec: MavenRepository.AsObject): Promise<MavenRepository.AsObject>;
 
     delete(id: string): Promise<MavenRepository.AsObject>
 
@@ -20,11 +18,7 @@ class ProtoMavenLoader implements MavenLoader {
             .then(l => l ? l.getRepositoryList().map(r => r.toObject()) : []);
     }
 
-    create(spec: MavenRepository.AsObject) {
-        return this.update(spec);
-    }
-
-    update(spec: MavenRepository.AsObject) {
+    save(spec: MavenRepository.AsObject) {
         return undefined;
     }
 

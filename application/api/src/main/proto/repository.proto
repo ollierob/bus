@@ -9,8 +9,10 @@ import "maven.proto";
 
 message Repository {
 
+    string id = 1;
+
     oneof repo {
-        MavenRepository maven = 1;
+        MavenRepository maven = 2;
     }
 
 }

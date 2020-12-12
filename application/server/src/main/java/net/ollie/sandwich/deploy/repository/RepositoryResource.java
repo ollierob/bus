@@ -1,11 +1,13 @@
 package net.ollie.sandwich.deploy.repository;
 
+import net.ollie.sandwich.deploy.RepositoryProto;
 import net.ollie.sandwich.deploy.repository.maven.MavenRepositoryResource;
 import net.ollie.sandwich.deploy.respository.Repository;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import java.util.Collection;
 

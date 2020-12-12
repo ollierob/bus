@@ -11,14 +11,20 @@ export class RepositoriesList extends React.PureComponent<Props> {
 
     render() {
 
-        let repositories = this.props.repositories;
+        return <div className="repositories">
+            {this.renderInner()}
+        </div>;
+
+    }
+
+    private renderInner() {
+
+        const repositories = this.props.repositories;
         if (repositories.loading) return <Loading/>;
         if (repositories.error) return <Error error={repositories.error}/>;
         if (!repositories.data || !repositories.data.length) return <Empty/>;
 
-        return <div className="repositories">
-            {repositories.data.map(r => <RepositoryCard repository={r}/>)}
-        </div>;
+        return <>{repositories.data.map(r => <RepositoryCard repository={r}/>)}</>;
 
     }
 

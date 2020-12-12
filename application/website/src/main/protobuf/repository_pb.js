@@ -66,14 +66,14 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.maven.Repository.oneofGroups_ = [[1]];
+proto.maven.Repository.oneofGroups_ = [[2]];
 
 /**
  * @enum {number}
  */
 proto.maven.Repository.RepoCase = {
   REPO_NOT_SET: 0,
-  MAVEN: 1
+  MAVEN: 2
 };
 
 /**
@@ -114,6 +114,7 @@ proto.maven.Repository.prototype.toObject = function(opt_includeInstance) {
  */
 proto.maven.Repository.toObject = function(includeInstance, msg) {
   var f, obj = {
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     maven: (f = msg.getMaven()) && maven_pb.MavenRepository.toObject(includeInstance, f)
   };
 
@@ -152,6 +153,10 @@ proto.maven.Repository.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setId(value);
+      break;
+    case 2:
       var value = new maven_pb.MavenRepository;
       reader.readMessage(value,maven_pb.MavenRepository.deserializeBinaryFromReader);
       msg.setMaven(value);
@@ -185,10 +190,17 @@ proto.maven.Repository.prototype.serializeBinary = function() {
  */
 proto.maven.Repository.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
   f = message.getMaven();
   if (f != null) {
     writer.writeMessage(
-      1,
+      2,
       f,
       maven_pb.MavenRepository.serializeBinaryToWriter
     );
@@ -197,18 +209,33 @@ proto.maven.Repository.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional MavenRepository maven = 1;
+ * optional string id = 1;
+ * @return {string}
+ */
+proto.maven.Repository.prototype.getId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.maven.Repository.prototype.setId = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional MavenRepository maven = 2;
  * @return {?proto.maven.MavenRepository}
  */
 proto.maven.Repository.prototype.getMaven = function() {
   return /** @type{?proto.maven.MavenRepository} */ (
-    jspb.Message.getWrapperField(this, maven_pb.MavenRepository, 1));
+    jspb.Message.getWrapperField(this, maven_pb.MavenRepository, 2));
 };
 
 
 /** @param {?proto.maven.MavenRepository|undefined} value */
 proto.maven.Repository.prototype.setMaven = function(value) {
-  jspb.Message.setOneofWrapperField(this, 1, proto.maven.Repository.oneofGroups_[0], value);
+  jspb.Message.setOneofWrapperField(this, 2, proto.maven.Repository.oneofGroups_[0], value);
 };
 
 
@@ -225,7 +252,7 @@ proto.maven.Repository.prototype.clearMaven = function() {
  * @return {boolean}
  */
 proto.maven.Repository.prototype.hasMaven = function() {
-  return jspb.Message.getField(this, 1) != null;
+  return jspb.Message.getField(this, 2) != null;
 };
 
 

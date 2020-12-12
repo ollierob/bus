@@ -5,6 +5,9 @@ import * as jspb from "google-protobuf";
 import * as maven_pb from "./maven_pb";
 
 export class Repository extends jspb.Message {
+  getId(): string;
+  setId(value: string): void;
+
   hasMaven(): boolean;
   clearMaven(): void;
   getMaven(): maven_pb.MavenRepository | undefined;
@@ -23,12 +26,13 @@ export class Repository extends jspb.Message {
 
 export namespace Repository {
   export type AsObject = {
+    id: string,
     maven?: maven_pb.MavenRepository.AsObject,
   }
 
   export enum RepoCase {
     REPO_NOT_SET = 0,
-    MAVEN = 1,
+    MAVEN = 2,
   }
 }
 

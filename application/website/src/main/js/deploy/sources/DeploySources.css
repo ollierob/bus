@@ -1,0 +1,20 @@
+.repositories .create.button {
+    margin-bottom: 8px;
+}
+
+.repositories .create.controls {
+    margin-bottom: 8px;
+}
+
+.repositories .create.controls .selector {
+    margin-left: 0.5em;
+    min-width: 200px;
+}
+
+.repositories .create.controls .ant-row {
+    margin-bottom: 8px;
+}
+
+.ant-cascader-menu-item img {
+    height: 1em;
+}
