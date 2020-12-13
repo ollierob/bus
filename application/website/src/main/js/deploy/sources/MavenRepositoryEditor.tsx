@@ -51,7 +51,9 @@ export class MavenRepositoryEditor extends React.PureComponent<Props, State> {
                 <Row>
                     <Col span={2}/>
                     <Col span={8}>
-                        <Button size="large" onClick={() => this.props.save(this.state.maven)}>Save</Button>
+                        <Button loading={this.props.saving} size="large" onClick={() => this.props.save(this.state.maven)}>
+                            Save
+                        </Button>
                     </Col>
                 </Row>
 
