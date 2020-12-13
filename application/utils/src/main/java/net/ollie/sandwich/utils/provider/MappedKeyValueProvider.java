@@ -2,6 +2,7 @@ package net.ollie.sandwich.utils.provider;
 
 import com.google.common.collect.Maps;
 
+import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import java.util.Collections;
 import java.util.Map;
@@ -33,6 +34,7 @@ public class MappedKeyValueProvider<K, V>
         return map.put(key, value);
     }
 
+    @CheckForNull
     protected V putIfAbsent(final K key, final V value) {
         return map.putIfAbsent(key, value);
     }

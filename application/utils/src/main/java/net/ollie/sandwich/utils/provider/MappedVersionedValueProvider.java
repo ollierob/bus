@@ -7,9 +7,11 @@ public abstract class MappedVersionedValueProvider<K, V>
         implements MutableVersionedValueProvider<K, V> {
 
     @Override
+    @Nonnull
     public V put(final V value, final int expectedVersion) {
         if (expectedVersion == 0) {
-            return this.putIfAbsent(this.key(value), value);
+            final var prev = this.putIfAbsent(this.key(value), value);
+            return prev == null ? value : prev;
         } else {
             return map.compute(this.key(value), (k, v) -> v == null || this.version(v) == expectedVersion ? value : v);
         }

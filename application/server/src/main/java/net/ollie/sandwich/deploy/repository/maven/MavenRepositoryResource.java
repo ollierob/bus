@@ -49,11 +49,12 @@ public class MavenRepositoryResource extends AbstractResource {
     public MavenRepository edit(
             final MavenProtos.MavenRepository spec,
             @QueryParam("expectedVersion") @DefaultValue("0") final int expectedVersion) {
+        logger.info("Saving {} -> {}", spec, expectedVersion);
         final var repo = repositories.fromProto(spec);
         final var put = repositories.put(repo, expectedVersion);
-        return put == repo
-                ? repo
-                : throwConflict("Expected " + expectedVersion + " but was " + put.version());
+        if (put == repo) return repo;
+        if (expectedVersion == 0) throwConflict("Already exists");
+        return throwConflict("Expected " + expectedVersion + " but was " + put.version());
     }
 
     @DELETE
