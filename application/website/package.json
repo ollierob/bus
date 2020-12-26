@@ -33,6 +33,7 @@
   },
   "scripts": {
     "protoc": "mkdir -p src/main/protobuf && protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts --js_out=import_style=commonjs,binary:src/main/protobuf --ts_out=src/main/protobuf --proto_path=target/protos target/protos/*.proto",
+    "protoc-win": "protoc --plugin=protoc-gen-ts=%CD%/node_modules/ts-protoc-gen/bin/protoc-gen-ts.cmd --js_out=import_style=commonjs,binary:src/main/protobuf --ts_out=src/main/protobuf --proto_path=target/protos target/protos/*.proto",
     "build-dev": "webpack --config webpack.dev.js",
     "test": "jest --passWithNoTests"
   }

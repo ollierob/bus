@@ -14,6 +14,25 @@
 
     <artifactId>website</artifactId>
 
+    <properties>
+        <protoc.command>protoc</protoc.command>
+    </properties>
+
+    <!--Windows activates a slightly different protoc build command-->
+    <profiles>
+        <profile>
+            <id>windows</id>
+            <activation>
+                <os>
+                    <family>Windows</family>
+                </os>
+            </activation>
+            <properties>
+                <protoc.command>protoc-win</protoc.command>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>net.ollie.sandwich</groupId>
@@ -61,7 +80,7 @@
                             <executable>npm</executable>
                             <arguments>
                                 <argument>run</argument>
-                                <argument>protoc</argument>
+                                <argument>${protoc.command}</argument>
                             </arguments>
                         </configuration>
                     </execution>
