@@ -1,3 +1,4 @@
+// source: jenkins.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -6,6 +7,8 @@
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 var jspb = require('google-protobuf');
 var goog = jspb;
@@ -190,9 +193,12 @@ proto.maven.JenkinsBuildSource.prototype.getId = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.JenkinsBuildSource} returns this
+ */
 proto.maven.JenkinsBuildSource.prototype.setId = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -206,17 +212,21 @@ proto.maven.JenkinsBuildSource.prototype.getJob = function() {
 };
 
 
-/** @param {?proto.maven.JenkinsJob|undefined} value */
+/**
+ * @param {?proto.maven.JenkinsJob|undefined} value
+ * @return {!proto.maven.JenkinsBuildSource} returns this
+*/
 proto.maven.JenkinsBuildSource.prototype.setJob = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.maven.JenkinsBuildSource} returns this
  */
 proto.maven.JenkinsBuildSource.prototype.clearJob = function() {
-  this.setJob(undefined);
+  return this.setJob(undefined);
 };
 
 
@@ -362,9 +372,12 @@ proto.maven.JenkinsJob.prototype.getId = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.JenkinsJob} returns this
+ */
 proto.maven.JenkinsJob.prototype.setId = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -377,9 +390,12 @@ proto.maven.JenkinsJob.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.JenkinsJob} returns this
+ */
 proto.maven.JenkinsJob.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

@@ -1,3 +1,4 @@
+// source: deploy.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -6,6 +7,8 @@
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 var jspb = require('google-protobuf');
 var goog = jspb;
@@ -19,6 +22,7 @@ var jenkins_pb = require('./jenkins_pb.js');
 goog.object.extend(proto, jenkins_pb);
 goog.exportSymbol('proto.maven.DeployProjectOrFolder', null, global);
 goog.exportSymbol('proto.maven.DeploySource', null, global);
+goog.exportSymbol('proto.maven.DeploySource.SourceCase', null, global);
 goog.exportSymbol('proto.maven.DeploySourceList', null, global);
 goog.exportSymbol('proto.maven.DeployTarget', null, global);
 goog.exportSymbol('proto.maven.MultiDeploySource', null, global);
@@ -321,17 +325,21 @@ proto.maven.DeploySource.prototype.getMaven = function() {
 };
 
 
-/** @param {?proto.maven.MavenDeploySource|undefined} value */
+/**
+ * @param {?proto.maven.MavenDeploySource|undefined} value
+ * @return {!proto.maven.DeploySource} returns this
+*/
 proto.maven.DeploySource.prototype.setMaven = function(value) {
-  jspb.Message.setOneofWrapperField(this, 1, proto.maven.DeploySource.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 1, proto.maven.DeploySource.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.maven.DeploySource} returns this
  */
 proto.maven.DeploySource.prototype.clearMaven = function() {
-  this.setMaven(undefined);
+  return this.setMaven(undefined);
 };
 
 
@@ -354,17 +362,21 @@ proto.maven.DeploySource.prototype.getGitlab = function() {
 };
 
 
-/** @param {?proto.maven.GitlabBuildSource|undefined} value */
+/**
+ * @param {?proto.maven.GitlabBuildSource|undefined} value
+ * @return {!proto.maven.DeploySource} returns this
+*/
 proto.maven.DeploySource.prototype.setGitlab = function(value) {
-  jspb.Message.setOneofWrapperField(this, 2, proto.maven.DeploySource.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 2, proto.maven.DeploySource.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.maven.DeploySource} returns this
  */
 proto.maven.DeploySource.prototype.clearGitlab = function() {
-  this.setGitlab(undefined);
+  return this.setGitlab(undefined);
 };
 
 
@@ -387,17 +399,21 @@ proto.maven.DeploySource.prototype.getJenkins = function() {
 };
 
 
-/** @param {?proto.maven.JenkinsBuildSource|undefined} value */
+/**
+ * @param {?proto.maven.JenkinsBuildSource|undefined} value
+ * @return {!proto.maven.DeploySource} returns this
+*/
 proto.maven.DeploySource.prototype.setJenkins = function(value) {
-  jspb.Message.setOneofWrapperField(this, 3, proto.maven.DeploySource.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 3, proto.maven.DeploySource.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.maven.DeploySource} returns this
  */
 proto.maven.DeploySource.prototype.clearJenkins = function() {
-  this.setJenkins(undefined);
+  return this.setJenkins(undefined);
 };
 
 
@@ -420,17 +436,21 @@ proto.maven.DeploySource.prototype.getMulti = function() {
 };
 
 
-/** @param {?proto.maven.MultiDeploySource|undefined} value */
+/**
+ * @param {?proto.maven.MultiDeploySource|undefined} value
+ * @return {!proto.maven.DeploySource} returns this
+*/
 proto.maven.DeploySource.prototype.setMulti = function(value) {
-  jspb.Message.setOneofWrapperField(this, 4, proto.maven.DeploySource.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 4, proto.maven.DeploySource.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.maven.DeploySource} returns this
  */
 proto.maven.DeploySource.prototype.clearMulti = function() {
-  this.setMulti(undefined);
+  return this.setMulti(undefined);
 };
 
 
@@ -575,9 +595,12 @@ proto.maven.DeploySourceList.prototype.getSourceList = function() {
 };
 
 
-/** @param {!Array<!proto.maven.DeploySource>} value */
+/**
+ * @param {!Array<!proto.maven.DeploySource>} value
+ * @return {!proto.maven.DeploySourceList} returns this
+*/
 proto.maven.DeploySourceList.prototype.setSourceList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -593,9 +616,10 @@ proto.maven.DeploySourceList.prototype.addSource = function(opt_value, opt_index
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.maven.DeploySourceList} returns this
  */
 proto.maven.DeploySourceList.prototype.clearSourceList = function() {
-  this.setSourceList([]);
+  return this.setSourceList([]);
 };
 
 
@@ -742,9 +766,12 @@ proto.maven.MultiDeploySource.prototype.getId = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.MultiDeploySource} returns this
+ */
 proto.maven.MultiDeploySource.prototype.setId = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -758,9 +785,12 @@ proto.maven.MultiDeploySource.prototype.getSourceList = function() {
 };
 
 
-/** @param {!Array<!proto.maven.DeploySource>} value */
+/**
+ * @param {!Array<!proto.maven.DeploySource>} value
+ * @return {!proto.maven.MultiDeploySource} returns this
+*/
 proto.maven.MultiDeploySource.prototype.setSourceList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -776,9 +806,10 @@ proto.maven.MultiDeploySource.prototype.addSource = function(opt_value, opt_inde
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.maven.MultiDeploySource} returns this
  */
 proto.maven.MultiDeploySource.prototype.clearSourceList = function() {
-  this.setSourceList([]);
+  return this.setSourceList([]);
 };
 
 
@@ -1044,9 +1075,12 @@ proto.maven.DeployProjectOrFolder.prototype.getId = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.DeployProjectOrFolder} returns this
+ */
 proto.maven.DeployProjectOrFolder.prototype.setId = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1059,9 +1093,12 @@ proto.maven.DeployProjectOrFolder.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.DeployProjectOrFolder} returns this
+ */
 proto.maven.DeployProjectOrFolder.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1075,17 +1112,21 @@ proto.maven.DeployProjectOrFolder.prototype.getSource = function() {
 };
 
 
-/** @param {?proto.maven.DeploySource|undefined} value */
+/**
+ * @param {?proto.maven.DeploySource|undefined} value
+ * @return {!proto.maven.DeployProjectOrFolder} returns this
+*/
 proto.maven.DeployProjectOrFolder.prototype.setSource = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.maven.DeployProjectOrFolder} returns this
  */
 proto.maven.DeployProjectOrFolder.prototype.clearSource = function() {
-  this.setSource(undefined);
+  return this.setSource(undefined);
 };
 
 
@@ -1108,17 +1149,21 @@ proto.maven.DeployProjectOrFolder.prototype.getTarget = function() {
 };
 
 
-/** @param {?proto.maven.DeployTarget|undefined} value */
+/**
+ * @param {?proto.maven.DeployTarget|undefined} value
+ * @return {!proto.maven.DeployProjectOrFolder} returns this
+*/
 proto.maven.DeployProjectOrFolder.prototype.setTarget = function(value) {
-  jspb.Message.setWrapperField(this, 4, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.maven.DeployProjectOrFolder} returns this
  */
 proto.maven.DeployProjectOrFolder.prototype.clearTarget = function() {
-  this.setTarget(undefined);
+  return this.setTarget(undefined);
 };
 
 

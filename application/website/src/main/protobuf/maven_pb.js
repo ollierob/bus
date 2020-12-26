@@ -1,3 +1,4 @@
+// source: maven.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -6,6 +7,8 @@
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 var jspb = require('google-protobuf');
 var goog = jspb;
@@ -15,6 +18,7 @@ goog.exportSymbol('proto.maven.MavenArtifact', null, global);
 goog.exportSymbol('proto.maven.MavenCentral', null, global);
 goog.exportSymbol('proto.maven.MavenDeploySource', null, global);
 goog.exportSymbol('proto.maven.MavenRepository', null, global);
+goog.exportSymbol('proto.maven.MavenRepository.DefinitionCase', null, global);
 goog.exportSymbol('proto.maven.MavenRepositoryList', null, global);
 goog.exportSymbol('proto.maven.Nexus3Repository', null, global);
 /**
@@ -292,9 +296,12 @@ proto.maven.MavenDeploySource.prototype.getId = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.MavenDeploySource} returns this
+ */
 proto.maven.MavenDeploySource.prototype.setId = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -308,17 +315,21 @@ proto.maven.MavenDeploySource.prototype.getArtifact = function() {
 };
 
 
-/** @param {?proto.maven.MavenArtifact|undefined} value */
+/**
+ * @param {?proto.maven.MavenArtifact|undefined} value
+ * @return {!proto.maven.MavenDeploySource} returns this
+*/
 proto.maven.MavenDeploySource.prototype.setArtifact = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.maven.MavenDeploySource} returns this
  */
 proto.maven.MavenDeploySource.prototype.clearArtifact = function() {
-  this.setArtifact(undefined);
+  return this.setArtifact(undefined);
 };
 
 
@@ -341,17 +352,21 @@ proto.maven.MavenDeploySource.prototype.getRepository = function() {
 };
 
 
-/** @param {?proto.maven.MavenRepository|undefined} value */
+/**
+ * @param {?proto.maven.MavenRepository|undefined} value
+ * @return {!proto.maven.MavenDeploySource} returns this
+*/
 proto.maven.MavenDeploySource.prototype.setRepository = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.maven.MavenDeploySource} returns this
  */
 proto.maven.MavenDeploySource.prototype.clearRepository = function() {
-  this.setRepository(undefined);
+  return this.setRepository(undefined);
 };
 
 
@@ -551,9 +566,12 @@ proto.maven.MavenRepository.prototype.getId = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.MavenRepository} returns this
+ */
 proto.maven.MavenRepository.prototype.setId = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -566,9 +584,12 @@ proto.maven.MavenRepository.prototype.getVersion = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.maven.MavenRepository} returns this
+ */
 proto.maven.MavenRepository.prototype.setVersion = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -582,17 +603,21 @@ proto.maven.MavenRepository.prototype.getNexus3 = function() {
 };
 
 
-/** @param {?proto.maven.Nexus3Repository|undefined} value */
+/**
+ * @param {?proto.maven.Nexus3Repository|undefined} value
+ * @return {!proto.maven.MavenRepository} returns this
+*/
 proto.maven.MavenRepository.prototype.setNexus3 = function(value) {
-  jspb.Message.setOneofWrapperField(this, 10, proto.maven.MavenRepository.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 10, proto.maven.MavenRepository.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.maven.MavenRepository} returns this
  */
 proto.maven.MavenRepository.prototype.clearNexus3 = function() {
-  this.setNexus3(undefined);
+  return this.setNexus3(undefined);
 };
 
 
@@ -615,17 +640,21 @@ proto.maven.MavenRepository.prototype.getCentral = function() {
 };
 
 
-/** @param {?proto.maven.MavenCentral|undefined} value */
+/**
+ * @param {?proto.maven.MavenCentral|undefined} value
+ * @return {!proto.maven.MavenRepository} returns this
+*/
 proto.maven.MavenRepository.prototype.setCentral = function(value) {
-  jspb.Message.setOneofWrapperField(this, 11, proto.maven.MavenRepository.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 11, proto.maven.MavenRepository.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.maven.MavenRepository} returns this
  */
 proto.maven.MavenRepository.prototype.clearCentral = function() {
-  this.setCentral(undefined);
+  return this.setCentral(undefined);
 };
 
 
@@ -770,9 +799,12 @@ proto.maven.MavenRepositoryList.prototype.getRepositoryList = function() {
 };
 
 
-/** @param {!Array<!proto.maven.MavenRepository>} value */
+/**
+ * @param {!Array<!proto.maven.MavenRepository>} value
+ * @return {!proto.maven.MavenRepositoryList} returns this
+*/
 proto.maven.MavenRepositoryList.prototype.setRepositoryList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -788,9 +820,10 @@ proto.maven.MavenRepositoryList.prototype.addRepository = function(opt_value, op
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.maven.MavenRepositoryList} returns this
  */
 proto.maven.MavenRepositoryList.prototype.clearRepositoryList = function() {
-  this.setRepositoryList([]);
+  return this.setRepositoryList([]);
 };
 
 
@@ -939,9 +972,12 @@ proto.maven.Nexus3Repository.prototype.getUrl = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.Nexus3Repository} returns this
+ */
 proto.maven.Nexus3Repository.prototype.setUrl = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -954,9 +990,12 @@ proto.maven.Nexus3Repository.prototype.getUsername = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.Nexus3Repository} returns this
+ */
 proto.maven.Nexus3Repository.prototype.setUsername = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -969,9 +1008,12 @@ proto.maven.Nexus3Repository.prototype.getPassword = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.Nexus3Repository} returns this
+ */
 proto.maven.Nexus3Repository.prototype.setPassword = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -1096,9 +1138,12 @@ proto.maven.MavenCentral.prototype.getUrl = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.MavenCentral} returns this
+ */
 proto.maven.MavenCentral.prototype.setUrl = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1271,9 +1316,12 @@ proto.maven.MavenArtifact.prototype.getGroupid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.MavenArtifact} returns this
+ */
 proto.maven.MavenArtifact.prototype.setGroupid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1286,9 +1334,12 @@ proto.maven.MavenArtifact.prototype.getArtifactid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.MavenArtifact} returns this
+ */
 proto.maven.MavenArtifact.prototype.setArtifactid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1301,9 +1352,12 @@ proto.maven.MavenArtifact.prototype.getVersion = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.MavenArtifact} returns this
+ */
 proto.maven.MavenArtifact.prototype.setVersion = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -1316,9 +1370,12 @@ proto.maven.MavenArtifact.prototype.getClassifier = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.MavenArtifact} returns this
+ */
 proto.maven.MavenArtifact.prototype.setClassifier = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -1331,9 +1388,12 @@ proto.maven.MavenArtifact.prototype.getType = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.maven.MavenArtifact} returns this
+ */
 proto.maven.MavenArtifact.prototype.setType = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
